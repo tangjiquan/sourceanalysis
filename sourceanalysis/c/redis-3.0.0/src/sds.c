@@ -48,7 +48,7 @@
  * You can print the string with printf() as there is an implicit \0 at the
  * end of the string. However the string is binary safe and can contain
  * \0 characters in the middle, as the length is stored in the sds header. */
-sds sdsnewlen(const void *init, size_t initlen) {
+sds sdsnewlen(const void *init, size_t initlen) {//
     struct sdshdr *sh;
 
     if (init) {
@@ -60,19 +60,19 @@ sds sdsnewlen(const void *init, size_t initlen) {
     sh->len = initlen;
     sh->free = 0;
     if (initlen && init)
-        memcpy(sh->buf, init, initlen);
-    sh->buf[initlen] = '\0';
+        memcpy(sh->buf, init, initlen);//将init指向的字符串拷贝到buf中，
+    sh->buf[initlen] = '\0';//在buf末尾补上'\0'
     return (char*)sh->buf;
 }
 
 /* Create an empty (zero length) sds string. Even in this case the string
  * always has an implicit null term. */
-sds sdsempty(void) {
+sds sdsempty(void) {//创建空字符串
     return sdsnewlen("",0);
 }
 
 /* Create a new sds string starting from a null termined C string. */
-sds sdsnew(const char *init) {
+sds sdsnew(const char *init) {//创建指定字符串
     size_t initlen = (init == NULL) ? 0 : strlen(init);
     return sdsnewlen(init, initlen);
 }
@@ -269,8 +269,8 @@ sds sdscatsds(sds s, const sds t) {
 /* Destructively modify the sds string 's' to hold the specified binary
  * safe string pointed by 't' of length 'len' bytes. */
 sds sdscpylen(sds s, const char *t, size_t len) {
-    struct sdshdr *sh = (void*) (s-(sizeof(struct sdshdr)));
-    size_t totlen = sh->free+sh->len;
+    struct sdshdr *sh = (void*) (s-(sizeof(struct sdshdr)));//获取s字符串对于的sdshdr结构体
+    size_t totlen = sh->free+sh->len;//总长度
 
     if (totlen < len) {
         s = sdsMakeRoomFor(s,len-sh->len);

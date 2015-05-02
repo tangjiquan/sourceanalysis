@@ -59,7 +59,7 @@ typedef void aeEventFinalizerProc(struct aeEventLoop *eventLoop, void *clientDat
 typedef void aeBeforeSleepProc(struct aeEventLoop *eventLoop);
 
 /* File event structure */
-typedef struct aeFileEvent {
+typedef struct aeFileEvent {//基于操作系统的异步机制(epoll/kqueue)实现的文件事件
     int mask; /* one of AE_(READABLE|WRITABLE) */
     aeFileProc *rfileProc;
     aeFileProc *wfileProc;
@@ -67,7 +67,7 @@ typedef struct aeFileEvent {
 } aeFileEvent;
 
 /* Time event structure */
-typedef struct aeTimeEvent {
+typedef struct aeTimeEvent {//redis自己实现的定时器
     long long id; /* time event identifier. */
     long when_sec; /* seconds */
     long when_ms; /* milliseconds */

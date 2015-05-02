@@ -87,7 +87,8 @@ void zlibc_free(void *ptr) {
 } while(0)
 
 #endif
-
+//记录申请的内存块的相关信息，以便监控内存的使用状况
+//首先将要分配的空间与内存对齐，然后根据zmalloc_thred_safe判断是否需要对内存信息记录表的相关操作加锁
 #define update_zmalloc_stat_alloc(__n) do { \
     size_t _n = (__n); \
     if (_n&(sizeof(long)-1)) _n += sizeof(long)-(_n&(sizeof(long)-1)); \
@@ -98,6 +99,7 @@ void zlibc_free(void *ptr) {
     } \
 } while(0)
 
+//标志释放内存
 #define update_zmalloc_stat_free(__n) do { \
     size_t _n = (__n); \
     if (_n&(sizeof(long)-1)) _n += sizeof(long)-(_n&(sizeof(long)-1)); \
@@ -129,7 +131,7 @@ void *zmalloc(size_t size) {
     update_zmalloc_stat_alloc(zmalloc_size(ptr));
     return ptr;
 #else
-    *((size_t*)ptr) = size;
+    *((size_t*)ptr) = size;//在头部记录内存块的长度
     update_zmalloc_stat_alloc(size+PREFIX_SIZE);
     return (char*)ptr+PREFIX_SIZE;
 #endif
@@ -236,7 +238,7 @@ size_t zmalloc_used_memory(void) {
 
     return um;
 }
-
+//外部程序通过该方法开始redis内存模块的线程安全模式
 void zmalloc_enable_thread_safeness(void) {
     zmalloc_thread_safe = 1;
 }

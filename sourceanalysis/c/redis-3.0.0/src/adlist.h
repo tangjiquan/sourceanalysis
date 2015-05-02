@@ -33,24 +33,26 @@
 
 /* Node, List, and Iterator are the only data structures used currently. */
 
+//链表中的结点
 typedef struct listNode {
     struct listNode *prev;
     struct listNode *next;
-    void *value;
+    void *value;//保持的值
 } listNode;
 
+//访问链表的迭代器
 typedef struct listIter {
-    listNode *next;
-    int direction;
+    listNode *next;//指向链表的某一个结点
+    int direction;//表示迭代访问的方向，AL_START_HEAD表示向前，AL_START_TAIL表示向后
 } listIter;
 
 typedef struct list {
-    listNode *head;
-    listNode *tail;
-    void *(*dup)(void *ptr);
-    void (*free)(void *ptr);
-    int (*match)(void *ptr, void *key);
-    unsigned long len;
+    listNode *head;//头指针
+    listNode *tail;//尾指针
+    void *(*dup)(void *ptr);//自定义复制函数
+    void (*free)(void *ptr);//释放函数
+    int (*match)(void *ptr, void *key);//匹配链表中结点的值
+    unsigned long len;//标志链表的长度
 } list;
 
 /* Functions implemented as macros */
@@ -70,13 +72,15 @@ typedef struct list {
 #define listGetMatchMethod(l) ((l)->match)
 
 /* Prototypes */
-list *listCreate(void);
-void listRelease(list *list);
+list *listCreate(void);//创建链表
+void listRelease(list *list);//释放链表
 list *listAddNodeHead(list *list, void *value);
 list *listAddNodeTail(list *list, void *value);
 list *listInsertNode(list *list, listNode *old_node, void *value, int after);
 void listDelNode(list *list, listNode *node);
-listIter *listGetIterator(list *list, int direction);
+
+/**迭代器的使用*/
+listIter *listGetIterator(list *list, int direction);//获取迭代器
 listNode *listNext(listIter *iter);
 void listReleaseIterator(listIter *iter);
 list *listDup(list *orig);

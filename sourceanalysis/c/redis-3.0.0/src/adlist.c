@@ -38,10 +38,11 @@
  * by the user before to call AlFreeList().
  *
  * On error, NULL is returned. Otherwise the pointer to the new list. */
-list *listCreate(void)
+list *listCreate(void)//创建链表
 {
     struct list *list;
 
+	//通过zmalloc分配堆空间
     if ((list = zmalloc(sizeof(*list))) == NULL)
         return NULL;
     list->head = list->tail = NULL;
@@ -55,7 +56,7 @@ list *listCreate(void)
 /* Free the whole list.
  *
  * This function can't fail. */
-void listRelease(list *list)
+void listRelease(list *list)//释放链表
 {
     unsigned long len;
     listNode *current, *next;
@@ -64,11 +65,11 @@ void listRelease(list *list)
     len = list->len;
     while(len--) {
         next = current->next;
-        if (list->free) list->free(current->value);
-        zfree(current);
+        if (list->free) list->free(current->value);//释放每一个结点的值
+        zfree(current);//手动释放
         current = next;
     }
-    zfree(list);
+    zfree(list);//使用redis自定义的函数释放内存
 }
 
 /* Add a new node to the list, to head, containing the specified 'value'

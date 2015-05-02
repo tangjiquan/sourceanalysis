@@ -65,10 +65,15 @@
 #define ZMALLOC_LIB "libc"
 #endif
 
-void *zmalloc(size_t size);
-void *zcalloc(size_t size);
-void *zrealloc(void *ptr, size_t size);
-void zfree(void *ptr);
+//malloc()分配一块指定大小的内存区域,并返回指向区域开头的指针，若分配失败，返回NULL
+void *zmalloc(size_t size);//对应C中的malloc()
+//分配一块指定大小的区域，成功时返回区域头指针，失败返回NULL，calloc()成功后会将空间内所有值置0
+void *zcalloc(size_t size);//对应C中的calloc()
+//修改已经分配的内存块的大小，若已分配的内存块后没有足够的空间用于扩展内存块，则重新申请一块满足需要的内存块
+//并将旧的数据拷贝到新位置，释放旧的内存块，返回新的内存块的指针，否则直接扩展原有的内存块，若分配失败，返回NULL
+void *zrealloc(void *ptr, size_t size);//对应C中的realloc
+//释放已经分配的内存块
+void zfree(void *ptr);//对应C中的free()
 char *zstrdup(const char *s);
 size_t zmalloc_used_memory(void);
 void zmalloc_enable_thread_safeness(void);
