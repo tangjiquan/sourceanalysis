@@ -38,6 +38,14 @@
 
 typedef char *sds;
 
+/**
+	set test "hello world"
+	struct sdshdr{
+		int len =11;
+		int free = 0;
+		char buf="hello world\0";
+	};
+*/
 //sdshdr分配的内存空间：sizeof(int)+sizeof(int)+sizeof(char*)+len+free
 struct sdshdr {
     unsigned int len;//字符串实际长度
@@ -45,13 +53,13 @@ struct sdshdr {
     char buf[];
 };
 
-//获取字符串总长度
+//获取字符串总长度，巧妙的用sds找到sdshdr
 static inline size_t sdslen(const sds s) {
     struct sdshdr *sh = (void*)(s-(sizeof(struct sdshdr)));//通过sdshdr中的buf获取它指向的sdshdr的地址
     return sh->len;
 }
 
-//返回字符串中的可用长度
+//返回字符串中的可用长度，巧妙的用sds找到sdshdr
 static inline size_t sdsavail(const sds s) {
     struct sdshdr *sh = (void*)(s-(sizeof(struct sdshdr)));
     return sh->free;

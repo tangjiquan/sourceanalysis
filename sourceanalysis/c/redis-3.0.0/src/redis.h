@@ -177,6 +177,7 @@ typedef long long mstime_t; /* millisecond time type. */
 #define REDIS_CMD_FAST 8192                 /* "F" flag */
 
 /* Object types */
+//定义type类型
 #define REDIS_STRING 0
 #define REDIS_LIST 1
 #define REDIS_SET 2
@@ -186,6 +187,7 @@ typedef long long mstime_t; /* millisecond time type. */
 /* Objects encoding. Some kind of objects like Strings and Hashes can be
  * internally represented in multiple ways. The 'encoding' field of the object
  * is set to one of this fields for this object. */
+//encoding类型
 #define REDIS_ENCODING_RAW 0     /* Raw representation */
 #define REDIS_ENCODING_INT 1     /* Encoded as integer */
 #define REDIS_ENCODING_HT 2      /* Encoded as hash table */
@@ -409,6 +411,10 @@ typedef long long mstime_t; /* millisecond time type. */
 #define REDIS_LRU_BITS 24
 #define REDIS_LRU_CLOCK_MAX ((1<<REDIS_LRU_BITS)-1) /* Max value of obj->lru */
 #define REDIS_LRU_CLOCK_RESOLUTION 1000 /* LRU clock resolution in ms */
+
+/**
+	数据库中的每一个键值，以及redis本身处理的参赛，都表示为这种数据类型
+*/
 typedef struct redisObject {
     unsigned type:4;
     unsigned encoding:4;

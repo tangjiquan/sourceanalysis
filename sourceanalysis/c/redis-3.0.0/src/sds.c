@@ -126,11 +126,13 @@ void sdsclear(sds s) {
  *
  * Note: this does not change the *length* of the sds string as returned
  * by sdslen(), but only the free buffer space we have. */
+//当使用append操作的时候，需要申请空间，返回一个新的内存空间的地址，返回新的sdshdr结构体中在字符串
 sds sdsMakeRoomFor(sds s, size_t addlen) {
     struct sdshdr *sh, *newsh;
     size_t free = sdsavail(s);
     size_t len, newlen;
 
+	//如果可用空间大于增加的空间，则直接返回sds
     if (free >= addlen) return s;
     len = sdslen(s);
     sh = (void*) (s-(sizeof(struct sdshdr)));
@@ -139,7 +141,7 @@ sds sdsMakeRoomFor(sds s, size_t addlen) {
         newlen *= 2;
     else
         newlen += SDS_MAX_PREALLOC;
-    newsh = zrealloc(sh, sizeof(struct sdshdr)+newlen+1);
+    newsh = zrealloc(sh, sizeof(struct sdshdr)+newlen+1);//开辟一块新的内存
     if (newsh == NULL) return NULL;
 
     newsh->free = newlen - len;
