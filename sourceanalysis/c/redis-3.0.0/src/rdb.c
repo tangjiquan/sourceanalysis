@@ -716,7 +716,10 @@ werr: /* Write error. */
 }
 
 /* Save the DB on disk. Return REDIS_ERR on error, REDIS_OK on success. */
-int rdbSave(char *filename) {
+/**
+rdbSave负责将内存中的数据库数据以RDB格式保存到磁盘中，如果RDB文件已经存在将会替换已有的RDB文件。保存RDB文件期间会阻塞主进程，这段时间期间将不能处理新的客户端请求，直到保存完成为止。
+为避免主进程阻塞，Redis提供了rdbSaveBackground函数。在新建的子进程中调用rdbSave，保存完成后会向主进程发送信号，同时主进程可以继续处理新的客户端请求。*/
+int rdbSave(char *filename) {//保存
     char tmpfile[256];
     FILE *fp;
     rio rdb;
@@ -1126,6 +1129,13 @@ void rdbLoadProgressCallback(rio *r, const void *buf, size_t len) {
     }
 }
 
+
+/**
+当Redis启动时，会根据配置的持久化模式，决定是否读取RDB文件,并将其中的对象保存到内存中。
+载入RDB过程中，每载入1000个键就处理一次已经等待处理的客户端请求，但是目前仅处理订阅功能的
+命令(PUBLISH 、 SUBSCRIBE 、 PSUBSCRIBE 、 UNSUBSCRIBE 、 PUNSUBSCRIBE)，其他一律
+返回错误信息。因为发布订阅功能是不写入数据库的，也就是不保存在Redis数据库的。
+*/
 int rdbLoad(char *filename) {
     uint32_t dbid;
     int type, rdbver;
