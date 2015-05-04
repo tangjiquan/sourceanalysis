@@ -84,17 +84,23 @@ typedef struct aeFiredEvent {
 } aeFiredEvent;
 
 /* State of an event based program */
+//事件轮询的结构体
 typedef struct aeEventLoop {
+	//maxfd是最大的文件描述符，主要用来判断是否有文件事件需要处理（ae.c：293）和当使用select 来处理网络IO时作为select的参数（ae_select.c：50）。
     int maxfd;   /* highest file descriptor currently registered */
     int setsize; /* max number of file descriptors tracked */
+	//下一个定时事件的ID。
     long long timeEventNextId;
     time_t lastTime;     /* Used to detect system clock skew */
+	//用于保存通过aeCreateFileEvent函数创建的文件事件，在sendReplyToClient函数和freeClient函数中通过调用aeDeleteFileEvent函数删除已经处理完的事件。
     aeFileEvent *events; /* Registered events */
+	//用于保存已经触发的文件事件，在对应的网络I/O函数中进行赋值（epoll,select,kqueue），不会对fired进行删除操作，只会一直覆盖原来的值。然后在aeProcessEvents函数中对已经触发的事件进行处理。
     aeFiredEvent *fired; /* Fired events */
-    aeTimeEvent *timeEventHead;
-    int stop;
+    aeTimeEvent *timeEventHead;//是定时事件链表的头，定时事件的存储用链表实现。
+    int stop;// 用于停止事件轮询处理。
+	///用于保存轮询api需要的数据，即aeApiState结构体
     void *apidata; /* This is used for polling API specific data */
-    aeBeforeSleepProc *beforesleep;
+    aeBeforeSleepProc *beforesleep;//是每次进入处理事件时执行的函数。
 } aeEventLoop;
 
 /* Prototypes */

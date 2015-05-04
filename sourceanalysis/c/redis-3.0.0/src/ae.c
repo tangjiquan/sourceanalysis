@@ -60,6 +60,7 @@
     #endif
 #endif
 
+//创建事件轮询
 aeEventLoop *aeCreateEventLoop(int setsize) {
     aeEventLoop *eventLoop;
     int i;
@@ -200,6 +201,7 @@ static void aeAddMillisecondsToNow(long long milliseconds, long *sec, long *ms) 
     *ms = when_ms;
 }
 
+//创建定时器，绑定定时函数和有新连接时的回调函数
 long long aeCreateTimeEvent(aeEventLoop *eventLoop, long long milliseconds,
         aeTimeProc *proc, void *clientData,
         aeEventFinalizerProc *finalizerProc)
@@ -447,6 +449,10 @@ int aeWait(int fd, int mask, long long milliseconds) {
     }
 }
 
+/**redis是单线程模式，所有请求和处理都是在同一个线程里面处理，也就是一个无限循环
+ 主要做：aeSetBeforeSleepProc函数设置的回调函数，还有就是开始接受客户端的请求和处理
+	
+*/
 void aeMain(aeEventLoop *eventLoop) {
     eventLoop->stop = 0;
     while (!eventLoop->stop) {

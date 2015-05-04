@@ -1394,6 +1394,7 @@ void createSharedObjects(void) {
     shared.maxstring = createStringObject("maxstring",9);
 }
 
+//初始化全局变量server的属性为默认值
 void initServerConfig(void) {
     int j;
 
@@ -1681,6 +1682,7 @@ int listenToPort(int port, int *fds, int *count) {
                 anetNonBlock(NULL,fds[*count]);
                 (*count)++;
             }
+			//创建一个socket并进行监听，然后把返回的socket fd赋值给server.ipfd
             fds[*count] = anetTcpServer(server.neterr,port,NULL,
                 server.tcp_backlog);
             if (fds[*count] != ANET_ERR) {
@@ -1742,12 +1744,21 @@ void resetServerStats(void) {
     server.stat_net_output_bytes = 0;
 }
 
+/**
+	初始化服务器：
+	1.设置信号处理函数
+	2、初始化事件轮询
+	3、起监听端口
+	4、绑定有新连接时的回调函数
+	5、绑定服务器的定时函数
+	6、初始化虚拟内存和log
+*/
 void initServer(void) {
     int j;
 
     signal(SIGHUP, SIG_IGN);
     signal(SIGPIPE, SIG_IGN);
-    setupSignalHandlers();
+    setupSignalHandlers();//设置信号处理
 
     if (server.syslog_enabled) {
         openlog(server.syslog_ident, LOG_PID | LOG_NDELAY | LOG_NOWAIT,
@@ -1773,6 +1784,7 @@ void initServer(void) {
     server.db = zmalloc(sizeof(redisDb)*server.dbnum);
 
     /* Open the TCP listening socket for the user commands. */
+	//创建服务器监听端口
     if (server.port != 0 &&
         listenToPort(server.port,server.ipfd,&server.ipfd_count) == REDIS_ERR)
         exit(1);
@@ -1834,6 +1846,7 @@ void initServer(void) {
 
     /* Create the serverCron() time event, that's our main way to process
      * background operations. */
+	//　绑定定时函数和有新连接时的回调函数，创建定时事件	并绑定回调函数serverCron
     if(aeCreateTimeEvent(server.el, 1, serverCron, NULL, NULL) == AE_ERR) {
         redisPanic("Can't create the serverCron time event.");
         exit(1);
@@ -1883,6 +1896,7 @@ void initServer(void) {
 
 /* Populates the Redis Command Table starting from the hard coded list
  * we have on top of redis.c file. */
+//将每一个命令集分布到一个hash table中，每一个命令对应一个处理函数
 void populateCommandTable(void) {
     int j;
     int numcommands = sizeof(redisCommandTable)/sizeof(struct redisCommand);
@@ -3534,7 +3548,7 @@ void loadDataFromDisk(void) {
     if (server.aof_state == REDIS_AOF_ON) {
         if (loadAppendOnlyFile(server.aof_filename) == REDIS_OK)
             redisLog(REDIS_NOTICE,"DB loaded from append only file: %.3f seconds",(float)(ustime()-start)/1000000);
-    } else {
+    } else {//加载rdb文件中的数据
         if (rdbLoad(server.rdb_filename) == REDIS_OK) {
             redisLog(REDIS_NOTICE,"DB loaded from disk: %.3f seconds",
                 (float)(ustime()-start)/1000000);
@@ -3581,7 +3595,7 @@ int main(int argc, char **argv) {
     gettimeofday(&tv,NULL);
     dictSetHashFunctionSeed(tv.tv_sec^tv.tv_usec^getpid());
     server.sentinel_mode = checkForSentinelMode(argc,argv);
-    initServerConfig();
+    initServerConfig();//初始化配置文件
 
     /* We need to init sentinel right now as parsing the configuration file
      * in sentinel mode will have the effect of populating the sentinel
@@ -3647,7 +3661,7 @@ int main(int argc, char **argv) {
         redisLog(REDIS_WARNING, "Warning: no config file specified, using the default config. In order to specify a config file use %s /path/to/%s.conf", argv[0], server.sentinel_mode ? "sentinel" : "redis");
     }
     if (server.daemonize) daemonize();
-    initServer();
+    initServer();//初始化服务器设置信号处理函数，初始化事件轮询，起监听端口，绑定有新连接时的回调函数，绑定服务器的定时函数，初始化虚拟内存和log
     if (server.daemonize) createPidFile();
     redisSetProcTitle(argv[0]);
     redisAsciiArt();
@@ -3682,8 +3696,7 @@ int main(int argc, char **argv) {
     }
 
     aeSetBeforeSleepProc(server.el,beforeSleep);
-    aeMain(server.el);
-    aeDeleteEventLoop(server.el);
+    aeMain(server.el);//初始化完成，服务端开启工作
     return 0;
 }
 

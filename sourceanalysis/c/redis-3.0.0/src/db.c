@@ -632,6 +632,7 @@ void typeCommand(redisClient *c) {
     addReplyStatus(c,type);
 }
 
+//服务器的退出，退出前将做一些清理工作
 void shutdownCommand(redisClient *c) {
     int flags = 0;
 

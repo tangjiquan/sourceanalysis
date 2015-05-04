@@ -572,6 +572,7 @@ loaderr:
  * Both filename and options can be NULL, in such a case are considered
  * empty. This way loadServerConfig can be used to just load a file or
  * just load a string. */
+//解析配置文件中的参数
 void loadServerConfig(char *filename, char *options) {
     sds config = sdsempty();
     char buf[REDIS_CONFIGLINE_MAX+1];

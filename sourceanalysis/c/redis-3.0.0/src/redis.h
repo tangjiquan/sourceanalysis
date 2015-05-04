@@ -651,6 +651,9 @@ struct clusterState;
 #undef hz
 #endif
 
+//通过redisServer类型的全局变量server来保存服务器的相关信息（配置信息，统计信息，服务器状态）
+//启动的时候读取配置文件里的信息对server进行初始化（如果没有指定配置文件，将使用默认的值对server进行初始化）
+//初始化内容有：起监听端口，绑定有新连接时的回调函数，绑定服务器的定时函数，虚拟内存初始化，log初始化化
 struct redisServer {
     /* General */
     pid_t pid;                  /* Main process pid. */

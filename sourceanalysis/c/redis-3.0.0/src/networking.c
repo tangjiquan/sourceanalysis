@@ -339,7 +339,7 @@ void addReply(redisClient *c, robj *obj) {
             int len;
 
             len = ll2string(buf,sizeof(buf),(long)obj->ptr);
-            if (_addReplyToBuffer(c,buf,len) == REDIS_OK)
+            if (_addReplyToBuffer(c,buf,len) == REDIS_OK)//
                 return;
             /* else... continue with the normal code path, but should never
              * happen actually since we verified there is room. */
@@ -812,7 +812,7 @@ void freeClientsInAsyncFreeQueue(void) {
         listDelNode(server.clients_to_close,ln);
     }
 }
-
+//返回客户端数据
 void sendReplyToClient(aeEventLoop *el, int fd, void *privdata, int mask) {
     redisClient *c = privdata;
     int nwritten = 0, totwritten = 0, objlen;
@@ -823,6 +823,7 @@ void sendReplyToClient(aeEventLoop *el, int fd, void *privdata, int mask) {
 
     while(c->bufpos > 0 || listLength(c->reply)) {
         if (c->bufpos > 0) {
+			//调用系统的write给客户端发送数据，如果缓冲区有数据就将缓冲区的数据发给客户端，如果有排队数据就继续发送
             nwritten = write(fd,c->buf+c->sentlen,c->bufpos-c->sentlen);
             if (nwritten <= 0) break;
             c->sentlen += nwritten;
@@ -845,6 +846,7 @@ void sendReplyToClient(aeEventLoop *el, int fd, void *privdata, int mask) {
                 continue;
             }
 
+			//调用系统的write给客户端发送数据，如果缓冲区有数据就将缓冲区的数据发给客户端，如果有排队数据就继续发送
             nwritten = write(fd, ((char*)o->ptr)+c->sentlen,objlen-c->sentlen);
             if (nwritten <= 0) break;
             c->sentlen += nwritten;
