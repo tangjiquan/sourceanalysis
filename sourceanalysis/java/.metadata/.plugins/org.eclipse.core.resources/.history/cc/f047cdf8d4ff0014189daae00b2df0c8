@@ -1,0 +1,51 @@
+package com.dbutils.test;
+
+import java.sql.DriverManager;
+import java.sql.SQLException;
+import java.util.Map;
+
+import org.apache.commons.dbutils.QueryRunner;
+
+import com.mysql.jdbc.Connection;
+
+public class MyTetst {
+	
+	
+	
+	public void TestDbutils(Connection conn){
+		QueryRunner queryRunner = new QueryRunner();
+		//1. 返回单行记录
+		System.out.println("返回单行记录，使用Map");
+		String sql = "select * from t_user rownum = 1";
+		Map<String, Object> map = queryRunner.query(conn, sql, new MapHandler(), null);
+		
+	}
+	
+	
+	
+	
+	
+	public static void main(String[] args) {
+		String driverName = "com.mysql.jdbc.Driver";
+		String url = "jdbc:mysql//localhost:3306/itat_dbunit";
+		String username = "root";
+		String password = "";
+		
+		try {
+			Class.forName(driverName);
+		} catch (ClassNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		try {
+			Connection conn = (Connection) DriverManager.getConnection(url, username, password);
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		
+		
+	}
+}

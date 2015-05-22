@@ -1,0 +1,5 @@
+package com.dbutils.test;
+
+public class User {
+
+}

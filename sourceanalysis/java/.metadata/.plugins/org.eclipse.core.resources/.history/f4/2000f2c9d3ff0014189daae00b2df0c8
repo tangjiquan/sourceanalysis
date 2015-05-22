@@ -1,0 +1,17 @@
+package com.dbutils.test;
+
+public class MyTetst {
+
+	private String driverName = "com.mysql.jdbc.Driver";
+	private String url = "jdbc:mysql//localhost:3306";
+	private String username = "root";
+	private String password = "";
+	
+	
+	
+	
+	
+	public static void main(String[] args) {
+		
+	}
+}

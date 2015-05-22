@@ -1,0 +1,115 @@
+package com.dbutils.test;
+
+import java.sql.DriverManager;
+import java.sql.SQLException;
+import java.util.Iterator;
+import java.util.List;
+import java.util.Map;
+
+import org.apache.commons.dbutils.QueryRunner;
+import org.apache.commons.dbutils.ResultSetHandler;
+import org.apache.commons.dbutils.handlers.ArrayListHandler;
+import org.apache.commons.dbutils.handlers.MapHandler;
+
+import com.mysql.jdbc.Connection;
+
+public class MyTetst {
+	
+	
+	
+	public static void TestDbutils(Connection conn) throws SQLException{
+		QueryRunner queryRunner = new QueryRunner();
+		String sql = null;
+		
+		
+		//1. 返回POJO对象列表
+	/*	ResultSetHandler<List<User>> handler = new BeanListHandler<User>(User.class);
+		List<User> result = null;
+		sql = "select * from t_user";
+		result = queryRunner.query(conn, sql, handler);
+		for(User u : result){
+			System.out.println(u);
+		}*/
+		
+		//2. 返回POJO对象
+		/*ResultSetHandler<User> handler = new BeanHandler<User>(User.class);
+		sql = "select * from t_user where id = 1";
+		User result = null;
+		result = queryRunner.query(conn, sql, handler);
+		System.out.println(result);*/
+		
+		//3. 返回Map列表
+		/*ResultSetHandler<List<Map<String, Object>>> handler = new MapListHandler();
+		sql = "select * from t_user ";
+		List<Map<String, Object>> result = null;
+		result = queryRunner.query(conn, sql, handler);
+		for(Map<String, Object> map : result){
+			System.out.println(map);
+		}*/
+		
+		//4. 返回单个Map
+		/*ResultSetHandler<Map<String, Object>> handler = new MapHandler();
+		sql = "select * from t_user where id = 1";
+		Map<String, Object> result = null;
+		result = queryRunner.query(conn, sql, handler);
+		System.out.println(result);*/
+		
+		//5. 使用Array处理多个数据
+		ResultSetHandler<List<Object[]>> handler = new ArrayListHandler();
+		sql = "select * from t_user";
+		List<Object[]> result = null;
+		result = queryRunner.query(conn,sql, handler);
+		for(Iterator<Object[]> iter = result.iterator(); iter.hasNext();){
+			Object[] obj = iter.next();
+			int objSize = obj.length;
+			for(int i=0; i<objSize; i++){
+				System.out.println(obj[i]);
+			}
+		}
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+	}
+	
+	
+	
+	
+	
+	public static void main(String[] args) {
+		String driverName = "com.mysql.jdbc.Driver";
+		String url = "jdbc:mysql://127.0.0.1:3306/itat_dbunit";
+		String username = "root";
+		String password = "";
+		Connection conn = null;
+		try {
+			Class.forName(driverName);
+		} catch (ClassNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		try {
+			conn = (Connection) DriverManager.getConnection(url, username, password);
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		
+		try {
+			TestDbutils(conn);
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+	}
+}
