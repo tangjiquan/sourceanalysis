@@ -6,6 +6,15 @@
 <fullyQualifiedTypeName name="org.apache.commons.dbutils.QueryRunner"/>
 <fullyQualifiedTypeName name="java.util.Map"/>
 <fullyQualifiedTypeName name="org.apache.commons.dbutils.handlers.MapHandler"/>
-<fullyQualifiedTypeName name="java.util.Iterator"/>
 <fullyQualifiedTypeName name="java.util.Map.Entry"/>
+<fullyQualifiedTypeName name="org.apache.commons.dbutils.ResultSetHandler"/>
+<fullyQualifiedTypeName name="org.apache.commons.dbutils.handlers.BeanListHandler"/>
+<fullyQualifiedTypeName name="java.util.List"/>
+<fullyQualifiedTypeName name="org.apache.commons.dbutils.handlers.BeanHandler"/>
+<fullyQualifiedTypeName name="org.apache.commons.dbutils.handlers.MapListHandler"/>
+<fullyQualifiedTypeName name="java.util.ArrayList"/>
+<fullyQualifiedTypeName name="java.util.Iterator"/>
+<fullyQualifiedTypeName name="org.apache.commons.dbutils.handlers.ArrayHandler"/>
+<fullyQualifiedTypeName name="org.apache.commons.dbutils.handlers.ColumnListHandler"/>
+<fullyQualifiedTypeName name="org.apache.commons.dbutils.handlers.ScalarHandler"/>
 </qualifiedTypeNameHistroy>
