@@ -206,6 +206,7 @@ main(int argc, char *const *argv)
     ngx_cycle_t      *cycle, init_cycle;
     ngx_core_conf_t  *ccf;
 
+	//跟操作系统相关的，Linux中什么也没有做
     ngx_debug_init();
 
     //系统错误初始化，将构建ngx_sys_errlist
