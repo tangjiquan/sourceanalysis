@@ -32,10 +32,12 @@
 #define __INTSET_H
 #include <stdint.h>
 
+//整数集合的实现
 typedef struct intset {
-    uint32_t encoding;
-    uint32_t length;
-    int8_t contents[];
+    uint32_t encoding;//编码方式
+    uint32_t length;//集合包含的元素数量，contents数组的长度
+    int8_t contents[];//保存元素的数组,虽然contents属性声明为int8_t类型的数组，但是实际上并不保存int8_t类型的值，contents数组的真正类型取值
+	//encoding属性的值
 } intset;
 
 intset *intsetNew(void);

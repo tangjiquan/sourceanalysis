@@ -416,11 +416,11 @@ typedef long long mstime_t; /* millisecond time type. */
 	数据库中的每一个键值，以及redis本身处理的参赛，都表示为这种数据类型
 */
 typedef struct redisObject {
-    unsigned type:4;
-    unsigned encoding:4;
+    unsigned type:4;//属性
+    unsigned encoding:4;//编码
     unsigned lru:REDIS_LRU_BITS; /* lru time (relative to server.lruclock) */
     int refcount;
-    void *ptr;
+    void *ptr;//指向底层实现的数据结构的指针6
 } robj;
 
 /* Macro used to obtain the current LRU clock.
@@ -586,20 +586,22 @@ struct sharedObjectsStruct {
 };
 
 /* ZSETs use a specialized version of Skiplists */
+//跳跃表，zskiplistNode结构体用于表示跳跃表节点
 typedef struct zskiplistNode {
-    robj *obj;
-    double score;
-    struct zskiplistNode *backward;
-    struct zskiplistLevel {
-        struct zskiplistNode *forward;
-        unsigned int span;
+    robj *obj;//成员对象
+    double score;//分值
+    struct zskiplistNode *backward;//后退指针
+    struct zskiplistLevel {//层
+        struct zskiplistNode *forward;//前进指针
+        unsigned int span;//跨度
     } level[];
 } zskiplistNode;
 
+//保存跳跃表节点的相关信息
 typedef struct zskiplist {
-    struct zskiplistNode *header, *tail;
-    unsigned long length;
-    int level;
+    struct zskiplistNode *header, *tail;//指向跳跃表的头节点，tail指向跳跃表的尾节点
+    unsigned long length;//记录跳跃表的长度，跳跃表目前包含节点的数量（表头节点不计算在内）
+    int level;//记录目前跳跃表内，层数最大的那个节点的层数（表头节点的层数不计算在内）
 } zskiplist;
 
 typedef struct zset {
