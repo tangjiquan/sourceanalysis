@@ -295,12 +295,15 @@ public class Catalina {
 
     /**
      * Create and configure the Digester we will be using for startup.
+     * 
+     * Tomcat是利用Digester解析server.xml。Digester是Apache下的开源项目
+     * 解析server.xml
      */
     protected Digester createStartDigester() {
         long t1=System.currentTimeMillis();
         // Initialize the digester
         Digester digester = new Digester();
-        digester.setValidating(false);
+        digester.setValidating(false); //是否需要用DTD验证XML文档的合法性  
         digester.setRulesValidation(true);
         HashMap<Class<?>, List<String>> fakeAttributes =
             new HashMap<Class<?>, List<String>>();
@@ -550,6 +553,7 @@ public class Catalina {
         // Create and execute our Digester
         Digester digester = createStartDigester();
 
+        //读取配置文件conf/server.xml
         InputSource inputSource = null;
         InputStream inputStream = null;
         File file = null;
@@ -612,7 +616,7 @@ public class Catalina {
         try {
             inputSource.setByteStream(inputStream);
             digester.push(this);
-            digester.parse(inputSource);
+            digester.parse(inputSource);//解析conf/server.xml中的信息
         } catch (SAXParseException spe) {
             log.warn("Catalina.start using " + getConfigFile() + ": " +
                     spe.getMessage());
@@ -682,7 +686,7 @@ public class Catalina {
             return;
         }
 
-        long t1 = System.nanoTime();
+        long t1 = System.nanoTime();//以毫微秒为单位，可用系统计时器
 
         // Start the new server
         try {
@@ -719,6 +723,7 @@ public class Catalina {
             }
         }
 
+        //这里就是死循环，等待HTTP请求
         if (await) {
             await();
             stop();
@@ -793,6 +798,9 @@ public class Catalina {
     }
 
 
+    /**
+     * 将Bootstrap中定义的catalina.home的值赋给CATALINA_BASE_PROP属性。以及对java.io.tmpdir属性的验证
+     */
     protected void initDirs() {
 
         String catalinaHome = System.getProperty(Globals.CATALINA_HOME_PROP);

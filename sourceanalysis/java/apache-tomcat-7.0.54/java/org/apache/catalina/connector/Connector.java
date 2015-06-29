@@ -43,6 +43,10 @@ import org.apache.tomcat.util.res.StringManager;
  *
  * @author Craig R. McClanahan
  * @author Remy Maucherat
+ * 
+ * 主要任务是负责接收浏览器的发过来的 tcp 连接请求，创建一个 Request 和 Response 对象分
+ * 别用于和请求端交换数据，然后会产生一个线程来处理这个请求并把产生的 Request 和 Response 对象
+ * 传给处理这个请求的线程，处理这个请求的线程就是 Container 组件要做的事了。
  */
 public class Connector extends LifecycleMBeanBase  {
 

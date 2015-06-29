@@ -1,4 +1,0 @@
-1、包结构
-	1）org.apache.commons.dbutils JDBC辅助方法集合，提供一系列的JDBC API的静态方法提供给用户
-		比如：数据库驱动的加载，Connection,Statement等资源的释放
-	2）org.apahce.commons.dbutils.handlers 这样包含了result对象里数据转换为其他Object类，如map，bean，list

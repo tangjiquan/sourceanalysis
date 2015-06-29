@@ -104,6 +104,7 @@ public interface Lifecycle {
 
     // ----------------------------------------------------- Manifest Constants
 
+	//Lifecycle定义的常量使得监控组件的状态更新和在组件不同生命周期阶段操作成为可能。 
 
     /**
      * The LifecycleEvent type for the "component after init" event.

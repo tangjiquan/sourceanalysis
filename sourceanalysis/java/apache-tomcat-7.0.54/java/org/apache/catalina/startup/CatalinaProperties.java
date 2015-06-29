@@ -32,6 +32,8 @@ import org.apache.catalina.Globals;
  * Utility class to read the bootstrap Catalina configuration.
  *
  * @author Remy Maucherat
+ * 
+ * 读取配置文件中的系统属性，将系统属性保存到System.setProperty()中
  */
 
 public class CatalinaProperties {

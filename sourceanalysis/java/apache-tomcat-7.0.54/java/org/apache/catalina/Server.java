@@ -43,6 +43,9 @@ import org.apache.catalina.startup.Catalina;
  * class in its constructor(s).
  *
  * @author Craig R. McClanahan
+ * 
+ * Server 要完成的任务很简单，就是要能够提供一个接口让其它程序能够访问到这个 Service 集合、同时
+ * 要维护它所包含的所有 Service 的生命周期，包括如何初始化、如何结束服务、如何找到别人要访问的 Service。
  */
 public interface Server extends Lifecycle {
 

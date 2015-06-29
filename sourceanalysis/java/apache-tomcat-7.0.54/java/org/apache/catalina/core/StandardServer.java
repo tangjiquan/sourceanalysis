@@ -351,6 +351,7 @@ public final class StandardServer extends LifecycleMBeanBase implements Server {
 
         service.setServer(this);
 
+        //server管理service和service管理Connector一样，放在一个数组中
         synchronized (services) {
             Service results[] = new Service[services.length + 1];
             System.arraycopy(services, 0, results, 0, services.length);

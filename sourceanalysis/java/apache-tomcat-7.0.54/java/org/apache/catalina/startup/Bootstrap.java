@@ -85,6 +85,9 @@ public final class Bootstrap {
     // -------------------------------------------------------- Private Methods
 
 
+    /**
+     * 
+     */
     private void initClassLoaders() {
         try {
             commonLoader = createClassLoader("common", null);
@@ -113,6 +116,7 @@ public final class Bootstrap {
 
         List<Repository> repositories = new ArrayList<Repository>();
 
+        //ClassLoader将载入的路径是用的","分割的
         StringTokenizer tokenizer = new StringTokenizer(value, ",");
         while (tokenizer.hasMoreElements()) {
             String repository = tokenizer.nextToken().trim();
@@ -214,6 +218,7 @@ public final class Bootstrap {
 
     /**
      * Initialize daemon.
+     * 主要对环境的设定和ClassLoader的初始化
      */
     public void init()
         throws Exception
@@ -223,8 +228,10 @@ public final class Bootstrap {
         setCatalinaHome();
         setCatalinaBase();
 
+        //初始化ClassLoader
         initClassLoaders();
 
+        //设置上下文的ClassLoader
         Thread.currentThread().setContextClassLoader(catalinaLoader);
 
         SecurityClassLoad.securityClassLoad(catalinaLoader);
@@ -416,6 +423,10 @@ public final class Bootstrap {
      *
      * @param args Command line arguments to be processed
      */
+    /**
+     * Tomcat做两件事情：1、定义和初始化Tomcat自己的类加载器
+     * 				   2、通过反射调用org.apache.catalina.startup.Catalina的process方法
+     */
     public static void main(String args[]) {
 
         if (daemon == null) {
@@ -439,7 +450,7 @@ public final class Bootstrap {
         try {
             String command = "start";
             if (args.length > 0) {
-                command = args[args.length - 1];
+                command = args[args.length - 1];//最后一个参数赋值给command
             }
 
             if (command.equals("startd")) {
@@ -450,9 +461,9 @@ public final class Bootstrap {
                 args[args.length - 1] = "stop";
                 daemon.stop();
             } else if (command.equals("start")) {
-                daemon.setAwait(true);
-                daemon.load(args);
-                daemon.start();
+                daemon.setAwait(true);//使用await
+                daemon.load(args);//载入守护线程
+                daemon.start();//开启容器
             } else if (command.equals("stop")) {
                 daemon.stopServer(args);
             } else if (command.equals("configtest")) {

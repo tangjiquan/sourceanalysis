@@ -125,6 +125,11 @@ public class StandardService extends LifecycleMBeanBase implements Service {
      * <code>Connectors</code> associated with this Service.
      *
      * @param container The new Container
+     * 先判断当前的这个 Service 有没有已经关联了 Container，如果已经关联了，
+     * 那么去掉这个关联关系—— oldContainer.setService(null)。如果这个 oldContainer 已经被启动了，
+     * 结束它的生命周期。然后再替换新的关联、再初始化并开始这个新的 Container 的生命周期。最后将这
+     * 个过程通知感兴趣的事件监听程序。这里值得注意的地方就是，修改 Container 时要将新的 Container 关联到
+     * 每个 Connector，还好 Container 和 Connector 没有双向关联，不然这个关联关系将会很难维护。
      */
     @Override
     public void setContainer(Container container) {
@@ -225,6 +230,12 @@ public class StandardService extends LifecycleMBeanBase implements Service {
      * with this Service's Container.
      *
      * @param connector The Connector to be added
+     * 
+     * 首先是设置关联关系，然后是初始化工作，开始新的生命周期。这里值得一提的是，
+     * 注意 Connector 用的是数组而不是 List 集合，这个从性能角度考虑可以理解，有
+     * 趣的是这里用了数组但是并没有向我们平常那样，一开始就分配一个固定大小的数组，它这里的
+     * 实现机制是：重新创建一个当前大小的数组对象，然后将原来的数组对象 copy 到新的数组中，这
+     * 种方式实现了类似的动态数组的功能，这种实现方式，值得我们以后拿来借鉴。
      */
     @Override
     public void addConnector(Connector connector) {
