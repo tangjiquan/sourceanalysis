@@ -63,6 +63,8 @@ import java.util.logging.LogManager;
  * @author Craig R. McClanahan
  * @author Costin Manolache
  * @author Richard A. Sitze
+ * 
+ * 这里仿照了commons-logging的写法
  */
 public /* abstract */ class LogFactory {
 

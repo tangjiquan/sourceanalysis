@@ -1,0 +1,17 @@
+package ex02;
+
+import java.io.IOException;
+import java.net.URLClassLoader;
+
+public class ServletProcess1 {
+	public void process(Request request, Response response){
+		String uri = request.getUri();
+		String servletName = uri.substring(uri.lastIndexOf("/")+1);
+		URLClassLoader loader = null;
+		try{
+			
+		}catch(IOException e){
+			
+		}
+	}
+}

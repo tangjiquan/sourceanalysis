@@ -1,0 +1,40 @@
+package ex01;
+
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.IOException;
+import java.io.OutputStream;
+
+public class Response {
+	private static final int BUFFER_SIZE = 1024;
+	Request request;
+	OutputStream output;
+	
+	public Response(OutputStream output){
+		this.output = output;
+	}
+	
+	public void setRequest(Request request){
+		this.request = request;
+	}
+	
+	public void sendStaticResource(){
+		byte[] bytes = new byte[BUFFER_SIZE];
+		FileInputStream fis = null;
+		File file = new File(HttpServer.WEB_ROOT, request.getUri());
+		if(file.exists()){
+			try {
+				fis = new FileInputStream(file);
+				int ch = fis.read(bytes, 0, BUFFER_SIZE);
+				
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
+			
+		}
+	}
+	
+	
+	
+	
+}

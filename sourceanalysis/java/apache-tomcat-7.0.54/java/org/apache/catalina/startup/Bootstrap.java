@@ -225,8 +225,8 @@ public final class Bootstrap {
     {
 
         // Set Catalina path
-        setCatalinaHome();
-        setCatalinaBase();
+        setCatalinaHome();//设置tomcat的家目录，将该项目的目录作为家目录
+        setCatalinaBase();//
 
         //初始化ClassLoader
         initClassLoaders();

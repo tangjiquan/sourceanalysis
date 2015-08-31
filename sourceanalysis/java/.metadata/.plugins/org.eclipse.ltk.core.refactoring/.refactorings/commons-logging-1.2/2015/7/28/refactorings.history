@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Copy 2 packages to &apos;apache-log4j-1.2.17/test&apos;&#x0D;&#x0A;- Original project: &apos;commons-logging-1.2&apos;&#x0D;&#x0A;- Destination element: &apos;apache-log4j-1.2.17/test&apos;&#x0D;&#x0A;- Original elements:&#x0D;&#x0A;     commons-logging-1.2/src/org.apache.commons.logging.impl&#x0D;&#x0A;     commons-logging-1.2/src/org.apache.commons.logging" description="Copy packages" destination="=apache-log4j-1.2.17/test" element1="/src&lt;org.apache.commons.logging.impl" element2="/src&lt;org.apache.commons.logging" flags="589830" fragments="2" id="org.eclipse.jdt.ui.copy" policy="org.eclipse.jdt.ui.copyPackages" stamp="1436454544215" version="1.0"/>
+</session>

@@ -1,0 +1,23 @@
+package ex02;
+
+import java.io.File;
+import java.io.IOException;
+import java.net.URL;
+import java.net.URLClassLoader;
+import java.net.URLStreamHandler;
+
+public class ServletProcess1 {
+	public void process(Request request, Response response){
+		String uri = request.getUri();
+		String servletName = uri.substring(uri.lastIndexOf("/")+1);
+		URLClassLoader loader = null;
+		try{
+			URL[] urls = new URL[1];
+			URLStreamHandler streamHandler = null;
+			File classfile  = new File(Constants.WEB_ROOT);
+			
+		}catch(IOException e){
+			
+		}
+	}
+}

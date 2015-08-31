@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <workbench progressCount="29" version="2.0">
 <workbenchAdvisor/>
-<window height="728" maximized="true" width="1024" x="343" y="100">
+<window height="707" maximized="true" width="1152" x="100" y="28">
 <fastViewData fastViewLocation="1024"/>
 <perspectiveBar>
 <itemSize x="160"/>
@@ -21,6 +21,8 @@
 <coolItem id="group.nav" itemType="typeGroupMarker"/>
 <coolItem id="org.eclipse.ui.workbench.navigate" itemType="typeToolBarContribution" x="198" y="22"/>
 <coolItem id="group.editor" itemType="typeGroupMarker"/>
+<coolItem id="org.eclipse.jdt.ui.PropertiesFileEditor" itemType="typePlaceholder" x="-1" y="-1"/>
+<coolItem id="org.eclipse.ant.ui.internal.editor.AntEditor" itemType="typePlaceholder" x="-1" y="-1"/>
 <coolItem id="org.eclipse.jdt.ui.ClassFileEditor" itemType="typePlaceholder" x="-1" y="-1"/>
 <coolItem id="org.eclipse.wst.xml.ui.internal.tabletree.XMLMultiPageEditorPart" itemType="typePlaceholder" x="-1" y="-1"/>
 <coolItem id="org.eclipse.ui.DefaultTextEditor" itemType="typePlaceholder" x="-1" y="-1"/>
@@ -40,7 +42,7 @@
 </editors>
 <views>
 <view id="org.eclipse.jdt.ui.TypeHierarchy" partName="Type Hierarchy">
-<viewState hidefields="false" hidelocaltypes="false" hidenonpublic="false" hidestatic="false" input="=apache-tomcat-7.0.54/java&lt;org.apache.catalina.util{LifecycleBase.java[LifecycleBase" link_editors="0" mv_vertical_scroll="0" orientation="3" qualified_names="0" ratio="350" selection="=apache-tomcat-7.0.54/java&lt;org.apache.catalina.util{LifecycleBase.java[LifecycleBase" showinherited="false" sortbydefiningtype="false" vertical_scroll="0" view="2" workingSetName=""/>
+<viewState hidefields="false" hidelocaltypes="false" hidenonpublic="false" hidestatic="false" input="=zookeeper-3.4.6/src\/java\/main&lt;org.apache.zookeeper.server{ServerCnxnFactory.java[ServerCnxnFactory" link_editors="0" mv_vertical_scroll="0" orientation="3" qualified_names="0" ratio="350" selection="=zookeeper-3.4.6/src\/java\/main&lt;org.apache.zookeeper.server{NIOServerCnxnFactory.java[NIOServerCnxnFactory" showinherited="false" sortbydefiningtype="false" vertical_scroll="0" view="2" workingSetName=""/>
 </view>
 <view id="org.eclipse.jdt.ui.PackageExplorer" partName="Package Explorer">
 <viewState group_libraries="1" layout="2" linkWithEditor="1" rootMode="1" workingSetName="">
@@ -78,8 +80,16 @@
 <view id="org.eclipse.ui.console.ConsoleView" partName="Console">
 <viewState/>
 </view>
+<view id="org.eclipse.jdt.callhierarchy.view" partName="Call Hierarchy">
+<viewState search_scope_type="1"/>
+</view>
 <view id="org.eclipse.wst.server.ui.ServersView" partName="Servers">
 <viewState CommonNavigator.LINKING_ENABLED="0"/>
+</view>
+<view id="org.eclipse.search.ui.views.SearchView" partName="Search">
+<viewState isPinned="false">
+<view IMemento.internal.id="" org.eclipse.search.lastActivation="0"/>
+</viewState>
 </view>
 <view id="org.eclipse.ui.views.ContentOutline" partName="Outline">
 <viewState/>
@@ -156,6 +166,8 @@
 <view id="org.eclipse.wst.server.ui.ServersView"/>
 <view id="org.eclipse.debug.ui.DebugView"/>
 <view id="org.eclipse.debug.ui.BreakpointView"/>
+<view id="org.eclipse.search.ui.views.SearchView"/>
+<view id="org.eclipse.jdt.callhierarchy.view"/>
 <view id="org.eclipse.jdt.ui.PackageExplorer"/>
 <view id="org.eclipse.jdt.ui.TypeHierarchy"/>
 <fastViewBars>
@@ -188,23 +200,26 @@
 <presentation id="org.eclipse.ui.presentations.WorkbenchPresentationFactory"/>
 </folder>
 </info>
-<info part="org.eclipse.ui.editorss" ratio="0.23192771" ratioLeft="308" ratioRight="1020" relationship="2" relative="topLeft"/>
-<info folder="true" part="bottomRight" ratio="0.84329563" ratioLeft="522" ratioRight="97" relationship="4" relative="org.eclipse.ui.editorss">
+<info part="org.eclipse.ui.editorss" ratio="0.31325302" ratioLeft="416" ratioRight="912" relationship="2" relative="topLeft"/>
+<info folder="true" part="bottomRight" ratio="0.69628435" ratioLeft="431" ratioRight="188" relationship="4" relative="org.eclipse.ui.editorss">
 <folder activePageID="org.eclipse.ui.console.ConsoleView" appearance="2" expanded="2">
 <page content="org.eclipse.ui.console.ConsoleView" label="Console"/>
 <page content="org.eclipse.wst.server.ui.ServersView" label="Servers"/>
 <page content="org.eclipse.debug.ui.DebugView" label="Debug"/>
 <page content="org.eclipse.debug.ui.BreakpointView" label="Breakpoints"/>
+<page content="org.eclipse.search.ui.views.SearchView" label="Search"/>
+<page content="org.eclipse.jdt.callhierarchy.view" label="Call Hierarchy"/>
+<page content="org.eclipse.ui.views.ProgressView" label="LabelNotFound"/>
 <page content="org.eclipse.ui.views.ProblemView" label="LabelNotFound"/>
 <page content="org.eclipse.ui.views.TaskList" label="LabelNotFound"/>
 <page content="org.eclipse.ui.views.BookmarkView" label="LabelNotFound"/>
-<page content="org.eclipse.ui.views.ProgressView" label="LabelNotFound"/>
-<page content="org.eclipse.search.ui.views.SearchView" label="LabelNotFound"/>
 <presentation id="org.eclipse.ui.presentations.WorkbenchPresentationFactory">
 <part id="0"/>
 <part id="1"/>
 <part id="2"/>
 <part id="3"/>
+<part id="4"/>
+<part id="5"/>
 </presentation>
 </folder>
 </info>
@@ -328,9 +343,6 @@
 <workbenchWindowAdvisor/>
 <actionBarAdvisor/>
 <trimLayout>
-<trimArea IMemento.internal.id="16384">
-<trimItem IMemento.internal.id="topLeft"/>
-</trimArea>
 <trimArea IMemento.internal.id="131072">
 <trimItem IMemento.internal.id="topRight"/>
 </trimArea>
@@ -346,50 +358,50 @@
 </trimLayout>
 </window>
 <mruList>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="Lifecycle.java" tooltip="apache-tomcat-7.0.54/java/org/apache/catalina/Lifecycle.java">
-<persistable path="/apache-tomcat-7.0.54/java/org/apache/catalina/Lifecycle.java"/>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="StringUtils.java" tooltip="hadoop-1.0.0/src/core/org/apache/hadoop/util/StringUtils.java">
+<persistable path="/hadoop-1.0.0/src/core/org/apache/hadoop/util/StringUtils.java"/>
 </file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="LifecycleMBeanBase.java" tooltip="apache-tomcat-7.0.54/java/org/apache/catalina/util/LifecycleMBeanBase.java">
-<persistable path="/apache-tomcat-7.0.54/java/org/apache/catalina/util/LifecycleMBeanBase.java"/>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="Configuration.java" tooltip="hadoop-1.0.0/src/core/org/apache/hadoop/conf/Configuration.java">
+<persistable path="/hadoop-1.0.0/src/core/org/apache/hadoop/conf/Configuration.java"/>
 </file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="Digester.java" tooltip="apache-tomcat-7.0.54/java/org/apache/tomcat/util/digester/Digester.java">
-<persistable path="/apache-tomcat-7.0.54/java/org/apache/tomcat/util/digester/Digester.java"/>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="DataNode.java" tooltip="hadoop-1.0.0/src/hdfs/org/apache/hadoop/hdfs/server/datanode/DataNode.java">
+<persistable path="/hadoop-1.0.0/src/hdfs/org/apache/hadoop/hdfs/server/datanode/DataNode.java"/>
 </file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="Server.java" tooltip="apache-tomcat-7.0.54/java/org/apache/catalina/Server.java">
-<persistable path="/apache-tomcat-7.0.54/java/org/apache/catalina/Server.java"/>
+<file factoryID="org.eclipse.jdt.ui.ClassFileEditorInputFactory" id="org.eclipse.jdt.ui.ClassFileEditor" name="CopyOnWriteArrayList.class" tooltip="java.util.concurrent.CopyOnWriteArrayList">
+<persistable org.eclipse.jdt.ui.ClassFileIdentifier="=hadoop-1.0.0/D:\/Program Files\/Java\/jdk1.7.0_67\/jre\/lib\/rt.jar&lt;java.util.concurrent(CopyOnWriteArrayList.class"/>
 </file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="LifecycleBase.java" tooltip="apache-tomcat-7.0.54/java/org/apache/catalina/util/LifecycleBase.java">
-<persistable path="/apache-tomcat-7.0.54/java/org/apache/catalina/util/LifecycleBase.java"/>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="Configured.java" tooltip="hadoop-1.0.0/src/core/org/apache/hadoop/conf/Configured.java">
+<persistable path="/hadoop-1.0.0/src/core/org/apache/hadoop/conf/Configured.java"/>
 </file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="WebappClassLoader.java" tooltip="apache-tomcat-7.0.54/java/org/apache/catalina/loader/WebappClassLoader.java">
-<persistable path="/apache-tomcat-7.0.54/java/org/apache/catalina/loader/WebappClassLoader.java"/>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="Configurable.java" tooltip="hadoop-1.0.0/src/core/org/apache/hadoop/conf/Configurable.java">
+<persistable path="/hadoop-1.0.0/src/core/org/apache/hadoop/conf/Configurable.java"/>
 </file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="Bootstrap.java" tooltip="apache-tomcat-7.0.54/java/org/apache/catalina/startup/Bootstrap.java">
-<persistable path="/apache-tomcat-7.0.54/java/org/apache/catalina/startup/Bootstrap.java"/>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="Jets3tFileSystemStore.java" tooltip="hadoop-1.0.0/src/core/org/apache/hadoop/fs/s3/Jets3tFileSystemStore.java">
+<persistable path="/hadoop-1.0.0/src/core/org/apache/hadoop/fs/s3/Jets3tFileSystemStore.java"/>
 </file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.ui.systemExternalEditor" name="catalina.bat" tooltip="apache-tomcat-7.0.54/bins/catalina.bat">
-<persistable path="/apache-tomcat-7.0.54/bins/catalina.bat"/>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="JspHelper.java" tooltip="hadoop-1.0.0/src/hdfs/org/apache/hadoop/hdfs/server/namenode/JspHelper.java">
+<persistable path="/hadoop-1.0.0/src/hdfs/org/apache/hadoop/hdfs/server/namenode/JspHelper.java"/>
 </file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="StandardServer.java" tooltip="apache-tomcat-7.0.54/java/org/apache/catalina/core/StandardServer.java">
-<persistable path="/apache-tomcat-7.0.54/java/org/apache/catalina/core/StandardServer.java"/>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="SecureDataNodeStarter.java" tooltip="hadoop-1.0.0/src/hdfs/org/apache/hadoop/hdfs/server/datanode/SecureDataNodeStarter.java">
+<persistable path="/hadoop-1.0.0/src/hdfs/org/apache/hadoop/hdfs/server/datanode/SecureDataNodeStarter.java"/>
 </file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="Catalina.java" tooltip="apache-tomcat-7.0.54/java/org/apache/catalina/startup/Catalina.java">
-<persistable path="/apache-tomcat-7.0.54/java/org/apache/catalina/startup/Catalina.java"/>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="DistCh.java" tooltip="hadoop-1.0.0/src/tools/org/apache/hadoop/tools/DistCh.java">
+<persistable path="/hadoop-1.0.0/src/tools/org/apache/hadoop/tools/DistCh.java"/>
 </file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="ServletConfig.java" tooltip="apache-tomcat-7.0.54/java/javax/servlet/ServletConfig.java">
-<persistable path="/apache-tomcat-7.0.54/java/javax/servlet/ServletConfig.java"/>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="GenericOptionsParser.java" tooltip="hadoop-1.0.0/src/core/org/apache/hadoop/util/GenericOptionsParser.java">
+<persistable path="/hadoop-1.0.0/src/core/org/apache/hadoop/util/GenericOptionsParser.java"/>
 </file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="EJB.java" tooltip="apache-tomcat-7.0.54/java/javax/ejb/EJB.java">
-<persistable path="/apache-tomcat-7.0.54/java/javax/ejb/EJB.java"/>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="KerberosAuthenticationHandler.java" tooltip="hadoop-1.0.0/src/core/org/apache/hadoop/security/authentication/server/KerberosAuthenticationHandler.java">
+<persistable path="/hadoop-1.0.0/src/core/org/apache/hadoop/security/authentication/server/KerberosAuthenticationHandler.java"/>
 </file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="ApplicationRequest.java" tooltip="apache-tomcat-7.0.54/java/org/apache/catalina/core/ApplicationRequest.java">
-<persistable path="/apache-tomcat-7.0.54/java/org/apache/catalina/core/ApplicationRequest.java"/>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="AuthenticationFilter.java" tooltip="hadoop-1.0.0/src/core/org/apache/hadoop/security/authentication/server/AuthenticationFilter.java">
+<persistable path="/hadoop-1.0.0/src/core/org/apache/hadoop/security/authentication/server/AuthenticationFilter.java"/>
 </file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="WsHttpServletRequestWrapper.java" tooltip="apache-tomcat-7.0.54/java/org/apache/catalina/websocket/WsHttpServletRequestWrapper.java">
-<persistable path="/apache-tomcat-7.0.54/java/org/apache/catalina/websocket/WsHttpServletRequestWrapper.java"/>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="KerberosAuthenticator.java" tooltip="hadoop-1.0.0/src/core/org/apache/hadoop/security/authentication/client/KerberosAuthenticator.java">
+<persistable path="/hadoop-1.0.0/src/core/org/apache/hadoop/security/authentication/client/KerberosAuthenticator.java"/>
 </file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="RemoteIpFilter.java" tooltip="apache-tomcat-7.0.54/java/org/apache/catalina/filters/RemoteIpFilter.java">
-<persistable path="/apache-tomcat-7.0.54/java/org/apache/catalina/filters/RemoteIpFilter.java"/>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="UserGroupInformation.java" tooltip="hadoop-1.0.0/src/core/org/apache/hadoop/security/UserGroupInformation.java">
+<persistable path="/hadoop-1.0.0/src/core/org/apache/hadoop/security/UserGroupInformation.java"/>
 </file>
 </mruList>
 </workbench>

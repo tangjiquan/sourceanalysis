@@ -1,0 +1,21 @@
+package com.tang.test;
+
+import java.util.concurrent.CountDownLatch;
+
+import org.apache.zookeeper.WatchedEvent;
+import org.apache.zookeeper.Watcher;
+
+/**
+ * 创建一个最基本的ZooKeeper会话示例 
+ * @author Administrator
+ *
+ */
+public class ZKConstructorDemo implements Watcher{
+
+	private static CountDownLatch countDownLatch = new CountDownLatch(1);
+	@Override
+	public void process(WatchedEvent event) {
+		
+	}
+	
+}

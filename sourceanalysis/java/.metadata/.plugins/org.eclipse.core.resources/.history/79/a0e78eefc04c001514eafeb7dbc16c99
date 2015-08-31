@@ -1,0 +1,11 @@
+package ex01;
+
+/**
+ * 模拟服务器
+ * @author Administrator
+ *
+ */
+public class HttpServer {
+
+	
+}

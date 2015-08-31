@@ -1,0 +1,12 @@
+package ex01;
+
+import java.io.InputStream;
+
+public class Request {
+	private InputStream input;
+	private String uri;
+	
+	public Request(InputStream input){
+		this.input = input;
+	}
+}
