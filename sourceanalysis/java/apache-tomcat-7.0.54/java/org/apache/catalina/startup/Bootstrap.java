@@ -107,16 +107,16 @@ public final class Bootstrap {
 
     private ClassLoader createClassLoader(String name, ClassLoader parent)
         throws Exception {
-
+    	//读取catalina.properties配置文件中的属性
         String value = CatalinaProperties.getProperty(name + ".loader");
-        if ((value == null) || (value.equals("")))
+        if ((value == null) || (value.equals("")))//如果没有对应的配置文件的属性，则返回父加载器
             return parent;
 
         value = replace(value);
 
         List<Repository> repositories = new ArrayList<Repository>();
 
-        //ClassLoader将载入的路径是用的","分割的
+        //ClassLoader将载入的路径是用的","分割的，确定本classLoader要加载哪些目录下的资源和jar
         StringTokenizer tokenizer = new StringTokenizer(value, ",");
         while (tokenizer.hasMoreElements()) {
             String repository = tokenizer.nextToken().trim();
@@ -231,7 +231,7 @@ public final class Bootstrap {
         //初始化ClassLoader
         initClassLoaders();
 
-        //设置上下文的ClassLoader
+        //设置上下文的ClassLoader，将当前线程的类加载器设置为catalinaLoader加载器
         Thread.currentThread().setContextClassLoader(catalinaLoader);
 
         SecurityClassLoad.securityClassLoad(catalinaLoader);
@@ -241,7 +241,7 @@ public final class Bootstrap {
             log.debug("Loading startup class");
         Class<?> startupClass =
             catalinaLoader.loadClass
-            ("org.apache.catalina.startup.Catalina");
+            ("org.apache.catalina.startup.Catalina");//使用catalinaLoader来加载Catalina类
         Object startupInstance = startupClass.newInstance();
 
         // Set the shared extensions class loader

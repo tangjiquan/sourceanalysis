@@ -168,7 +168,12 @@ public final class EmbeddedServletOptions implements Options {
     /**
      * Modification test interval.
      */
-    private int modificationTestInterval = 4;
+    //每一个jsp页面从上一次访问到下一次访问总是有默认几秒的缓存时间，也就是不是立即生效
+    //tomcat7默认的缓存时间是4秒，如果过了4秒，tomcat就会读取jsp的modified时间戳和work目录下的
+    //编译号的class文件的时间戳进行比较，如果相等，则class文件没有过期，则不会重新编译jsp
+    //如果过期了则重启将jsp编译成java，进一步编译成class，同时调用JasperLoader来重新加载这个jsp编译
+    //好的class文件
+    private int modificationTestInterval = 4;//jsp热部署时候的缓存时间
     
     /**
      * Is re-compilation attempted immediately after a failure?

@@ -226,7 +226,7 @@ public final class ClassLoaderFactory {
                     @Override
                     public StandardClassLoader run() {
                         if (parent == null)
-                            return new StandardClassLoader(array);
+                            return new StandardClassLoader(array);//默认的类加载器
                         else
                             return new StandardClassLoader(array, parent);
                     }

@@ -357,6 +357,7 @@ public class CoyoteAdapter implements Adapter {
 
     /**
      * Service method.
+     * 这个方法中会解析请求，org.apache.coyote.Request,org.apache.coyote.Response是tomcat的内部的数据结构，存储了输入和输出
      */
     @Override
     public void service(org.apache.coyote.Request req,
@@ -400,7 +401,7 @@ public class CoyoteAdapter implements Adapter {
             // Parse and set Catalina and configuration specific
             // request parameters
             req.getRequestProcessor().setWorkerThreadName(Thread.currentThread().getName());
-            boolean postParseSuccess = postParseRequest(req, request, res, response);
+            boolean postParseSuccess = postParseRequest(req, request, res, response);//解析请求
             if (postParseSuccess) {
                 //check valves if we support async
                 request.setAsyncSupported(connector.getService().getContainer().getPipeline().isAsyncSupported());

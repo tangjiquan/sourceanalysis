@@ -120,7 +120,7 @@ import org.apache.tomcat.util.res.StringManager;
  *
  * @author Remy Maucherat
  * @author Craig R. McClanahan
- */
+ *///WebappClassLoader对应的是web应用，每一个web应用都会有独立的类加载器，从而实现类的隔离
 public class WebappClassLoader
     extends URLClassLoader
     implements Lifecycle
@@ -1616,7 +1616,7 @@ public class WebappClassLoader
         }
 
         // (0) Check our previously loaded local class cache
-        clazz = findLoadedClass0(name);
+        clazz = findLoadedClass0(name);//检查已加载的类
         if (clazz != null) {
             if (log.isDebugEnabled())
                 log.debug("  Returning class from cache");
@@ -1664,7 +1664,8 @@ public class WebappClassLoader
         }
 
         boolean delegateLoad = delegate || filter(name);
-
+        //Tomcat允许按照配置来确定优先使用本地Web应用的类加载器还是父类加载器进行类加载，此处使用的
+        //父类加载器进行加载
         // (1) Delegate to our parent if requested
         if (delegateLoad) {
             if (log.isDebugEnabled())
