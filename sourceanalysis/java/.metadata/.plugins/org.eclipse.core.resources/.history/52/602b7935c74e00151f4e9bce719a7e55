@@ -1,7 +1,0 @@
-package ex02;
-
-public class ServletProcess1 {
-	public void process(Request request, Response response){
-		
-	}
-}

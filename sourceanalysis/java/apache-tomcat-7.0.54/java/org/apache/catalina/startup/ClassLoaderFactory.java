@@ -148,6 +148,7 @@ public final class ClassLoaderFactory {
      *
      * @exception Exception if an error occurs constructing the class loader
      */
+    //生成资源库函数
     public static ClassLoader createClassLoader(List<Repository> repositories,
                                                 final ClassLoader parent)
         throws Exception {

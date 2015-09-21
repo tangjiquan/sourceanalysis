@@ -1,0 +1,30 @@
+package ex03.connector;
+
+import java.io.IOException;
+import java.io.InputStream;
+
+import javax.servlet.ServletInputStream;
+
+import org.apache.naming.StringManager;
+
+import ex03.connector.http.Constants;
+import ex03.connector.http.HttpRequest;
+
+public class RequestStream extends ServletInputStream{
+
+	protected boolean closed = false;
+	protected int count = 0;
+	protected int length = -1;
+	protected static StringManager sm = StringManager.getManager(Constants.Package);
+	protected InputStream  stream = null;
+	
+	public RequestStream(HttpRequest request){
+		
+	}
+	@Override
+	public int read() throws IOException {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+}

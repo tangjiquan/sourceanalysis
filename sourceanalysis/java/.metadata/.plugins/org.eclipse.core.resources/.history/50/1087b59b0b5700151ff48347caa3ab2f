@@ -1,0 +1,19 @@
+package ex03.connector;
+
+import java.io.IOException;
+
+import javax.servlet.ServletInputStream;
+
+public class RequestStream extends ServletInputStream{
+
+	protected boolean closed = false;
+	protected int count = 0;
+	protected int length = -1;
+	
+	@Override
+	public int read() throws IOException {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+}

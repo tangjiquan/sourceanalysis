@@ -729,7 +729,7 @@ public final class StandardServer extends LifecycleMBeanBase implements Server {
         // Start our defined Services
         synchronized (services) {
             for (int i = 0; i < services.length; i++) {
-                services[i].start();
+                services[i].start();//server会将自己拥有的service全部start
             }
         }
     }

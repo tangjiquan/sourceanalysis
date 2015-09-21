@@ -558,7 +558,7 @@ public class Catalina {
         InputStream inputStream = null;
         File file = null;
         try {
-            file = configFile();
+            file = configFile();//判断是绝对路径还是相对路径，最终返回一个绝对路径
             inputStream = new FileInputStream(file);
             inputSource = new InputSource(file.toURI().toURL().toString());
         } catch (Exception e) {

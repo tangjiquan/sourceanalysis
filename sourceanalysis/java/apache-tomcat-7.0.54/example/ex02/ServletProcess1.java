@@ -9,6 +9,8 @@ import java.net.URLStreamHandler;
 
 import javax.servlet.Servlet;
 import javax.servlet.ServletException;
+import javax.servlet.ServletRequest;
+import javax.servlet.ServletResponse;
 
 public class ServletProcess1 {
 	public void process(Request request, Response response){
@@ -22,6 +24,7 @@ public class ServletProcess1 {
 		try {
 			String repository = (new URL("file", null, classPath.getCanonicalPath() + File.separator)).toString() ;
 			urls[0] = new URL(null, repository, streamHandler);
+			loader = new URLClassLoader(urls);
 		} catch (MalformedURLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -39,7 +42,7 @@ public class ServletProcess1 {
 		try {
 			Servlet servlet = (Servlet) clazz.newInstance();
 			try {
-				servlet.service(request, response);
+				servlet.service((ServletRequest)request, (ServletResponse)response);
 			} catch (ServletException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();

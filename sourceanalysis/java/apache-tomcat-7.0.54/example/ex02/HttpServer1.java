@@ -14,8 +14,6 @@ import java.net.Socket;
  *
  */
 public class HttpServer1 {
-	public static final String WEB_ROOT = System.getProperty("user.dir")+File.separator+"webroot";
-	
 	//shutdown command
 	private static final String SHUTDOWN_COMMAND = "/SHUTDOWN";
 	
@@ -55,9 +53,11 @@ public class HttpServer1 {
 				//response.sendStaticResource();
 				
 				if(request.getUri().startsWith("/servlet")){
-					
+					ServletProcess1 process = new ServletProcess1();
+					process.process(request, response);
 				}else{
-					
+					StaticResourceProcessor process = new StaticResourceProcessor();
+					process.process(request, response);
 				}
 				
 				//关闭socket对象
