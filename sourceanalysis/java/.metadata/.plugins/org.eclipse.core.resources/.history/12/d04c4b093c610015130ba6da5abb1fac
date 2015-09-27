@@ -1,0 +1,44 @@
+package com.example;
+
+import java.util.Date;
+
+import org.quartz.Job;
+import org.quartz.JobExecutionContext;
+import org.quartz.JobExecutionException;
+
+public class MyJob implements Job{
+
+	@Override
+	public void execute(JobExecutionContext context)
+			throws JobExecutionException {
+		System.out.println(new Date() + ":doing something");
+	}
+}
+
+class Test{
+	public static void main(String[] args) {
+		// 1.创建JobDetail对象
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+	}
+}

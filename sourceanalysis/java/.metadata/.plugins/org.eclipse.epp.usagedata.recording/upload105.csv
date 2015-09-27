@@ -1,0 +1,151 @@
+what,kind,bundleId,bundleVersion,description,time
+activated,workbench,org.eclipse.ui.workbench,3.7.1.v20120104-1859,"",1443068251383
+deactivated,workbench,org.eclipse.ui.workbench,3.7.1.v20120104-1859,"",1443068252521
+activated,workbench,org.eclipse.ui.workbench,3.7.1.v20120104-1859,"",1443068252989
+deactivated,workbench,org.eclipse.ui.workbench,3.7.1.v20120104-1859,"",1443068254035
+activated,workbench,org.eclipse.ui.workbench,3.7.1.v20120104-1859,"",1443068254440
+deactivated,workbench,org.eclipse.ui.workbench,3.7.1.v20120104-1859,"",1443068254846
+started,bundle,org.eclipse.wst.xsl.debug.ui,1.0.200.v201101281837,"org.eclipse.wst.xsl.debug.ui",1443068256701
+activated,workbench,org.eclipse.ui.workbench,3.7.1.v20120104-1859,"",1443068262130
+deactivated,workbench,org.eclipse.ui.workbench,3.7.1.v20120104-1859,"",1443068267450
+activated,workbench,org.eclipse.ui.workbench,3.7.1.v20120104-1859,"",1443068291885
+executed,command,org.eclipse.ui,3.7.0.v20110928-1505,"org.eclipse.ui.newWizard",1443068291901
+deactivated,workbench,org.eclipse.ui.workbench,3.7.1.v20120104-1859,"",1443068292697
+activated,workbench,org.eclipse.ui.workbench,3.7.1.v20120104-1859,"",1443068295867
+executed,command,org.eclipse.ui,3.7.0.v20110928-1505,"org.eclipse.ui.edit.paste",1443068296460
+deactivated,workbench,org.eclipse.ui.workbench,3.7.1.v20120104-1859,"",1443068297053
+activated,workbench,org.eclipse.ui.workbench,3.7.1.v20120104-1859,"",1443068302246
+deactivated,workbench,org.eclipse.ui.workbench,3.7.1.v20120104-1859,"",1443068304071
+activated,workbench,org.eclipse.ui.workbench,3.7.1.v20120104-1859,"",1443068322650
+executed,command,org.eclipse.ui,3.7.0.v20110928-1505,"org.eclipse.ui.newWizard",1443068322650
+deactivated,workbench,org.eclipse.ui.workbench,3.7.1.v20120104-1859,"",1443068325738
+activated,workbench,org.eclipse.ui.workbench,3.7.1.v20120104-1859,"",1443068339201
+executed,command,org.eclipse.ui,3.7.0.v20110928-1505,"org.eclipse.ui.newWizard",1443068339217
+deactivated,workbench,org.eclipse.ui.workbench,3.7.1.v20120104-1859,"",1443068339732
+activated,workbench,org.eclipse.ui.workbench,3.7.1.v20120104-1859,"",1443068345555
+no handler,command,org.eclipse.datatools.enablement.sybase.asa.schemaobjecteditor.examples,,"org.eclipse.datatools.enablement.sybase.asa.schemaobjecteditor.examples.tableschemaeditor.pastecolumn",1443068346694
+no handler,command,org.eclipse.datatools.enablement.sybase.asa.schemaobjecteditor.examples,,"org.eclipse.datatools.enablement.sybase.asa.schemaobjecteditor.examples.tableschemaeditor.pastecolumn",1443068346694
+no handler,command,org.eclipse.datatools.enablement.sybase.asa.schemaobjecteditor.examples,,"org.eclipse.datatools.enablement.sybase.asa.schemaobjecteditor.examples.tableschemaeditor.pastecolumn",1443068346694
+no handler,command,org.eclipse.datatools.enablement.sybase.asa.schemaobjecteditor.examples,,"org.eclipse.datatools.enablement.sybase.asa.schemaobjecteditor.examples.tableschemaeditor.pastecolumn",1443068346694
+no handler,command,org.eclipse.datatools.enablement.sybase.asa.schemaobjecteditor.examples,,"org.eclipse.datatools.enablement.sybase.asa.schemaobjecteditor.examples.tableschemaeditor.pastecolumn",1443068346694
+no handler,command,org.eclipse.datatools.enablement.sybase.asa.schemaobjecteditor.examples,,"org.eclipse.datatools.enablement.sybase.asa.schemaobjecteditor.examples.tableschemaeditor.pastecolumn",1443068346709
+no handler,command,org.eclipse.datatools.enablement.sybase.asa.schemaobjecteditor.examples,,"org.eclipse.datatools.enablement.sybase.asa.schemaobjecteditor.examples.tableschemaeditor.pastecolumn",1443068346709
+no handler,command,org.eclipse.datatools.enablement.sybase.asa.schemaobjecteditor.examples,,"org.eclipse.datatools.enablement.sybase.asa.schemaobjecteditor.examples.tableschemaeditor.pastecolumn",1443068346709
+no handler,command,org.eclipse.datatools.enablement.sybase.asa.schemaobjecteditor.examples,,"org.eclipse.datatools.enablement.sybase.asa.schemaobjecteditor.examples.tableschemaeditor.pastecolumn",1443068346709
+no handler,command,org.eclipse.datatools.enablement.sybase.asa.schemaobjecteditor.examples,,"org.eclipse.datatools.enablement.sybase.asa.schemaobjecteditor.examples.tableschemaeditor.pastecolumn",1443068346709
+no handler,command,org.eclipse.datatools.enablement.sybase.asa.schemaobjecteditor.examples,,"org.eclipse.datatools.enablement.sybase.asa.schemaobjecteditor.examples.tableschemaeditor.pastecolumn",1443068346709
+no handler,command,org.eclipse.datatools.enablement.sybase.asa.schemaobjecteditor.examples,,"org.eclipse.datatools.enablement.sybase.asa.schemaobjecteditor.examples.tableschemaeditor.pastecolumn",1443068346709
+no handler,command,org.eclipse.datatools.enablement.sybase.asa.schemaobjecteditor.examples,,"org.eclipse.datatools.enablement.sybase.asa.schemaobjecteditor.examples.tableschemaeditor.pastecolumn",1443068346709
+no handler,command,org.eclipse.datatools.enablement.sybase.asa.schemaobjecteditor.examples,,"org.eclipse.datatools.enablement.sybase.asa.schemaobjecteditor.examples.tableschemaeditor.pastecolumn",1443068346709
+no handler,command,org.eclipse.datatools.enablement.sybase.asa.schemaobjecteditor.examples,,"org.eclipse.datatools.enablement.sybase.asa.schemaobjecteditor.examples.tableschemaeditor.pastecolumn",1443068346709
+no handler,command,org.eclipse.datatools.enablement.sybase.asa.schemaobjecteditor.examples,,"org.eclipse.datatools.enablement.sybase.asa.schemaobjecteditor.examples.tableschemaeditor.pastecolumn",1443068346709
+no handler,command,org.eclipse.datatools.enablement.sybase.asa.schemaobjecteditor.examples,,"org.eclipse.datatools.enablement.sybase.asa.schemaobjecteditor.examples.tableschemaeditor.pastecolumn",1443068346709
+no handler,command,org.eclipse.datatools.enablement.sybase.asa.schemaobjecteditor.examples,,"org.eclipse.datatools.enablement.sybase.asa.schemaobjecteditor.examples.tableschemaeditor.pastecolumn",1443068346709
+no handler,command,org.eclipse.datatools.enablement.sybase.asa.schemaobjecteditor.examples,,"org.eclipse.datatools.enablement.sybase.asa.schemaobjecteditor.examples.tableschemaeditor.pastecolumn",1443068346709
+no handler,command,org.eclipse.datatools.enablement.sybase.asa.schemaobjecteditor.examples,,"org.eclipse.datatools.enablement.sybase.asa.schemaobjecteditor.examples.tableschemaeditor.pastecolumn",1443068346709
+no handler,command,org.eclipse.datatools.enablement.sybase.asa.schemaobjecteditor.examples,,"org.eclipse.datatools.enablement.sybase.asa.schemaobjecteditor.examples.tableschemaeditor.pastecolumn",1443068346709
+no handler,command,org.eclipse.datatools.enablement.sybase.asa.schemaobjecteditor.examples,,"org.eclipse.datatools.enablement.sybase.asa.schemaobjecteditor.examples.tableschemaeditor.pastecolumn",1443068346709
+no handler,command,org.eclipse.datatools.enablement.sybase.asa.schemaobjecteditor.examples,,"org.eclipse.datatools.enablement.sybase.asa.schemaobjecteditor.examples.tableschemaeditor.pastecolumn",1443068346709
+no handler,command,org.eclipse.datatools.enablement.sybase.asa.schemaobjecteditor.examples,,"org.eclipse.datatools.enablement.sybase.asa.schemaobjecteditor.examples.tableschemaeditor.pastecolumn",1443068346709
+no handler,command,org.eclipse.datatools.enablement.sybase.asa.schemaobjecteditor.examples,,"org.eclipse.datatools.enablement.sybase.asa.schemaobjecteditor.examples.tableschemaeditor.pastecolumn",1443068346709
+no handler,command,org.eclipse.datatools.enablement.sybase.asa.schemaobjecteditor.examples,,"org.eclipse.datatools.enablement.sybase.asa.schemaobjecteditor.examples.tableschemaeditor.pastecolumn",1443068346709
+no handler,command,org.eclipse.datatools.enablement.sybase.asa.schemaobjecteditor.examples,,"org.eclipse.datatools.enablement.sybase.asa.schemaobjecteditor.examples.tableschemaeditor.pastecolumn",1443068346709
+no handler,command,org.eclipse.datatools.enablement.sybase.asa.schemaobjecteditor.examples,,"org.eclipse.datatools.enablement.sybase.asa.schemaobjecteditor.examples.tableschemaeditor.pastecolumn",1443068346709
+no handler,command,org.eclipse.datatools.enablement.sybase.asa.schemaobjecteditor.examples,,"org.eclipse.datatools.enablement.sybase.asa.schemaobjecteditor.examples.tableschemaeditor.pastecolumn",1443068346709
+no handler,command,org.eclipse.datatools.enablement.sybase.asa.schemaobjecteditor.examples,,"org.eclipse.datatools.enablement.sybase.asa.schemaobjecteditor.examples.tableschemaeditor.pastecolumn",1443068346709
+no handler,command,org.eclipse.datatools.enablement.sybase.asa.schemaobjecteditor.examples,,"org.eclipse.datatools.enablement.sybase.asa.schemaobjecteditor.examples.tableschemaeditor.pastecolumn",1443068346709
+no handler,command,org.eclipse.datatools.enablement.sybase.asa.schemaobjecteditor.examples,,"org.eclipse.datatools.enablement.sybase.asa.schemaobjecteditor.examples.tableschemaeditor.pastecolumn",1443068346709
+no handler,command,org.eclipse.datatools.enablement.sybase.asa.schemaobjecteditor.examples,,"org.eclipse.datatools.enablement.sybase.asa.schemaobjecteditor.examples.tableschemaeditor.pastecolumn",1443068346709
+no handler,command,org.eclipse.datatools.enablement.sybase.asa.schemaobjecteditor.examples,,"org.eclipse.datatools.enablement.sybase.asa.schemaobjecteditor.examples.tableschemaeditor.pastecolumn",1443068346709
+no handler,command,org.eclipse.datatools.enablement.sybase.asa.schemaobjecteditor.examples,,"org.eclipse.datatools.enablement.sybase.asa.schemaobjecteditor.examples.tableschemaeditor.pastecolumn",1443068346709
+no handler,command,org.eclipse.datatools.enablement.sybase.asa.schemaobjecteditor.examples,,"org.eclipse.datatools.enablement.sybase.asa.schemaobjecteditor.examples.tableschemaeditor.pastecolumn",1443068346709
+no handler,command,org.eclipse.datatools.enablement.sybase.asa.schemaobjecteditor.examples,,"org.eclipse.datatools.enablement.sybase.asa.schemaobjecteditor.examples.tableschemaeditor.pastecolumn",1443068346709
+no handler,command,org.eclipse.datatools.enablement.sybase.asa.schemaobjecteditor.examples,,"org.eclipse.datatools.enablement.sybase.asa.schemaobjecteditor.examples.tableschemaeditor.pastecolumn",1443068346709
+no handler,command,org.eclipse.datatools.enablement.sybase.asa.schemaobjecteditor.examples,,"org.eclipse.datatools.enablement.sybase.asa.schemaobjecteditor.examples.tableschemaeditor.pastecolumn",1443068346709
+no handler,command,org.eclipse.datatools.enablement.sybase.asa.schemaobjecteditor.examples,,"org.eclipse.datatools.enablement.sybase.asa.schemaobjecteditor.examples.tableschemaeditor.pastecolumn",1443068346709
+no handler,command,org.eclipse.datatools.enablement.sybase.asa.schemaobjecteditor.examples,,"org.eclipse.datatools.enablement.sybase.asa.schemaobjecteditor.examples.tableschemaeditor.pastecolumn",1443068346709
+no handler,command,org.eclipse.datatools.enablement.sybase.asa.schemaobjecteditor.examples,,"org.eclipse.datatools.enablement.sybase.asa.schemaobjecteditor.examples.tableschemaeditor.pastecolumn",1443068346709
+no handler,command,org.eclipse.datatools.enablement.sybase.asa.schemaobjecteditor.examples,,"org.eclipse.datatools.enablement.sybase.asa.schemaobjecteditor.examples.tableschemaeditor.pastecolumn",1443068346709
+no handler,command,org.eclipse.datatools.enablement.sybase.asa.schemaobjecteditor.examples,,"org.eclipse.datatools.enablement.sybase.asa.schemaobjecteditor.examples.tableschemaeditor.pastecolumn",1443068346709
+no handler,command,org.eclipse.datatools.enablement.sybase.asa.schemaobjecteditor.examples,,"org.eclipse.datatools.enablement.sybase.asa.schemaobjecteditor.examples.tableschemaeditor.pastecolumn",1443068346709
+no handler,command,org.eclipse.datatools.enablement.sybase.asa.schemaobjecteditor.examples,,"org.eclipse.datatools.enablement.sybase.asa.schemaobjecteditor.examples.tableschemaeditor.pastecolumn",1443068346709
+no handler,command,org.eclipse.datatools.enablement.sybase.asa.schemaobjecteditor.examples,,"org.eclipse.datatools.enablement.sybase.asa.schemaobjecteditor.examples.tableschemaeditor.pastecolumn",1443068346709
+no handler,command,org.eclipse.datatools.enablement.sybase.asa.schemaobjecteditor.examples,,"org.eclipse.datatools.enablement.sybase.asa.schemaobjecteditor.examples.tableschemaeditor.pastecolumn",1443068346709
+no handler,command,org.eclipse.datatools.enablement.sybase.asa.schemaobjecteditor.examples,,"org.eclipse.datatools.enablement.sybase.asa.schemaobjecteditor.examples.tableschemaeditor.pastecolumn",1443068346709
+no handler,command,org.eclipse.datatools.enablement.sybase.asa.schemaobjecteditor.examples,,"org.eclipse.datatools.enablement.sybase.asa.schemaobjecteditor.examples.tableschemaeditor.pastecolumn",1443068346709
+no handler,command,org.eclipse.datatools.enablement.sybase.asa.schemaobjecteditor.examples,,"org.eclipse.datatools.enablement.sybase.asa.schemaobjecteditor.examples.tableschemaeditor.pastecolumn",1443068346709
+no handler,command,org.eclipse.datatools.enablement.sybase.asa.schemaobjecteditor.examples,,"org.eclipse.datatools.enablement.sybase.asa.schemaobjecteditor.examples.tableschemaeditor.pastecolumn",1443068346709
+no handler,command,org.eclipse.datatools.enablement.sybase.asa.schemaobjecteditor.examples,,"org.eclipse.datatools.enablement.sybase.asa.schemaobjecteditor.examples.tableschemaeditor.pastecolumn",1443068346709
+no handler,command,org.eclipse.datatools.enablement.sybase.asa.schemaobjecteditor.examples,,"org.eclipse.datatools.enablement.sybase.asa.schemaobjecteditor.examples.tableschemaeditor.pastecolumn",1443068346709
+no handler,command,org.eclipse.datatools.enablement.sybase.asa.schemaobjecteditor.examples,,"org.eclipse.datatools.enablement.sybase.asa.schemaobjecteditor.examples.tableschemaeditor.pastecolumn",1443068346709
+no handler,command,org.eclipse.datatools.enablement.sybase.asa.schemaobjecteditor.examples,,"org.eclipse.datatools.enablement.sybase.asa.schemaobjecteditor.examples.tableschemaeditor.pastecolumn",1443068346709
+no handler,command,org.eclipse.datatools.enablement.sybase.asa.schemaobjecteditor.examples,,"org.eclipse.datatools.enablement.sybase.asa.schemaobjecteditor.examples.tableschemaeditor.pastecolumn",1443068346709
+no handler,command,org.eclipse.datatools.enablement.sybase.asa.schemaobjecteditor.examples,,"org.eclipse.datatools.enablement.sybase.asa.schemaobjecteditor.examples.tableschemaeditor.pastecolumn",1443068346709
+no handler,command,org.eclipse.datatools.enablement.sybase.asa.schemaobjecteditor.examples,,"org.eclipse.datatools.enablement.sybase.asa.schemaobjecteditor.examples.tableschemaeditor.pastecolumn",1443068346709
+no handler,command,org.eclipse.datatools.enablement.sybase.asa.schemaobjecteditor.examples,,"org.eclipse.datatools.enablement.sybase.asa.schemaobjecteditor.examples.tableschemaeditor.pastecolumn",1443068346709
+no handler,command,org.eclipse.datatools.enablement.sybase.asa.schemaobjecteditor.examples,,"org.eclipse.datatools.enablement.sybase.asa.schemaobjecteditor.examples.tableschemaeditor.pastecolumn",1443068346709
+no handler,command,org.eclipse.datatools.enablement.sybase.asa.schemaobjecteditor.examples,,"org.eclipse.datatools.enablement.sybase.asa.schemaobjecteditor.examples.tableschemaeditor.pastecolumn",1443068346709
+no handler,command,org.eclipse.datatools.enablement.sybase.asa.schemaobjecteditor.examples,,"org.eclipse.datatools.enablement.sybase.asa.schemaobjecteditor.examples.tableschemaeditor.pastecolumn",1443068346709
+no handler,command,org.eclipse.datatools.enablement.sybase.asa.schemaobjecteditor.examples,,"org.eclipse.datatools.enablement.sybase.asa.schemaobjecteditor.examples.tableschemaeditor.pastecolumn",1443068346709
+no handler,command,org.eclipse.datatools.enablement.sybase.asa.schemaobjecteditor.examples,,"org.eclipse.datatools.enablement.sybase.asa.schemaobjecteditor.examples.tableschemaeditor.pastecolumn",1443068346709
+no handler,command,org.eclipse.datatools.enablement.sybase.asa.schemaobjecteditor.examples,,"org.eclipse.datatools.enablement.sybase.asa.schemaobjecteditor.examples.tableschemaeditor.pastecolumn",1443068346709
+no handler,command,org.eclipse.datatools.enablement.sybase.asa.schemaobjecteditor.examples,,"org.eclipse.datatools.enablement.sybase.asa.schemaobjecteditor.examples.tableschemaeditor.pastecolumn",1443068346709
+no handler,command,org.eclipse.datatools.enablement.sybase.asa.schemaobjecteditor.examples,,"org.eclipse.datatools.enablement.sybase.asa.schemaobjecteditor.examples.tableschemaeditor.pastecolumn",1443068346709
+no handler,command,org.eclipse.datatools.enablement.sybase.asa.schemaobjecteditor.examples,,"org.eclipse.datatools.enablement.sybase.asa.schemaobjecteditor.examples.tableschemaeditor.pastecolumn",1443068346709
+no handler,command,org.eclipse.datatools.enablement.sybase.asa.schemaobjecteditor.examples,,"org.eclipse.datatools.enablement.sybase.asa.schemaobjecteditor.examples.tableschemaeditor.pastecolumn",1443068346709
+no handler,command,org.eclipse.datatools.enablement.sybase.asa.schemaobjecteditor.examples,,"org.eclipse.datatools.enablement.sybase.asa.schemaobjecteditor.examples.tableschemaeditor.pastecolumn",1443068346709
+no handler,command,org.eclipse.datatools.enablement.sybase.asa.schemaobjecteditor.examples,,"org.eclipse.datatools.enablement.sybase.asa.schemaobjecteditor.examples.tableschemaeditor.pastecolumn",1443068346709
+no handler,command,org.eclipse.datatools.enablement.sybase.asa.schemaobjecteditor.examples,,"org.eclipse.datatools.enablement.sybase.asa.schemaobjecteditor.examples.tableschemaeditor.pastecolumn",1443068346709
+no handler,command,org.eclipse.datatools.enablement.sybase.asa.schemaobjecteditor.examples,,"org.eclipse.datatools.enablement.sybase.asa.schemaobjecteditor.examples.tableschemaeditor.pastecolumn",1443068346709
+no handler,command,org.eclipse.datatools.enablement.sybase.asa.schemaobjecteditor.examples,,"org.eclipse.datatools.enablement.sybase.asa.schemaobjecteditor.examples.tableschemaeditor.pastecolumn",1443068346709
+no handler,command,org.eclipse.datatools.enablement.sybase.asa.schemaobjecteditor.examples,,"org.eclipse.datatools.enablement.sybase.asa.schemaobjecteditor.examples.tableschemaeditor.pastecolumn",1443068346709
+no handler,command,org.eclipse.datatools.enablement.sybase.asa.schemaobjecteditor.examples,,"org.eclipse.datatools.enablement.sybase.asa.schemaobjecteditor.examples.tableschemaeditor.pastecolumn",1443068346709
+no handler,command,org.eclipse.datatools.enablement.sybase.asa.schemaobjecteditor.examples,,"org.eclipse.datatools.enablement.sybase.asa.schemaobjecteditor.examples.tableschemaeditor.pastecolumn",1443068346709
+no handler,command,org.eclipse.datatools.enablement.sybase.asa.schemaobjecteditor.examples,,"org.eclipse.datatools.enablement.sybase.asa.schemaobjecteditor.examples.tableschemaeditor.pastecolumn",1443068346709
+no handler,command,org.eclipse.datatools.enablement.sybase.asa.schemaobjecteditor.examples,,"org.eclipse.datatools.enablement.sybase.asa.schemaobjecteditor.examples.tableschemaeditor.pastecolumn",1443068346709
+no handler,command,org.eclipse.datatools.enablement.sybase.asa.schemaobjecteditor.examples,,"org.eclipse.datatools.enablement.sybase.asa.schemaobjecteditor.examples.tableschemaeditor.pastecolumn",1443068346709
+no handler,command,org.eclipse.datatools.enablement.sybase.asa.schemaobjecteditor.examples,,"org.eclipse.datatools.enablement.sybase.asa.schemaobjecteditor.examples.tableschemaeditor.pastecolumn",1443068346709
+no handler,command,org.eclipse.datatools.enablement.sybase.asa.schemaobjecteditor.examples,,"org.eclipse.datatools.enablement.sybase.asa.schemaobjecteditor.examples.tableschemaeditor.pastecolumn",1443068346709
+no handler,command,org.eclipse.datatools.enablement.sybase.asa.schemaobjecteditor.examples,,"org.eclipse.datatools.enablement.sybase.asa.schemaobjecteditor.examples.tableschemaeditor.pastecolumn",1443068346725
+no handler,command,org.eclipse.datatools.enablement.sybase.asa.schemaobjecteditor.examples,,"org.eclipse.datatools.enablement.sybase.asa.schemaobjecteditor.examples.tableschemaeditor.pastecolumn",1443068346725
+no handler,command,org.eclipse.datatools.enablement.sybase.asa.schemaobjecteditor.examples,,"org.eclipse.datatools.enablement.sybase.asa.schemaobjecteditor.examples.tableschemaeditor.pastecolumn",1443068346725
+no handler,command,org.eclipse.datatools.enablement.sybase.asa.schemaobjecteditor.examples,,"org.eclipse.datatools.enablement.sybase.asa.schemaobjecteditor.examples.tableschemaeditor.pastecolumn",1443068346725
+no handler,command,org.eclipse.datatools.enablement.sybase.asa.schemaobjecteditor.examples,,"org.eclipse.datatools.enablement.sybase.asa.schemaobjecteditor.examples.tableschemaeditor.pastecolumn",1443068346725
+no handler,command,org.eclipse.datatools.enablement.sybase.asa.schemaobjecteditor.examples,,"org.eclipse.datatools.enablement.sybase.asa.schemaobjecteditor.examples.tableschemaeditor.pastecolumn",1443068346725
+no handler,command,org.eclipse.datatools.enablement.sybase.asa.schemaobjecteditor.examples,,"org.eclipse.datatools.enablement.sybase.asa.schemaobjecteditor.examples.tableschemaeditor.pastecolumn",1443068346725
+deactivated,workbench,org.eclipse.ui.workbench,3.7.1.v20120104-1859,"",1443068348659
+activated,workbench,org.eclipse.ui.workbench,3.7.1.v20120104-1859,"",1443068358248
+no handler,command,org.eclipse.datatools.enablement.sybase.asa.schemaobjecteditor.examples,,"org.eclipse.datatools.enablement.sybase.asa.schemaobjecteditor.examples.tableschemaeditor.pastecolumn",1443068358528
+no handler,command,org.eclipse.datatools.enablement.sybase.asa.schemaobjecteditor.examples,,"org.eclipse.datatools.enablement.sybase.asa.schemaobjecteditor.examples.tableschemaeditor.pastecolumn",1443068358528
+no handler,command,org.eclipse.datatools.enablement.sybase.asa.schemaobjecteditor.examples,,"org.eclipse.datatools.enablement.sybase.asa.schemaobjecteditor.examples.tableschemaeditor.pastecolumn",1443068358528
+no handler,command,org.eclipse.datatools.enablement.sybase.asa.schemaobjecteditor.examples,,"org.eclipse.datatools.enablement.sybase.asa.schemaobjecteditor.examples.tableschemaeditor.pastecolumn",1443068358528
+no handler,command,org.eclipse.datatools.enablement.sybase.asa.schemaobjecteditor.examples,,"org.eclipse.datatools.enablement.sybase.asa.schemaobjecteditor.examples.tableschemaeditor.pastecolumn",1443068358528
+no handler,command,org.eclipse.datatools.enablement.sybase.asa.schemaobjecteditor.examples,,"org.eclipse.datatools.enablement.sybase.asa.schemaobjecteditor.examples.tableschemaeditor.pastecolumn",1443068358528
+no handler,command,org.eclipse.datatools.enablement.sybase.asa.schemaobjecteditor.examples,,"org.eclipse.datatools.enablement.sybase.asa.schemaobjecteditor.examples.tableschemaeditor.pastecolumn",1443068358528
+no handler,command,org.eclipse.datatools.enablement.sybase.asa.schemaobjecteditor.examples,,"org.eclipse.datatools.enablement.sybase.asa.schemaobjecteditor.examples.tableschemaeditor.pastecolumn",1443068358528
+no handler,command,org.eclipse.datatools.enablement.sybase.asa.schemaobjecteditor.examples,,"org.eclipse.datatools.enablement.sybase.asa.schemaobjecteditor.examples.tableschemaeditor.pastecolumn",1443068358528
+no handler,command,org.eclipse.datatools.enablement.sybase.asa.schemaobjecteditor.examples,,"org.eclipse.datatools.enablement.sybase.asa.schemaobjecteditor.examples.tableschemaeditor.pastecolumn",1443068358528
+no handler,command,org.eclipse.datatools.enablement.sybase.asa.schemaobjecteditor.examples,,"org.eclipse.datatools.enablement.sybase.asa.schemaobjecteditor.examples.tableschemaeditor.pastecolumn",1443068358528
+no handler,command,org.eclipse.datatools.enablement.sybase.asa.schemaobjecteditor.examples,,"org.eclipse.datatools.enablement.sybase.asa.schemaobjecteditor.examples.tableschemaeditor.pastecolumn",1443068358528
+no handler,command,org.eclipse.datatools.enablement.sybase.asa.schemaobjecteditor.examples,,"org.eclipse.datatools.enablement.sybase.asa.schemaobjecteditor.examples.tableschemaeditor.pastecolumn",1443068358528
+no handler,command,org.eclipse.datatools.enablement.sybase.asa.schemaobjecteditor.examples,,"org.eclipse.datatools.enablement.sybase.asa.schemaobjecteditor.examples.tableschemaeditor.pastecolumn",1443068358528
+no handler,command,org.eclipse.datatools.enablement.sybase.asa.schemaobjecteditor.examples,,"org.eclipse.datatools.enablement.sybase.asa.schemaobjecteditor.examples.tableschemaeditor.pastecolumn",1443068358528
+no handler,command,org.eclipse.datatools.enablement.sybase.asa.schemaobjecteditor.examples,,"org.eclipse.datatools.enablement.sybase.asa.schemaobjecteditor.examples.tableschemaeditor.pastecolumn",1443068358528
+no handler,command,org.eclipse.datatools.enablement.sybase.asa.schemaobjecteditor.examples,,"org.eclipse.datatools.enablement.sybase.asa.schemaobjecteditor.examples.tableschemaeditor.pastecolumn",1443068358528
+no handler,command,org.eclipse.datatools.enablement.sybase.asa.schemaobjecteditor.examples,,"org.eclipse.datatools.enablement.sybase.asa.schemaobjecteditor.examples.tableschemaeditor.pastecolumn",1443068358528
+no handler,command,org.eclipse.datatools.enablement.sybase.asa.schemaobjecteditor.examples,,"org.eclipse.datatools.enablement.sybase.asa.schemaobjecteditor.examples.tableschemaeditor.pastecolumn",1443068358528
+no handler,command,org.eclipse.datatools.enablement.sybase.asa.schemaobjecteditor.examples,,"org.eclipse.datatools.enablement.sybase.asa.schemaobjecteditor.examples.tableschemaeditor.pastecolumn",1443068358528
+no handler,command,org.eclipse.datatools.enablement.sybase.asa.schemaobjecteditor.examples,,"org.eclipse.datatools.enablement.sybase.asa.schemaobjecteditor.examples.tableschemaeditor.pastecolumn",1443068358528
+no handler,command,org.eclipse.datatools.enablement.sybase.asa.schemaobjecteditor.examples,,"org.eclipse.datatools.enablement.sybase.asa.schemaobjecteditor.examples.tableschemaeditor.pastecolumn",1443068358528
+no handler,command,org.eclipse.datatools.enablement.sybase.asa.schemaobjecteditor.examples,,"org.eclipse.datatools.enablement.sybase.asa.schemaobjecteditor.examples.tableschemaeditor.pastecolumn",1443068358528
+no handler,command,org.eclipse.datatools.enablement.sybase.asa.schemaobjecteditor.examples,,"org.eclipse.datatools.enablement.sybase.asa.schemaobjecteditor.examples.tableschemaeditor.pastecolumn",1443068358528
+no handler,command,org.eclipse.datatools.enablement.sybase.asa.schemaobjecteditor.examples,,"org.eclipse.datatools.enablement.sybase.asa.schemaobjecteditor.examples.tableschemaeditor.pastecolumn",1443068358528
+no handler,command,org.eclipse.datatools.enablement.sybase.asa.schemaobjecteditor.examples,,"org.eclipse.datatools.enablement.sybase.asa.schemaobjecteditor.examples.tableschemaeditor.pastecolumn",1443068358528
+no handler,command,org.eclipse.datatools.enablement.sybase.asa.schemaobjecteditor.examples,,"org.eclipse.datatools.enablement.sybase.asa.schemaobjecteditor.examples.tableschemaeditor.pastecolumn",1443068358528
+no handler,command,org.eclipse.datatools.enablement.sybase.asa.schemaobjecteditor.examples,,"org.eclipse.datatools.enablement.sybase.asa.schemaobjecteditor.examples.tableschemaeditor.pastecolumn",1443068358528
+no handler,command,org.eclipse.datatools.enablement.sybase.asa.schemaobjecteditor.examples,,"org.eclipse.datatools.enablement.sybase.asa.schemaobjecteditor.examples.tableschemaeditor.pastecolumn",1443068358528
+no handler,command,org.eclipse.datatools.enablement.sybase.asa.schemaobjecteditor.examples,,"org.eclipse.datatools.enablement.sybase.asa.schemaobjecteditor.examples.tableschemaeditor.pastecolumn",1443068358528
+no handler,command,org.eclipse.datatools.enablement.sybase.asa.schemaobjecteditor.examples,,"org.eclipse.datatools.enablement.sybase.asa.schemaobjecteditor.examples.tableschemaeditor.pastecolumn",1443068358528
+no handler,command,org.eclipse.datatools.enablement.sybase.asa.schemaobjecteditor.examples,,"org.eclipse.datatools.enablement.sybase.asa.schemaobjecteditor.examples.tableschemaeditor.pastecolumn",1443068358528
+no handler,command,org.eclipse.datatools.enablement.sybase.asa.schemaobjecteditor.examples,,"org.eclipse.datatools.enablement.sybase.asa.schemaobjecteditor.examples.tableschemaeditor.pastecolumn",1443068358528
+no handler,command,org.eclipse.datatools.enablement.sybase.asa.schemaobjecteditor.examples,,"org.eclipse.datatools.enablement.sybase.asa.schemaobjecteditor.examples.tableschemaeditor.pastecolumn",1443068358528

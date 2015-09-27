@@ -1,12 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <qualifiedTypeNameHistroy>
-<fullyQualifiedTypeName name="org.apache.commons.dbutils.handlers.MapHandler"/>
-<fullyQualifiedTypeName name="java.util.Map.Entry"/>
-<fullyQualifiedTypeName name="org.apache.commons.dbutils.ResultSetHandler"/>
-<fullyQualifiedTypeName name="org.apache.commons.dbutils.handlers.BeanListHandler"/>
-<fullyQualifiedTypeName name="java.util.List"/>
-<fullyQualifiedTypeName name="org.apache.commons.dbutils.handlers.BeanHandler"/>
-<fullyQualifiedTypeName name="org.apache.commons.dbutils.handlers.MapListHandler"/>
 <fullyQualifiedTypeName name="java.util.ArrayList"/>
 <fullyQualifiedTypeName name="org.apache.commons.dbutils.handlers.ArrayHandler"/>
 <fullyQualifiedTypeName name="org.apache.commons.dbutils.handlers.ColumnListHandler"/>
@@ -35,7 +28,6 @@
 <fullyQualifiedTypeName name="javax.servlet.http.HttpServletRequest"/>
 <fullyQualifiedTypeName name="java.net.InetAddress"/>
 <fullyQualifiedTypeName name="java.net.Socket"/>
-<fullyQualifiedTypeName name="org.apache.catalina.tribes.util.StringManager"/>
 <fullyQualifiedTypeName name="ex03.connector.http.SocketInputStream"/>
 <fullyQualifiedTypeName name="java.io.OutputStream"/>
 <fullyQualifiedTypeName name="java.text.SimpleDateFormat"/>
@@ -51,7 +43,6 @@
 <fullyQualifiedTypeName name="java.net.CookieManager"/>
 <fullyQualifiedTypeName name="java.io.File"/>
 <fullyQualifiedTypeName name="java.io.FileInputStream"/>
-<fullyQualifiedTypeName name="java.util.Date"/>
 <fullyQualifiedTypeName name="javax.servlet.ServletOutputStream"/>
 <fullyQualifiedTypeName name="ex03.connector.ResponseStream"/>
 <fullyQualifiedTypeName name="javax.servlet.ServletInputStream"/>
@@ -60,4 +51,13 @@
 <fullyQualifiedTypeName name="java.io.InputStream"/>
 <fullyQualifiedTypeName name="java.io.IOException"/>
 <fullyQualifiedTypeName name="java.lang.Exception"/>
+<fullyQualifiedTypeName name="java.util.Date"/>
+<fullyQualifiedTypeName name="org.quartz.JobDetail"/>
+<fullyQualifiedTypeName name="org.quartz.SimpleTrigger"/>
+<fullyQualifiedTypeName name="java.util.Calendar"/>
+<fullyQualifiedTypeName name="org.quartz.SchedulerFactory"/>
+<fullyQualifiedTypeName name="org.quartz.impl.StdSchedulerFactory"/>
+<fullyQualifiedTypeName name="org.quartz.SchedulerException"/>
+<fullyQualifiedTypeName name="org.apache.tomcat.util.res.StringManager"/>
+<fullyQualifiedTypeName name="org.apache.catalina.tribes.util.StringManager"/>
 </qualifiedTypeNameHistroy>

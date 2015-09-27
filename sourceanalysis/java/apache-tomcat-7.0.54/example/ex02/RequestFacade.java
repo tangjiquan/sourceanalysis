@@ -1,7 +1,7 @@
 package ex02;
 
-import java.io.BufferedReader;
 import java.io.IOException;
+import java.io.BufferedReader;
 import java.io.UnsupportedEncodingException;
 import java.util.Enumeration;
 import java.util.Locale;
@@ -15,218 +15,181 @@ import javax.servlet.ServletInputStream;
 import javax.servlet.ServletRequest;
 import javax.servlet.ServletResponse;
 
-public class RequestFacade implements ServletRequest{
+public class RequestFacade implements ServletRequest {
 
-	private ServletRequest request = null;
-	
-	public RequestFacade(Request request){
-		this.request = request;
-	}
-	@Override
-	public Object getAttribute(String name) {
-		return request.getAttribute(name);
-	}
+  private ServletRequest request = null;
 
-	@Override
-	public Enumeration<String> getAttributeNames() {
-		return request.getAttributeNames();
-	}
+  public RequestFacade(Request request) {
+    this.request = request;
+  }
 
-	@Override
-	public String getCharacterEncoding() {
-		return request.getCharacterEncoding();
-	}
+  /* implementation of the ServletRequest*/
+  public Object getAttribute(String attribute) {
+    return request.getAttribute(attribute);
+  }
 
-	@Override
-	public void setCharacterEncoding(String env)
-			throws UnsupportedEncodingException {
-		request.setCharacterEncoding(env);
-	}
+  public Enumeration getAttributeNames() {
+    return request.getAttributeNames();
+  }
 
-	@Override
-	public int getContentLength() {
-		return request.getContentLength();
-	}
+  public String getRealPath(String path) {
+    return request.getRealPath(path);
+  }
 
-	@Override
-	public String getContentType() {
-		return request.getContentType();
-	}
+  public RequestDispatcher getRequestDispatcher(String path) {
+    return request.getRequestDispatcher(path);
+  }
 
-	@Override
-	public ServletInputStream getInputStream() throws IOException {
-		return request.getInputStream();
-	}
+  public boolean isSecure() {
+    return request.isSecure();
+  }
 
-	@Override
-	public String getParameter(String name) {
-		return request.getParameter(name);
-	}
+  public String getCharacterEncoding() {
+    return request.getCharacterEncoding();
+  }
 
-	@Override
-	public Enumeration<String> getParameterNames() {
-		return request.getParameterNames();
-	}
+  public int getContentLength() {
+    return request.getContentLength();
+  }
 
-	@Override
-	public String[] getParameterValues(String name) {
-		return request.getParameterValues(name);
-	}
+  public String getContentType() {
+    return request.getContentType();
+  }
 
-	@Override
-	public Map<String, String[]> getParameterMap() {
-		return request.getParameterMap();
-	}
+  public ServletInputStream getInputStream() throws IOException {
+    return request.getInputStream();
+  }
 
-	@Override
-	public String getProtocol() {
-		// TODO Auto-generated method stub
-		return null;
-	}
+  public Locale getLocale() {
+    return request.getLocale();
+  }
 
-	@Override
-	public String getScheme() {
-		// TODO Auto-generated method stub
-		return null;
-	}
+  public Enumeration getLocales() {
+    return request.getLocales();
+  }
 
-	@Override
-	public String getServerName() {
-		// TODO Auto-generated method stub
-		return null;
-	}
+  public String getParameter(String name) {
+    return request.getParameter(name);
+  }
 
-	@Override
-	public int getServerPort() {
-		// TODO Auto-generated method stub
-		return 0;
-	}
+  public Map getParameterMap() {
+    return request.getParameterMap();
+  }
 
-	@Override
-	public BufferedReader getReader() throws IOException {
-		// TODO Auto-generated method stub
-		return null;
-	}
+  public Enumeration getParameterNames() {
+    return request.getParameterNames();
+  }
 
-	@Override
-	public String getRemoteAddr() {
-		// TODO Auto-generated method stub
-		return null;
-	}
+  public String[] getParameterValues(String parameter) {
+    return request.getParameterValues(parameter);
+  }
 
-	@Override
-	public String getRemoteHost() {
-		// TODO Auto-generated method stub
-		return null;
-	}
+  public String getProtocol() {
+    return request.getProtocol();
+  }
 
-	@Override
-	public void setAttribute(String name, Object o) {
-		// TODO Auto-generated method stub
-		
-	}
+  public BufferedReader getReader() throws IOException {
+    return request.getReader();
+  }
 
-	@Override
-	public void removeAttribute(String name) {
-		// TODO Auto-generated method stub
-		
-	}
+  public String getRemoteAddr() {
+    return request.getRemoteAddr();
+  }
 
-	@Override
-	public Locale getLocale() {
-		// TODO Auto-generated method stub
-		return null;
-	}
+  public String getRemoteHost() {
+    return request.getRemoteHost();
+  }
 
-	@Override
-	public Enumeration<Locale> getLocales() {
-		// TODO Auto-generated method stub
-		return null;
-	}
+  public String getScheme() {
+   return request.getScheme();
+  }
 
-	@Override
-	public boolean isSecure() {
-		// TODO Auto-generated method stub
-		return false;
-	}
+  public String getServerName() {
+    return request.getServerName();
+  }
 
-	@Override
-	public RequestDispatcher getRequestDispatcher(String path) {
-		// TODO Auto-generated method stub
-		return null;
-	}
+  public int getServerPort() {
+    return request.getServerPort();
+  }
 
-	@Override
-	public String getRealPath(String path) {
-		// TODO Auto-generated method stub
-		return null;
-	}
+  public void removeAttribute(String attribute) {
+    request.removeAttribute(attribute);
+  }
 
-	@Override
-	public int getRemotePort() {
-		// TODO Auto-generated method stub
-		return 0;
-	}
+  public void setAttribute(String key, Object value) {
+    request.setAttribute(key, value);
+  }
 
-	@Override
-	public String getLocalName() {
-		// TODO Auto-generated method stub
-		return null;
-	}
+  public void setCharacterEncoding(String encoding)
+    throws UnsupportedEncodingException {
+    request.setCharacterEncoding(encoding);
+  }
 
-	@Override
-	public String getLocalAddr() {
-		// TODO Auto-generated method stub
-		return null;
-	}
+@Override
+public int getRemotePort() {
+	// TODO Auto-generated method stub
+	return 0;
+}
 
-	@Override
-	public int getLocalPort() {
-		// TODO Auto-generated method stub
-		return 0;
-	}
+@Override
+public String getLocalName() {
+	// TODO Auto-generated method stub
+	return null;
+}
 
-	@Override
-	public ServletContext getServletContext() {
-		// TODO Auto-generated method stub
-		return null;
-	}
+@Override
+public String getLocalAddr() {
+	// TODO Auto-generated method stub
+	return null;
+}
 
-	@Override
-	public AsyncContext startAsync() {
-		// TODO Auto-generated method stub
-		return null;
-	}
+@Override
+public int getLocalPort() {
+	// TODO Auto-generated method stub
+	return 0;
+}
 
-	@Override
-	public AsyncContext startAsync(ServletRequest servletRequest,
-			ServletResponse servletResponse) {
-		// TODO Auto-generated method stub
-		return null;
-	}
+@Override
+public ServletContext getServletContext() {
+	// TODO Auto-generated method stub
+	return null;
+}
 
-	@Override
-	public boolean isAsyncStarted() {
-		// TODO Auto-generated method stub
-		return false;
-	}
+@Override
+public AsyncContext startAsync() {
+	// TODO Auto-generated method stub
+	return null;
+}
 
-	@Override
-	public boolean isAsyncSupported() {
-		// TODO Auto-generated method stub
-		return false;
-	}
+@Override
+public AsyncContext startAsync(ServletRequest servletRequest,
+		ServletResponse servletResponse) {
+	// TODO Auto-generated method stub
+	return null;
+}
 
-	@Override
-	public AsyncContext getAsyncContext() {
-		// TODO Auto-generated method stub
-		return null;
-	}
+@Override
+public boolean isAsyncStarted() {
+	// TODO Auto-generated method stub
+	return false;
+}
 
-	@Override
-	public DispatcherType getDispatcherType() {
-		// TODO Auto-generated method stub
-		return null;
-	}
+@Override
+public boolean isAsyncSupported() {
+	// TODO Auto-generated method stub
+	return false;
+}
+
+@Override
+public AsyncContext getAsyncContext() {
+	// TODO Auto-generated method stub
+	return null;
+}
+
+@Override
+public DispatcherType getDispatcherType() {
+	// TODO Auto-generated method stub
+	return null;
+}
 
 }

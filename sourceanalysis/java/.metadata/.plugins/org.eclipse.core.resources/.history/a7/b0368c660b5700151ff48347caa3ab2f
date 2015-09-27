@@ -1,7 +1,0 @@
-package ex03.connector;
-
-import javax.servlet.ServletInputStream;
-
-public class RequestStream extends ServletInputStream{
-
-}

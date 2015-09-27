@@ -10,7 +10,7 @@ import java.net.Socket;
 
 /**
  * 模拟服务器
- * @author Administrator
+ * @author tangjiquan
  *
  */
 public class HttpServer {
