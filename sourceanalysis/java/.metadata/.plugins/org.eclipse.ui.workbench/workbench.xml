@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<workbench progressCount="38" version="2.0">
+<workbench progressCount="62" version="2.0">
 <workbenchAdvisor/>
-<window height="780" maximized="true" width="1152" x="186" y="166">
+<window height="780" maximized="true" width="1152" x="87" y="72">
 <fastViewData fastViewLocation="1024"/>
 <perspectiveBar>
 <itemSize x="160"/>
@@ -17,16 +17,16 @@
 <coolItem id="org.eclipse.wst.server.ui.internal.webbrowser.actionSet" itemType="typeToolBarContribution" x="38" y="22"/>
 <coolItem id="org.eclipse.wst.ws.explorer.explorer" itemType="typeToolBarContribution" x="38" y="22"/>
 <coolItem id="org.eclipse.wst.xml.ui.perspective.NewFileToolBar" itemType="typeToolBarContribution" x="-1" y="-1"/>
-<coolItem id="org.eclipse.wst.xml.ui.design.DesignToolBar" itemType="typeToolBarContribution" x="-1" y="-1"/>
+<coolItem id="org.eclipse.wst.xml.ui.design.DesignToolBar" itemType="typeToolBarContribution" x="61" y="22"/>
 <coolItem id="group.nav" itemType="typeGroupMarker"/>
 <coolItem id="org.eclipse.ui.workbench.navigate" itemType="typeToolBarContribution" x="198" y="22"/>
 <coolItem id="group.editor" itemType="typeGroupMarker"/>
 <coolItem id="org.eclipse.jdt.ui.PropertiesFileEditor" itemType="typePlaceholder" x="-1" y="-1"/>
 <coolItem id="org.eclipse.ant.ui.internal.editor.AntEditor" itemType="typePlaceholder" x="-1" y="-1"/>
 <coolItem id="org.eclipse.jdt.ui.ClassFileEditor" itemType="typePlaceholder" x="-1" y="-1"/>
-<coolItem id="org.eclipse.wst.xml.ui.internal.tabletree.XMLMultiPageEditorPart" itemType="typeToolBarContribution" x="-1" y="-1"/>
+<coolItem id="org.eclipse.wst.xml.ui.internal.tabletree.XMLMultiPageEditorPart" itemType="typePlaceholder" x="-1" y="-1"/>
 <coolItem id="org.eclipse.ui.DefaultTextEditor" itemType="typePlaceholder" x="-1" y="-1"/>
-<coolItem id="org.eclipse.jdt.ui.CompilationUnitEditor" itemType="typePlaceholder" x="-1" y="-1"/>
+<coolItem id="org.eclipse.jdt.ui.CompilationUnitEditor" itemType="typeToolBarContribution" x="-1" y="-1"/>
 <coolItem id="group.help" itemType="typeGroupMarker"/>
 <coolItem id="org.eclipse.ui.workbench.help" itemType="typeToolBarContribution" x="-1" y="-1"/>
 </coolbarLayout>
@@ -35,17 +35,38 @@
 <editorArea activeWorkbook="DefaultEditorWorkbook">
 <info part="DefaultEditorWorkbook">
 <folder appearance="1" expanded="2">
-<presentation id="org.eclipse.ui.presentations.WorkbenchPresentationFactory"/>
+<presentation id="org.eclipse.ui.presentations.WorkbenchPresentationFactory">
+<part id="0"/>
+<part id="1"/>
+<part id="2"/>
+<part id="3"/>
+</presentation>
 </folder>
 </info>
 </editorArea>
+<editor id="org.eclipse.jdt.ui.CompilationUnitEditor" name="TestMybatis.java" partName="TestMybatis.java" path="E:/workspace/git/sources/sourceanalysis/sourceanalysis/java/mybatis-3.2.5/test/com/test/mybatis/TestMybatis.java" title="TestMybatis.java" tooltip="mybatis-3.2.5/test/com/test/mybatis/TestMybatis.java" workbook="DefaultEditorWorkbook">
+<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/mybatis-3.2.5/test/com/test/mybatis/TestMybatis.java"/>
+<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="640" selectionTopPixel="0"/>
+</editor>
+<editor activePart="true" focus="true" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="DefaultSqlSessionFactory.java" partName="DefaultSqlSessionFactory.java" path="E:/workspace/git/sources/sourceanalysis/sourceanalysis/java/mybatis-3.2.5/src/org/apache/ibatis/session/defaults/DefaultSqlSessionFactory.java" title="DefaultSqlSessionFactory.java" tooltip="mybatis-3.2.5/src/org/apache/ibatis/session/defaults/DefaultSqlSessionFactory.java" workbook="DefaultEditorWorkbook">
+<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/mybatis-3.2.5/src/org/apache/ibatis/session/defaults/DefaultSqlSessionFactory.java"/>
+<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="1666" selectionTopPixel="108"/>
+</editor>
+<editor id="org.eclipse.jdt.ui.CompilationUnitEditor" name="ManagedTransactionFactory.java" partName="ManagedTransactionFactory.java" path="E:/workspace/git/sources/sourceanalysis/sourceanalysis/java/mybatis-3.2.5/src/org/apache/ibatis/transaction/managed/ManagedTransactionFactory.java" title="ManagedTransactionFactory.java" tooltip="mybatis-3.2.5/src/org/apache/ibatis/transaction/managed/ManagedTransactionFactory.java" workbook="DefaultEditorWorkbook">
+<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/mybatis-3.2.5/src/org/apache/ibatis/transaction/managed/ManagedTransactionFactory.java"/>
+<editorState selectionHorizontalPixel="0" selectionLength="25" selectionOffset="1053" selectionTopPixel="90"/>
+</editor>
+<editor id="org.eclipse.jdt.ui.CompilationUnitEditor" name="DefaultSqlSession.java" partName="DefaultSqlSession.java" path="E:/workspace/git/sources/sourceanalysis/sourceanalysis/java/mybatis-3.2.5/src/org/apache/ibatis/session/defaults/DefaultSqlSession.java" title="DefaultSqlSession.java" tooltip="mybatis-3.2.5/src/org/apache/ibatis/session/defaults/DefaultSqlSession.java" workbook="DefaultEditorWorkbook">
+<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/mybatis-3.2.5/src/org/apache/ibatis/session/defaults/DefaultSqlSession.java"/>
+<editorState selectionHorizontalPixel="0" selectionLength="17" selectionOffset="1805" selectionTopPixel="60"/>
+</editor>
 </editors>
 <views>
 <view id="org.eclipse.jdt.ui.TypeHierarchy" partName="Type Hierarchy">
-<viewState hidefields="false" hidelocaltypes="false" hidenonpublic="false" hidestatic="false" input="=quartz-1.6.5/src\/java&lt;org.quartz.impl{StdSchedulerFactory.java[StdSchedulerFactory" link_editors="0" mv_vertical_scroll="0" orientation="3" qualified_names="0" ratio="350" selection="=quartz-1.6.5/src\/java&lt;org.quartz.impl{StdSchedulerFactory.java[StdSchedulerFactory" showinherited="false" sortbydefiningtype="false" vertical_scroll="0" view="2" workingSetName=""/>
+<viewState hidefields="false" hidelocaltypes="false" hidenonpublic="false" hidestatic="false" input="=mybatis-3.2.5/src&lt;org.apache.ibatis.transaction{Transaction.java[Transaction" link_editors="0" mv_vertical_scroll="0" orientation="3" qualified_names="0" ratio="350" selection="=mybatis-3.2.5/src&lt;org.apache.ibatis.transaction.managed{ManagedTransaction.java[ManagedTransaction" showinherited="false" sortbydefiningtype="false" vertical_scroll="0" view="2" workingSetName=""/>
 </view>
 <view id="org.eclipse.jdt.ui.PackageExplorer" partName="Package Explorer">
-<viewState group_libraries="1" layout="2" linkWithEditor="1" rootMode="1" workingSetName="">
+<viewState group_libraries="1" layout="1" linkWithEditor="1" rootMode="1" workingSetName="">
 <customFilters userDefinedPatternsEnabled="false">
 <xmlDefinedFilters>
 <child filterId="org.eclipse.jdt.ui.PackageExplorer.StaticsFilter" isEnabled="false"/>
@@ -97,6 +118,9 @@
 <view id="org.eclipse.debug.ui.DebugView" partName="Debug">
 <viewState/>
 </view>
+<view id="org.eclipse.jdt.junit.ResultView" partName="JUnit">
+<viewState failuresOnly="false" layout="1" orientation="2" ratio="272" scroll="false" time="true"/>
+</view>
 <view id="org.eclipse.ui.views.TaskList" partName="Tasks"/>
 <view id="org.eclipse.debug.ui.VariableView" partName="Variables">
 <viewState/>
@@ -105,7 +129,7 @@
 <viewState/>
 </view>
 </views>
-<perspectives activePart="org.eclipse.jdt.ui.PackageExplorer" activePerspective="org.eclipse.jst.j2ee.J2EEPerspective">
+<perspectives activePart="org.eclipse.jdt.ui.CompilationUnitEditor" activePerspective="org.eclipse.jst.j2ee.J2EEPerspective">
 <perspective editorAreaTrimState="2" editorAreaVisible="1" fixed="0" version="0.016">
 <descriptor class="org.eclipse.jst.j2ee.internal.perspective.J2EEPerspective" id="org.eclipse.jst.j2ee.J2EEPerspective" label="Java EE"/>
 <alwaysOnActionSet id="org.eclipse.mylyn.context.ui.actionSet"/>
@@ -163,10 +187,11 @@
 <hide_toolbar_item_id id="org.eclipse.ui.edit.text.toggleShowSelectedElementOnly"/>
 <hide_toolbar_item_id id="org.eclipse.jdt.ui.actions.OpenProjectWizard"/>
 <view id="org.eclipse.ui.console.ConsoleView"/>
+<view id="org.eclipse.jdt.junit.ResultView"/>
 <view id="org.eclipse.jdt.ui.PackageExplorer"/>
 <view id="org.eclipse.jdt.ui.TypeHierarchy"/>
 <fastViewBars>
-<fastViewBar fastViewLocation="1024" id="bottomRight" orientation="256" selectedTabId="org.eclipse.jdt.callhierarchy.view" style="0">
+<fastViewBar fastViewLocation="1024" id="bottomRight" orientation="256" selectedTabId="org.eclipse.debug.ui.BreakpointView" style="0">
 <fastViews>
 <view id="org.eclipse.wst.server.ui.ServersView" ratio="0.29903537"/>
 <view id="org.eclipse.debug.ui.BreakpointView" ratio="0.29903537"/>
@@ -188,7 +213,7 @@
 <layout>
 <mainWindow>
 <info folder="true" part="topLeft">
-<folder activePageID="org.eclipse.jdt.ui.PackageExplorer" appearance="2" expanded="2">
+<folder activePageID="org.eclipse.jdt.ui.TypeHierarchy" appearance="2" expanded="2">
 <page content="org.eclipse.jdt.ui.PackageExplorer" label="Package Explorer"/>
 <page content="org.eclipse.jdt.ui.TypeHierarchy" label="Type Hierarchy"/>
 <page content="org.eclipse.ui.navigator.ProjectExplorer" label="LabelNotFound"/>
@@ -214,7 +239,7 @@
 <presentation id="org.eclipse.ui.presentations.WorkbenchPresentationFactory"/>
 </folder>
 </info>
-<info part="org.eclipse.ui.editorss" ratio="0.27635542" ratioLeft="367" ratioRight="961" relationship="2" relative="topLeft"/>
+<info part="org.eclipse.ui.editorss" ratio="0.22891566" ratioLeft="304" ratioRight="1024" relationship="2" relative="topLeft"/>
 <info folder="true" part="bottomRight" ratio="0.6930533" ratioLeft="429" ratioRight="190" relationship="4" relative="org.eclipse.ui.editorss">
 <folder appearance="2" expanded="2">
 <page content="org.eclipse.wst.server.ui.ServersView" label="LabelNotFound"/>
@@ -244,11 +269,13 @@
 <presentation id="org.eclipse.ui.presentations.WorkbenchPresentationFactory"/>
 </folder>
 </info>
-<info folder="true" part="org.eclipse.ui.internal.ViewStack@5d730f36" ratio="0.77544427" ratioLeft="480" ratioRight="139" relationship="4" relative="org.eclipse.ui.editorss">
-<folder activePageID="org.eclipse.ui.console.ConsoleView" appearance="2" expanded="2">
+<info folder="true" part="org.eclipse.ui.internal.ViewStack@5d730f36" ratio="0.81583196" ratioLeft="505" ratioRight="114" relationship="4" relative="org.eclipse.ui.editorss">
+<folder activePageID="org.eclipse.jdt.junit.ResultView" appearance="2" expanded="2">
 <page content="org.eclipse.ui.console.ConsoleView" label="Console"/>
+<page content="org.eclipse.jdt.junit.ResultView" label="JUnit"/>
 <presentation id="org.eclipse.ui.presentations.WorkbenchPresentationFactory">
 <part id="0"/>
+<part id="1"/>
 </presentation>
 </folder>
 </info>
@@ -350,7 +377,171 @@
 </perspective>
 </perspectives>
 <workingSets/>
-<navigationHistory/>
+<navigationHistory>
+<editors>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/mybatis-3.2.5/src/org/apache/ibatis/session/SqlSessionFactoryBuilder.java"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/mybatis-3.2.5/src/org/apache/ibatis/builder/xml/XMLConfigBuilder.java"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/mybatis-3.2.5/test/com/test/mybatis/TestMybatis.java"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/mybatis-3.2.5/src/org/apache/ibatis/session/SqlSessionFactoryBuilder.java"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/mybatis-3.2.5/src/org/apache/ibatis/builder/xml/XMLConfigBuilder.java"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/mybatis-3.2.5/src/org/apache/ibatis/session/defaults/DefaultSqlSessionFactory.java"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/mybatis-3.2.5/src/org/apache/ibatis/transaction/managed/ManagedTransactionFactory.java"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/mybatis-3.2.5/src/org/apache/ibatis/transaction/TransactionFactory.java"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/mybatis-3.2.5/src/org/apache/ibatis/transaction/jdbc/JdbcTransactionFactory.java"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/mybatis-3.2.5/src/org/apache/ibatis/transaction/jdbc/JdbcTransaction.java"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/mybatis-3.2.5/src/org/apache/ibatis/transaction/managed/ManagedTransaction.java"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/mybatis-3.2.5/src/org/apache/ibatis/session/Configuration.java"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/mybatis-3.2.5/src/org/apache/ibatis/session/defaults/DefaultSqlSessionFactory.java"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/mybatis-3.2.5/src/org/apache/ibatis/session/defaults/DefaultSqlSession.java"/>
+</editors>
+<item historyLabel="XMLConfigBuilder.java" index="1">
+<position info="not_deleted" x="2625" y="0"/>
+</item>
+<item historyLabel="XMLConfigBuilder.java" index="1">
+<position info="not_deleted" x="2611" y="0"/>
+</item>
+<item historyLabel="XMLConfigBuilder.java" index="1">
+<position info="not_deleted" x="2704" y="0"/>
+</item>
+<item historyLabel="SqlSessionFactoryBuilder.java" index="0">
+<position info="not_deleted" x="2513" y="0"/>
+</item>
+<item historyLabel="XMLConfigBuilder.java" index="1">
+<position info="not_deleted" x="2928" y="0"/>
+</item>
+<item historyLabel="XMLConfigBuilder.java" index="1">
+<position info="not_deleted" x="2624" y="0"/>
+</item>
+<item historyLabel="XMLConfigBuilder.java" index="1">
+<position info="not_deleted" x="2611" y="0"/>
+</item>
+<item historyLabel="XMLConfigBuilder.java" index="1">
+<position info="not_deleted" x="2757" y="0"/>
+</item>
+<item historyLabel="TestMybatis.java" index="2">
+<position info="not_deleted" x="559" y="0"/>
+</item>
+<item historyLabel="SqlSessionFactoryBuilder.java" index="3">
+<position info="not_deleted" x="2002" y="5"/>
+</item>
+<item historyLabel="SqlSessionFactoryBuilder.java" index="3">
+<position info="not_deleted" x="2049" y="0"/>
+</item>
+<item historyLabel="SqlSessionFactoryBuilder.java" index="3">
+<position info="not_deleted" x="2589" y="0"/>
+</item>
+<item historyLabel="XMLConfigBuilder.java" index="4">
+<position info="not_deleted" x="3227" y="0"/>
+</item>
+<item historyLabel="XMLConfigBuilder.java" index="4">
+<position info="not_deleted" x="3308" y="0"/>
+</item>
+<item historyLabel="SqlSessionFactoryBuilder.java" index="3">
+<position info="not_deleted" x="2588" y="0"/>
+</item>
+<item historyLabel="SqlSessionFactoryBuilder.java" index="3">
+<position info="not_deleted" x="2576" y="0"/>
+</item>
+<item historyLabel="SqlSessionFactoryBuilder.java" index="3">
+<position info="not_deleted" x="2589" y="0"/>
+</item>
+<item historyLabel="SqlSessionFactoryBuilder.java" index="3">
+<position info="not_deleted" x="2575" y="0"/>
+</item>
+<item historyLabel="SqlSessionFactoryBuilder.java" index="3">
+<position info="not_deleted" x="2991" y="0"/>
+</item>
+<item historyLabel="DefaultSqlSessionFactory.java" index="5">
+<position info="not_deleted" x="1502" y="24"/>
+</item>
+<item historyLabel="DefaultSqlSessionFactory.java" index="5">
+<position info="not_deleted" x="1577" y="0"/>
+</item>
+<item historyLabel="DefaultSqlSessionFactory.java" index="5">
+<position info="not_deleted" x="4678" y="16"/>
+</item>
+<item historyLabel="DefaultSqlSessionFactory.java" index="5">
+<position info="not_deleted" x="4592" y="0"/>
+</item>
+<item historyLabel="ManagedTransactionFactory.java" index="6">
+<position info="not_deleted" x="1097" y="0"/>
+</item>
+<item historyLabel="TransactionFactory.java" index="7">
+<position info="not_deleted" x="908" y="18"/>
+</item>
+<item historyLabel="JdbcTransactionFactory.java" index="8">
+<position info="not_deleted" x="1044" y="22"/>
+</item>
+<item historyLabel="ManagedTransactionFactory.java" index="6">
+<position info="not_deleted" x="1098" y="0"/>
+</item>
+<item historyLabel="TransactionFactory.java" index="7">
+<position info="not_deleted" x="908" y="18"/>
+</item>
+<item historyLabel="TransactionFactory.java" index="7">
+<position info="not_deleted" x="1016" y="13"/>
+</item>
+<item historyLabel="TransactionFactory.java" index="7">
+<position info="not_deleted" x="1231" y="14"/>
+</item>
+<item historyLabel="TransactionFactory.java" index="7">
+<position info="not_deleted" x="1216" y="0"/>
+</item>
+<item historyLabel="JdbcTransactionFactory.java" index="8">
+<position info="not_deleted" x="1229" y="0"/>
+</item>
+<item historyLabel="JdbcTransaction.java" index="9">
+<position info="not_deleted" x="1883" y="15"/>
+</item>
+<item historyLabel="JdbcTransaction.java" index="9">
+<position info="not_deleted" x="1409" y="15"/>
+</item>
+<item historyLabel="ManagedTransaction.java" index="10">
+<position info="not_deleted" x="1315" y="18"/>
+</item>
+<item historyLabel="Configuration.java" index="11">
+<position info="not_deleted" x="4292" y="13"/>
+</item>
+<item historyLabel="SqlSessionFactoryBuilder.java" index="3">
+<position info="not_deleted" x="2994" y="0"/>
+</item>
+<item historyLabel="DefaultSqlSessionFactory.java" index="5">
+<position info="not_deleted" x="1502" y="24"/>
+</item>
+<item historyLabel="TestMybatis.java" index="2">
+<position info="not_deleted" x="640" y="0"/>
+</item>
+<item historyLabel="DefaultSqlSessionFactory.java" index="12">
+<position info="not_deleted" x="1623" y="11"/>
+</item>
+<item historyLabel="DefaultSqlSessionFactory.java" index="12">
+<position info="not_deleted" x="1667" y="0"/>
+</item>
+<item historyLabel="DefaultSqlSessionFactory.java" index="12">
+<position info="not_deleted" x="1664" y="0"/>
+</item>
+<item historyLabel="DefaultSqlSessionFactory.java" index="12">
+<position info="not_deleted" x="4430" y="0"/>
+</item>
+<item historyLabel="TestMybatis.java" index="2">
+<position info="not_deleted" x="640" y="0"/>
+</item>
+<item historyLabel="DefaultSqlSessionFactory.java" index="12">
+<position info="not_deleted" x="1623" y="11"/>
+</item>
+<item active="true" historyLabel="DefaultSqlSessionFactory.java" index="12">
+<position info="not_deleted" x="1666" y="0"/>
+</item>
+<item historyLabel="DefaultSqlSessionFactory.java" index="12">
+<position info="not_deleted" x="2875" y="25"/>
+</item>
+<item historyLabel="DefaultSqlSessionFactory.java" index="12">
+<position info="not_deleted" x="3395" y="0"/>
+</item>
+<item historyLabel="DefaultSqlSession.java" index="13">
+<position info="not_deleted" x="1805" y="17"/>
+</item>
+</navigationHistory>
 <input factoryID="org.eclipse.ui.internal.model.ResourceFactory" path="/" type="8"/>
 </page>
 <workbenchWindowAdvisor/>
@@ -373,50 +564,50 @@
 </trimLayout>
 </window>
 <mruList>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="StdScheduler.java" tooltip="quartz-1.6.5/src/java/org/quartz/impl/StdScheduler.java">
-<persistable path="/quartz-1.6.5/src/java/org/quartz/impl/StdScheduler.java"/>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="DefaultSqlSession.java" tooltip="mybatis-3.2.5/src/org/apache/ibatis/session/defaults/DefaultSqlSession.java">
+<persistable path="/mybatis-3.2.5/src/org/apache/ibatis/session/defaults/DefaultSqlSession.java"/>
 </file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="ClassLoadHelper.java" tooltip="quartz-1.6.5/src/java/org/quartz/spi/ClassLoadHelper.java">
-<persistable path="/quartz-1.6.5/src/java/org/quartz/spi/ClassLoadHelper.java"/>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="ManagedTransactionFactory.java" tooltip="mybatis-3.2.5/src/org/apache/ibatis/transaction/managed/ManagedTransactionFactory.java">
+<persistable path="/mybatis-3.2.5/src/org/apache/ibatis/transaction/managed/ManagedTransactionFactory.java"/>
 </file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="JobFactory.java" tooltip="quartz-1.6.5/src/java/org/quartz/spi/JobFactory.java">
-<persistable path="/quartz-1.6.5/src/java/org/quartz/spi/JobFactory.java"/>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="DefaultSqlSessionFactory.java" tooltip="mybatis-3.2.5/src/org/apache/ibatis/session/defaults/DefaultSqlSessionFactory.java">
+<persistable path="/mybatis-3.2.5/src/org/apache/ibatis/session/defaults/DefaultSqlSessionFactory.java"/>
 </file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="DBConnectionManager.java" tooltip="quartz-1.6.5/src/java/org/quartz/utils/DBConnectionManager.java">
-<persistable path="/quartz-1.6.5/src/java/org/quartz/utils/DBConnectionManager.java"/>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="ManagedTransaction.java" tooltip="mybatis-3.2.5/src/org/apache/ibatis/transaction/managed/ManagedTransaction.java">
+<persistable path="/mybatis-3.2.5/src/org/apache/ibatis/transaction/managed/ManagedTransaction.java"/>
 </file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="SchedulerRepository.java" tooltip="quartz-1.6.5/src/java/org/quartz/impl/SchedulerRepository.java">
-<persistable path="/quartz-1.6.5/src/java/org/quartz/impl/SchedulerRepository.java"/>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="JdbcTransaction.java" tooltip="mybatis-3.2.5/src/org/apache/ibatis/transaction/jdbc/JdbcTransaction.java">
+<persistable path="/mybatis-3.2.5/src/org/apache/ibatis/transaction/jdbc/JdbcTransaction.java"/>
 </file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="PropertiesParser.java" tooltip="quartz-1.6.5/src/java/org/quartz/utils/PropertiesParser.java">
-<persistable path="/quartz-1.6.5/src/java/org/quartz/utils/PropertiesParser.java"/>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="JdbcTransactionFactory.java" tooltip="mybatis-3.2.5/src/org/apache/ibatis/transaction/jdbc/JdbcTransactionFactory.java">
+<persistable path="/mybatis-3.2.5/src/org/apache/ibatis/transaction/jdbc/JdbcTransactionFactory.java"/>
 </file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="SchedulerException.java" tooltip="quartz-1.6.5/src/java/org/quartz/SchedulerException.java">
-<persistable path="/quartz-1.6.5/src/java/org/quartz/SchedulerException.java"/>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="TransactionFactory.java" tooltip="mybatis-3.2.5/src/org/apache/ibatis/transaction/TransactionFactory.java">
+<persistable path="/mybatis-3.2.5/src/org/apache/ibatis/transaction/TransactionFactory.java"/>
 </file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="SchedulerFactory.java" tooltip="quartz-1.6.5/src/java/org/quartz/SchedulerFactory.java">
-<persistable path="/quartz-1.6.5/src/java/org/quartz/SchedulerFactory.java"/>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="Configuration.java" tooltip="mybatis-3.2.5/src/org/apache/ibatis/session/Configuration.java">
+<persistable path="/mybatis-3.2.5/src/org/apache/ibatis/session/Configuration.java"/>
 </file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="StdSchedulerFactory.java" tooltip="quartz-1.6.5/src/java/org/quartz/impl/StdSchedulerFactory.java">
-<persistable path="/quartz-1.6.5/src/java/org/quartz/impl/StdSchedulerFactory.java"/>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="XNode.java" tooltip="mybatis-3.2.5/src/org/apache/ibatis/parsing/XNode.java">
+<persistable path="/mybatis-3.2.5/src/org/apache/ibatis/parsing/XNode.java"/>
 </file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="DirectSchedulerFactory.java" tooltip="quartz-1.6.5/src/java/org/quartz/impl/DirectSchedulerFactory.java">
-<persistable path="/quartz-1.6.5/src/java/org/quartz/impl/DirectSchedulerFactory.java"/>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="XPathParser.java" tooltip="mybatis-3.2.5/src/org/apache/ibatis/parsing/XPathParser.java">
+<persistable path="/mybatis-3.2.5/src/org/apache/ibatis/parsing/XPathParser.java"/>
 </file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="Trigger.java" tooltip="quartz-1.6.5/src/java/org/quartz/Trigger.java">
-<persistable path="/quartz-1.6.5/src/java/org/quartz/Trigger.java"/>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="XMLConfigBuilder.java" tooltip="mybatis-3.2.5/src/org/apache/ibatis/builder/xml/XMLConfigBuilder.java">
+<persistable path="/mybatis-3.2.5/src/org/apache/ibatis/builder/xml/XMLConfigBuilder.java"/>
 </file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="SimpleTrigger.java" tooltip="quartz-1.6.5/src/java/org/quartz/SimpleTrigger.java">
-<persistable path="/quartz-1.6.5/src/java/org/quartz/SimpleTrigger.java"/>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="SqlSessionFactoryBuilder.java" tooltip="mybatis-3.2.5/src/org/apache/ibatis/session/SqlSessionFactoryBuilder.java">
+<persistable path="/mybatis-3.2.5/src/org/apache/ibatis/session/SqlSessionFactoryBuilder.java"/>
 </file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="NthIncludedDayTrigger.java" tooltip="quartz-1.6.5/src/java/org/quartz/NthIncludedDayTrigger.java">
-<persistable path="/quartz-1.6.5/src/java/org/quartz/NthIncludedDayTrigger.java"/>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="TestMybatis.java" tooltip="mybatis-3.2.5/test/com/test/mybatis/TestMybatis.java">
+<persistable path="/mybatis-3.2.5/test/com/test/mybatis/TestMybatis.java"/>
 </file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="CronTrigger.java" tooltip="quartz-1.6.5/src/java/org/quartz/CronTrigger.java">
-<persistable path="/quartz-1.6.5/src/java/org/quartz/CronTrigger.java"/>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="XMLMapperEntityResolver.java" tooltip="mybatis-3.2.5/src/org/apache/ibatis/builder/xml/XMLMapperEntityResolver.java">
+<persistable path="/mybatis-3.2.5/src/org/apache/ibatis/builder/xml/XMLMapperEntityResolver.java"/>
 </file>
-<file factoryID="org.eclipse.jdt.ui.ClassFileEditorInputFactory" id="org.eclipse.jdt.ui.ClassFileEditor" name="Class.class" tooltip="java.lang.Class">
-<persistable org.eclipse.jdt.ui.ClassFileIdentifier="=quartz-1.6.5/D:\/Program Files\/Java\/jdk1.7.0_67\/jre\/lib\/rt.jar&lt;java.lang(Class.class"/>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="BaseBuilder.java" tooltip="mybatis-3.2.5/src/org/apache/ibatis/builder/BaseBuilder.java">
+<persistable path="/mybatis-3.2.5/src/org/apache/ibatis/builder/BaseBuilder.java"/>
 </file>
 </mruList>
 </workbench>

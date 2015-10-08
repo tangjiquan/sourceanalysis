@@ -697,7 +697,7 @@ public class QuartzScheduler implements RemotableQuartzScheduler {
                     SchedulerException.ERR_CLIENT_ERROR);
         }
         
-        jobDetail.validate();
+        jobDetail.validate();//jobDetail中name，group，class这两个属性必须赋值
 
         if (trigger.getJobName() == null) {
             trigger.setJobName(jobDetail.getName());
@@ -714,7 +714,7 @@ public class QuartzScheduler implements RemotableQuartzScheduler {
                 SchedulerException.ERR_CLIENT_ERROR);
         }
 
-        trigger.validate();
+        trigger.validate();//验证name,group,jobName,jobGroup,repeatCount!=0,repeatInterval<1
 
         Calendar cal = null;
         if (trigger.getCalendarName() != null) {

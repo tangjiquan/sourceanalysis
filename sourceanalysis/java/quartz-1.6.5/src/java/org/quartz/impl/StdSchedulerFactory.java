@@ -1373,7 +1373,7 @@ public class StdSchedulerFactory implements SchedulerFactory {
             }
         }
 
-        sched = instantiate();
+        sched = instantiate();//resources实体类的初始化
 
         return sched;
     }

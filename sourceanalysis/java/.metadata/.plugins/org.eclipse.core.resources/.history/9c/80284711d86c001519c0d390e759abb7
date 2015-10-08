@@ -1,0 +1,5 @@
+package com.test.mybatis.domain;
+
+public class User {
+
+}
