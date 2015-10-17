@@ -1,0 +1,32 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<html>
+<head>
+<!--
+
+  @(#)package.html
+
+  Copyright (c) 2002-2003 by OpenSymphony
+  All rights reserved.
+
+-->
+</head>
+<body bgcolor="white">
+
+Provides some basic event handler implementations that aren't essential to the core
+OSCache code, but form a useful starting point for basic logging or further development.
+
+
+<h2>Package Specification</h2>
+
+<h2>Related Documentation</h2>
+
+
+For overviews, tutorials, examples, guides, and tool documentation, please see:
+<ul>
+  <li><a href="http://www.opensymphony.com/oscache">The OSCache Homepage</a>
+</ul>
+
+<!-- Put @see and @since tags down here. -->
+
+</body>
+</html>

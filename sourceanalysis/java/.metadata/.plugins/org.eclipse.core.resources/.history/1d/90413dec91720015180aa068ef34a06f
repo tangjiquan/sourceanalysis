@@ -1,0 +1,7 @@
+package com.mydomain.data;
+
+public class TestIbatis {
+	public void test1(){
+		SimpleExample.selectAllAccounts();
+	}
+}

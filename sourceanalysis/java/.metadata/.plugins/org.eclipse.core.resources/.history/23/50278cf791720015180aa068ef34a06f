@@ -1,0 +1,13 @@
+package com.mydomain.data;
+
+import java.sql.SQLException;
+import java.util.List;
+
+public class TestIbatis {
+	public void test1() throws SQLException{
+		List list = SimpleExample.selectAllAccounts();
+		for(Account account : list){
+			
+		}
+	}
+}

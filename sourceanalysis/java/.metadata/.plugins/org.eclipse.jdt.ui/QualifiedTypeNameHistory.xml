@@ -1,7 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <qualifiedTypeNameHistroy>
-<fullyQualifiedTypeName name="com.tang.test.ZKConstructorDemo"/>
-<fullyQualifiedTypeName name="java.lang.String"/>
 <fullyQualifiedTypeName name="org.apache.zookeeper.Watcher"/>
 <fullyQualifiedTypeName name="org.apache.zookeeper.server.quorum.QuorumPeerMain"/>
 <fullyQualifiedTypeName name="java.lang.StringBuffer"/>
@@ -60,4 +58,6 @@
 <fullyQualifiedTypeName name="org.apache.ibatis.session.SqlSessionFactoryBuilder"/>
 <fullyQualifiedTypeName name="org.apache.ibatis.session.SqlSession"/>
 <fullyQualifiedTypeName name="com.test.mybatis.domain.User"/>
+<fullyQualifiedTypeName name="com.mydomain.data.SimpleExample"/>
+<fullyQualifiedTypeName name="java.util.List"/>
 </qualifiedTypeNameHistroy>
