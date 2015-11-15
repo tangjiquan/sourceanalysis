@@ -50,6 +50,7 @@ typedef struct {
 	PyObject *str;
 	char *ptr;
 	char *end;
+	//当向pyc中写入时，strings会指向一个PyDictObject对象，从pyc中读取时，strings则指向一个PyListObject对象
 	PyObject *strings; /* dict on marshal, list on unmarshal */
 	int version;
 } WFILE;
@@ -238,23 +239,27 @@ w_object(PyObject *v, WFILE *p)
 #endif
 	else if (PyString_Check(v)) {
 		if (p->strings && PyString_CHECK_INTERNED(v)) {
+			//获取PyStringObject对象在strings中的序号
 			PyObject *o = PyDict_GetItem(p->strings, v);
+			//intern字符串的非首次写入
 			if (o) {
 				long w = PyInt_AsLong(o);
 				w_byte(TYPE_STRINGREF, p);
 				w_long(w, p);
 				goto exit;
 			}
-			else {
+			else {//intern字符串的首次写入
 				o = PyInt_FromSsize_t(PyDict_Size(p->strings));
 				PyDict_SetItem(p->strings, v, o);
 				Py_DECREF(o);
 				w_byte(TYPE_INTERNED, p);
 			}
-		}
+		}//写入普通string
 		else {
+			//写入字符串类型TYPE_STRING
 			w_byte(TYPE_STRING, p);
 		}
+		//写入字符串的长度
 		n = PyString_GET_SIZE(v);
 		if (n > INT_MAX) {
 			/* huge strings are not supported */
@@ -263,6 +268,7 @@ w_object(PyObject *v, WFILE *p)
 			return;
 		}
 		w_long((long)n, p);
+		//写入字符串
 		w_string(PyString_AS_STRING(v), (int)n, p);
 	}
 #ifdef Py_USING_UNICODE
@@ -395,7 +401,7 @@ PyMarshal_WriteLongToFile(long x, FILE *fp, int version)
 	wf.depth = 0;
 	wf.strings = NULL;
 	wf.version = version;
-	w_long(x, &wf);
+	w_long(x, &wf);//w_long会将需要写入的数据一个字节一个字节地写入到文件中
 }
 
 void

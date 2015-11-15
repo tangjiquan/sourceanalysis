@@ -164,6 +164,7 @@ show_counts(void)
 	(mp)->ma_mask = PyDict_MINSIZE - 1;				\
     } while(0)
 
+//INIT_NONZERO_DICT_SLOT：将ma_table指向ma_smalltable，并设置ma_mask为7
 #define EMPTY_TO_MINSIZE(mp) do {					\
 	memset((mp)->ma_smalltable, 0, sizeof((mp)->ma_smalltable));	\
 	(mp)->ma_used = (mp)->ma_fill = 0;				\
@@ -180,7 +181,7 @@ PyDict_New(void)
 {
 	register dictobject *mp;
 	if (dummy == NULL) { /* Auto-initialize dummy */
-		dummy = PyString_FromString("<dummy key>");
+		dummy = PyString_FromString("<dummy key>");//为什么dummy是一个PyStringObject，它仅仅是用来作为指示标志，表示该entry曾经被使用过
 		if (dummy == NULL)
 			return NULL;
 #ifdef SHOW_CONVERSION_COUNTS
@@ -188,6 +189,7 @@ PyDict_New(void)
 #endif
 	}
 	if (num_free_dicts) {
+		//使用缓冲池
 		mp = free_dicts[--num_free_dicts];
 		assert (mp != NULL);
 		assert (mp->ob_type == &PyDict_Type);
@@ -199,10 +201,11 @@ PyDict_New(void)
 		assert (mp->ma_table == mp->ma_smalltable);
 		assert (mp->ma_mask == PyDict_MINSIZE - 1);
 	} else {
+		//创建PyDictObject对象
 		mp = PyObject_GC_New(dictobject, &PyDict_Type);
 		if (mp == NULL)
 			return NULL;
-		EMPTY_TO_MINSIZE(mp);
+		EMPTY_TO_MINSIZE(mp);//将ma_smalltable清零，同时设置ma_size和ma_fill，如果PyDictObject对象刚被创建，则两个变量都是0
 	}
 	mp->ma_lookup = lookdict_string;
 #ifdef SHOW_CONVERSION_COUNTS
@@ -248,6 +251,7 @@ lookdict(dictobject *mp, PyObject *key, register long hash)
 	register int cmp;
 	PyObject *startkey;
 
+	//散列，定位冲突探测链的第一个entry
 	i = (size_t)hash & mask;
 	ep = &ep0[i];
 	if (ep->me_key == NULL || ep->me_key == key)

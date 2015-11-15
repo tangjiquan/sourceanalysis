@@ -159,6 +159,9 @@ public class Configuration implements Iterable<Map.Entry<String,String>>,
   /**
    * Configuration objects
    */
+  /**
+   * WeakHashMap可以看做一个很大的HashMap作为缓存表，当键值不存在的时候添加到表中，存在就取出该值
+   */
   private static final WeakHashMap<Configuration,Object> REGISTRY = 
     new WeakHashMap<Configuration,Object>();
   
@@ -356,7 +359,9 @@ public class Configuration implements Iterable<Map.Entry<String,String>>,
    * via set methods will overlay values read from the resources.
    */
   public synchronized void reloadConfiguration() {
+	//清除之前加载进来的全部属性
     properties = null;                            // trigger reload
+    //因为可以在属性里标注final，所以在这里可以将全部的final属性全部清除
     finalParameters.clear();                      // clear site-limits
   }
   
@@ -1086,6 +1091,12 @@ public class Configuration implements Iterable<Map.Entry<String,String>>,
     return result.entrySet().iterator();
   }
 
+  /**
+   * 
+   * @param properties 用来存储加载出来的属性
+   * @param resources 资源列表
+   * @param quiet
+   */
   private void loadResources(Properties properties,
                              ArrayList resources,
                              boolean quiet) {

@@ -92,7 +92,7 @@ whose size is determined when the object is allocated.
  */
 #define PyObject_VAR_HEAD		\
 	PyObject_HEAD			\
-	Py_ssize_t ob_size; /* Number of items in variable part */
+	Py_ssize_t ob_size; /* Number of items in variable part *///ob_size所能容纳元素的个数
 #define Py_INVALID_SIZE (Py_ssize_t)-1
 
 /* Nothing is actually declared to be a PyObject, but every pointer to
@@ -100,10 +100,32 @@ whose size is determined when the object is allocated.
  * by hand.  Similarly every pointer to a variable-size Python object can,
  * in addition, be cast to PyVarObject*.
  */
+/**
+ * 在实际发布的版本中PyObject很简单
+ * typedef struct _object {
+ * 		Py_ssize_t ob_refcnt;
+ *		struct _typeobject *ob_type;
+ * }
+ * //Py_ssize_t实际是int类型，ob_refcnt与Python的内存管理有关，它实现了基于引用计数的垃圾收集机制。对应一个对象A，当一个新的PyObject *引用
+ * 该对象时，A的引用计数应该增加，而当这个PyObject *被删除时，A的引用计数应该减少，当A的引用计数减少到0时，A就可以从堆上移除，释放内存。
+ * //_typeobject是Python内部特殊的对象，它是用来指定一个对象类型的类型对象
+ * PyObject定义了每一个Python对象都必须有的内容，这些内容将出现在Python对象占用的内存的最开始的字节中，PyObject只是定义了
+ * 一个Python对象都必须有的一部分
+ *
+ */
 typedef struct _object {
 	PyObject_HEAD
 } PyObject;
 
+
+/**
+ * 对于PyObject是一个定长的变量，还有一类变量是可以改变长度的变量，比如java中的list，map等，这时候就出现了PyVarObject对象
+ * typedef stuct {
+ *	 PyObject_HEAD
+ *	 Py_ssize_t ob_size;//Py_ssize_t其实是int，ob_size实际上就是指定变长对象中一共可以容纳的多少个元素，而不是字节数
+ * }
+ * python内部，每一个对象都有相同的头部
+ */
 typedef struct {
 	PyObject_VAR_HEAD
 } PyVarObject;
@@ -155,6 +177,9 @@ typedef int (*objobjproc)(PyObject *, PyObject *);
 typedef int (*visitproc)(PyObject *, void *);
 typedef int (*traverseproc)(PyObject *, visitproc, void *);
 
+/**
+ * PyNumberMethods定义了一个对象作为数值对象时的所有可选操作
+ */
 typedef struct {
 	/* For numbers without flag bit Py_TPFLAGS_CHECKTYPES set, all
 	   arguments are guaranteed to be of the object's type (modulo
@@ -258,6 +283,14 @@ typedef int (*initproc)(PyObject *, PyObject *, PyObject *);
 typedef PyObject *(*newfunc)(struct _typeobject *, PyObject *, PyObject *);
 typedef PyObject *(*allocfunc)(struct _typeobject *, Py_ssize_t);
 
+/**
+ * PyTypeObject是对象所对应的类型对象
+ * _typeObejct的定义中包含了许多的信息，主要包含4类
+ * 1)类型名，tp_name，主要是Python内部以及调试的时候使用
+ * 2)创建该类型对象时分配内存空间大小的信息，即tp_basicsize和tp_itemsize
+ * 3)与该类型对象相关联的操作信息（如tp_print这样的许多的函数指针）
+ *
+ */
 typedef struct _typeobject {
 	PyObject_VAR_HEAD
 	const char *tp_name; /* For printing, in format "<module>.<name>" */

@@ -92,7 +92,7 @@ typedef PY_LONG_LONG		Py_intptr_t;
 #ifdef HAVE_SSIZE_T
 typedef ssize_t		Py_ssize_t;
 #elif SIZEOF_VOID_P == SIZEOF_SIZE_T
-typedef Py_intptr_t	Py_ssize_t;
+typedef Py_intptr_t	Py_ssize_t;//在Python2.4中有许多类型是int或long。而在Python2.5中自定义了新的Py_ssize
 #else
 #   error "Python needs a typedef for Py_ssize_t in pyport.h."
 #endif

@@ -1,0 +1,8 @@
+package com.tang;
+
+public class HelloImpl extends Hello{
+	private void say() {
+		// TODO Auto-generated method stub
+
+	}
+}

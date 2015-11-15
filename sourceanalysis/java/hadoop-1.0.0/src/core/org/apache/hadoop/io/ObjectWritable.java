@@ -30,8 +30,8 @@ import org.apache.hadoop.conf.*;
  */
 public class ObjectWritable implements Writable, Configurable {
 
-  private Class declaredClass;
-  private Object instance;
+  private Class declaredClass;//用于保存ObjectWritable的对象对应的类对象
+  private Object instance;//被保存的对象
   private Configuration conf;
 
   public ObjectWritable() {}

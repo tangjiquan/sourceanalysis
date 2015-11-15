@@ -1,12 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <qualifiedTypeNameHistroy>
-<fullyQualifiedTypeName name="org.apache.zookeeper.Watcher"/>
-<fullyQualifiedTypeName name="org.apache.zookeeper.server.quorum.QuorumPeerMain"/>
-<fullyQualifiedTypeName name="java.lang.StringBuffer"/>
-<fullyQualifiedTypeName name="java.net.URL"/>
-<fullyQualifiedTypeName name="java.net.URLStreamHandler"/>
-<fullyQualifiedTypeName name="ex02.Constants"/>
-<fullyQualifiedTypeName name="javax.servlet.Servlet"/>
 <fullyQualifiedTypeName name="java.io.PrintWriter"/>
 <fullyQualifiedTypeName name="ex02.StaticResourceProcessor"/>
 <fullyQualifiedTypeName name="java.net.URLClassLoader"/>
@@ -14,8 +7,6 @@
 <fullyQualifiedTypeName name="javax.servlet.ServletResponse"/>
 <fullyQualifiedTypeName name="ex02.RequestFacade"/>
 <fullyQualifiedTypeName name="ex03.connector.HttpConnector"/>
-<fullyQualifiedTypeName name="java.lang.Runnable"/>
-<fullyQualifiedTypeName name="java.lang.Thread"/>
 <fullyQualifiedTypeName name="java.net.ServerSocket"/>
 <fullyQualifiedTypeName name="javax.servlet.http.HttpServletRequest"/>
 <fullyQualifiedTypeName name="java.net.InetAddress"/>
@@ -51,7 +42,6 @@
 <fullyQualifiedTypeName name="org.quartz.SchedulerException"/>
 <fullyQualifiedTypeName name="org.apache.tomcat.util.res.StringManager"/>
 <fullyQualifiedTypeName name="org.apache.catalina.tribes.util.StringManager"/>
-<fullyQualifiedTypeName name="org.junit.Test"/>
 <fullyQualifiedTypeName name="java.io.InputStream"/>
 <fullyQualifiedTypeName name="com.test.mybatis.TestMybatis"/>
 <fullyQualifiedTypeName name="org.apache.ibatis.session.SqlSessionFactory"/>
@@ -60,4 +50,14 @@
 <fullyQualifiedTypeName name="com.test.mybatis.domain.User"/>
 <fullyQualifiedTypeName name="com.mydomain.data.SimpleExample"/>
 <fullyQualifiedTypeName name="java.util.List"/>
+<fullyQualifiedTypeName name="org.slf4j.Logger"/>
+<fullyQualifiedTypeName name="org.slf4j.LoggerFactory"/>
+<fullyQualifiedTypeName name="com.tang.test.TestSlf4j"/>
+<fullyQualifiedTypeName name="java.lang.Runnable"/>
+<fullyQualifiedTypeName name="com.tang.thread.Runnable_Example.Printer"/>
+<fullyQualifiedTypeName name="java.lang.Thread"/>
+<fullyQualifiedTypeName name="org.junit.Test"/>
+<fullyQualifiedTypeName name="com.tang.TestConfiguration"/>
+<fullyQualifiedTypeName name="org.apache.hadoop.conf.Configuration"/>
+<fullyQualifiedTypeName name="com.caucho.hessian.client.HessianProxyFactory"/>
 </qualifiedTypeNameHistroy>

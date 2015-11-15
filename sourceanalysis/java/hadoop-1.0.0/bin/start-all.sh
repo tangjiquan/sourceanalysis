@@ -15,7 +15,7 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-
+#该节点仅仅在主节点上面运行
 # Start all hadoop daemons.  Run this on master node.
 
 bin=`dirname "$0"`
@@ -28,6 +28,7 @@ else
 fi
 
 # start dfs daemons
+#启动HDFS文件系统的守护进程，再启动MapReduce框架的守护进程
 "$bin"/start-dfs.sh --config $HADOOP_CONF_DIR
 
 # start mapred daemons

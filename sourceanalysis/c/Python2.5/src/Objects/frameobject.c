@@ -556,7 +556,7 @@ PyFrameObject *
 PyFrame_New(PyThreadState *tstate, PyCodeObject *code, PyObject *globals,
 	    PyObject *locals)
 {
-	PyFrameObject *back = tstate->frame;
+	PyFrameObject *back = tstate->frame;//从PyThreadState中获取当前线程的当前执行环境
 	PyFrameObject *f;
 	PyObject *builtins;
 	Py_ssize_t i;
@@ -608,6 +608,7 @@ PyFrame_New(PyThreadState *tstate, PyCodeObject *code, PyObject *globals,
                 Py_ssize_t extras, ncells, nfrees;
                 ncells = PyTuple_GET_SIZE(code->co_cellvars);
                 nfrees = PyTuple_GET_SIZE(code->co_freevars);
+                //四部分构成了PyFameObject维护的动态内存区，其大小由extras确定
                 extras = code->co_stacksize + code->co_nlocals + ncells +
                     nfrees;
                 if (free_list == NULL) {
@@ -624,7 +625,7 @@ PyFrame_New(PyThreadState *tstate, PyCodeObject *code, PyObject *globals,
                     f = free_list;
                     free_list = free_list->f_back;
                     if (f->ob_size < extras) {
-                            f = PyObject_GC_Resize(PyFrameObject, f, extras);
+                            f = PyObject_GC_Resize(PyFrameObject, f, extras);//创建新的执行环境
                             if (f == NULL) {
                                     Py_DECREF(builtins);
                                     return NULL;
@@ -634,7 +635,9 @@ PyFrame_New(PyThreadState *tstate, PyCodeObject *code, PyObject *globals,
                 }
 
 		f->f_code = code;
+		//计算初始化时运行时栈的栈顶
 		extras = code->co_nlocals + ncells + nfrees;
+		//f_valuestack维护运行时栈的栈底，f_stacktop维护运行时的栈顶
 		f->f_valuestack = f->f_localsplus + extras;
 		for (i=0; i<extras; i++)
 			f->f_localsplus[i] = NULL;
@@ -667,7 +670,7 @@ PyFrame_New(PyThreadState *tstate, PyCodeObject *code, PyObject *globals,
 		Py_INCREF(locals);
                 f->f_locals = locals;
 	}
-	f->f_tstate = tstate;
+	f->f_tstate = tstate;//链接当前的执行环境
 
 	f->f_lasti = -1;
 	f->f_lineno = code->co_firstlineno;

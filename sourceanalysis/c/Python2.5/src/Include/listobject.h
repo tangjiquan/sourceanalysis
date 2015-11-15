@@ -22,7 +22,7 @@ extern "C" {
 typedef struct {
     PyObject_VAR_HEAD
     /* Vector of pointers to list elements.  list[0] is ob_item[0], etc. */
-    PyObject **ob_item;
+    PyObject **ob_item;//ob_item为指向元素列表的指针，实际上，Python中的list[0]就是ob_item[0]，指向元素列表所在的内存块的首地址
 
     /* ob_item contains space for 'allocated' elements.  The number
      * currently in use is ob_size.
@@ -35,7 +35,7 @@ typedef struct {
      * Items must normally not be NULL, except during construction when
      * the list is not yet visible outside the function that builds it.
      */
-    Py_ssize_t allocated;
+    Py_ssize_t allocated;//维护了当前列表中可以容纳的元素的总数，总内存的大小记录在allocated中，实际被使用的内存的数量记录在ob_size中
 } PyListObject;
 
 PyAPI_DATA(PyTypeObject) PyList_Type;

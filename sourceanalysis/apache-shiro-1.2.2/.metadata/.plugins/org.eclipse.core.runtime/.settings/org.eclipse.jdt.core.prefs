@@ -1,0 +1,5 @@
+eclipse.preferences.version=1
+org.eclipse.jdt.core.classpathVariable.JRE_LIB=D\:/Program Files/Java/jdk1.7.0_67/jre/lib/rt.jar
+org.eclipse.jdt.core.classpathVariable.JRE_SRC=D\:/Program Files/Java/jdk1.7.0_67/src.zip
+org.eclipse.jdt.core.classpathVariable.JRE_SRCROOT=
+org.eclipse.jdt.core.codeComplete.visibilityCheck=enabled

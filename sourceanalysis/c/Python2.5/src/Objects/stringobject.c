@@ -48,7 +48,7 @@ static PyObject *interned;
    is therefore equal to the equal to the `size' parameter (for
    PyString_FromStringAndSize()) or the length of the string in the `str'
    parameter (for PyString_FromString()).
-*/
+*///传入的字符串不需要一定要以'\0'结尾的字符串，因为通过size参数就可以确定需要拷贝的字符串的个数
 PyObject *
 PyString_FromStringAndSize(const char *str, Py_ssize_t size)
 {
@@ -106,18 +106,21 @@ PyString_FromString(const char *str)
 
 	assert(str != NULL);
 	size = strlen(str);
-	if (size > PY_SSIZE_T_MAX) {
+	//判断字符串长度
+	if (size > PY_SSIZE_T_MAX) {//PY_SSIZE_T_MAX是一个与平台相关的值，在win32系统下，该值为2147483647,也就是2G
 		PyErr_SetString(PyExc_OverflowError,
 			"string is too long for a Python string");
 		return NULL;
 	}
+	//处理null string，对于空串，Python并不是每一次都会创建相应的PyStringObject。Python运行时有一个PyStringObject对象
+	//指针nullstring专门负责处理空的字符串数组
 	if (size == 0 && (op = nullstring) != NULL) {
 #ifdef COUNT_ALLOCS
 		null_strings++;
 #endif
-		Py_INCREF(op);
+		Py_INCREF(op);//对象的引用加1
 		return (PyObject *)op;
-	}
+	}//处理字符串，检查所要创建的是否是一个字符对象，然后检查字符缓冲池中是否已经有了这个字符的字符对象的缓冲，如果有，则直接返回这个缓冲对象
 	if (size == 1 && (op = characters[*str & UCHAR_MAX]) != NULL) {
 #ifdef COUNT_ALLOCS
 		one_strings++;
@@ -131,19 +134,19 @@ PyString_FromString(const char *str)
 	if (op == NULL)
 		return PyErr_NoMemory();
 	PyObject_INIT_VAR(op, &PyString_Type, size);
-	op->ob_shash = -1;
+	op->ob_shash = -1;//hash初始化化时候的默认值为-1
 	op->ob_sstate = SSTATE_NOT_INTERNED;
-	Py_MEMCPY(op->ob_sval, str, size+1);
+	Py_MEMCPY(op->ob_sval, str, size+1);//将str指向的字符串数组内的字符拷贝到PyStringObject所维护的空间中，并且将最后的'\0'字符也拷贝了
 	/* share short strings */
 	if (size == 0) {
 		PyObject *t = (PyObject *)op;
-		PyString_InternInPlace(&t);
+		PyString_InternInPlace(&t);//PyString_InternInPlace机制是PyStringObject对象的intern机制，被itern之后的字符串，在整个Python运行的期间，系统中只有唯一的一个字符串与之对应
 		op = (PyStringObject *)t;
 		nullstring = op;
 		Py_INCREF(op);
 	} else if (size == 1) {
 		PyObject *t = (PyObject *)op;
-		PyString_InternInPlace(&t);
+		PyString_InternInPlace(&t);//先对创建的字符串对象进行intern操作，再将intern的结果缓存到字符缓冲池characters中
 		op = (PyStringObject *)t;
 		characters[*str & UCHAR_MAX] = op;
 		Py_INCREF(op);
@@ -952,6 +955,7 @@ string_concat(register PyStringObject *a, register PyObject *bb)
 		Py_INCREF(a);
 		return (PyObject *)a;
 	}
+	//计算字符串连接后的长度size
 	size = a->ob_size + b->ob_size;
 	if (size < 0) {
 		PyErr_SetString(PyExc_OverflowError,
@@ -960,12 +964,14 @@ string_concat(register PyStringObject *a, register PyObject *bb)
 	}
 	  
 	/* Inline PyObject_NewVar */
+	//创建新的PyStringObject对象，其维护的用于存储字符的内存长度为size
 	op = (PyStringObject *)PyObject_MALLOC(sizeof(PyStringObject) + size);
 	if (op == NULL)
 		return PyErr_NoMemory();
 	PyObject_INIT_VAR(op, &PyString_Type, size);
 	op->ob_shash = -1;
 	op->ob_sstate = SSTATE_NOT_INTERNED;
+	//将a，b中的字符串拷贝到新创建的PyStringObject中
 	Py_MEMCPY(op->ob_sval, a->ob_sval, a->ob_size);
 	Py_MEMCPY(op->ob_sval + a->ob_size, b->ob_sval, b->ob_size);
 	op->ob_sval[size] = '\0';
@@ -1163,6 +1169,9 @@ _PyString_Eq(PyObject *o1, PyObject *o2)
           && memcmp(a->ob_sval, b->ob_sval, a->ob_size) == 0;
 }
 
+/**
+ * 计算PyStringObject对象的hash值
+ */
 static long
 string_hash(PyStringObject *a)
 {
@@ -1717,10 +1726,11 @@ PyDoc_STRVAR(join__doc__,
 \n\
 Return a string which is the concatenation of the strings in the\n\
 sequence.  The separator between elements is S.");
-
+//Python中字符串对象使用join操作将会调用这个函数
 static PyObject *
 string_join(PyStringObject *self, PyObject *orig)
 {
+	//如果调用"abc".join(list)，那么self就是"abc"对应的PyStringObject对象，seplen中存储的就是"abc"的长度
 	char *sep = PyString_AS_STRING(self);
 	const Py_ssize_t seplen = PyString_GET_SIZE(self);
 	PyObject *res = NULL;
@@ -1755,9 +1765,9 @@ string_join(PyStringObject *self, PyObject *orig)
 	 * need (sz), see whether any argument is absurd, and defer to
 	 * the Unicode join if appropriate.
 	 */
-	for (i = 0; i < seqlen; i++) {
+	for (i = 0; i < seqlen; i++) {//遍历list中每一个字符串，累加获得连接list中所有字符串的长度
 		const size_t old_sz = sz;
-		item = PySequence_Fast_GET_ITEM(seq, i);
+		item = PySequence_Fast_GET_ITEM(seq, i);//seq为Python中的list对象，这里获得其中的第i个字符串
 		if (!PyString_Check(item)){
 #ifdef Py_USING_UNICODE
 			if (PyUnicode_Check(item)) {
@@ -1791,14 +1801,14 @@ string_join(PyStringObject *self, PyObject *orig)
 	}
 
 	/* Allocate result space. */
-	res = PyString_FromStringAndSize((char*)NULL, sz);
+	res = PyString_FromStringAndSize((char*)NULL, sz);//创建长度为sz的PyStringObject对象
 	if (res == NULL) {
 		Py_DECREF(seq);
 		return NULL;
 	}
 
 	/* Catenate everything. */
-	p = PyString_AS_STRING(res);
+	p = PyString_AS_STRING(res);//将list中的字符串拷贝到新创建的PyStringObject对象中
 	for (i = 0; i < seqlen; ++i) {
 		size_t n;
 		item = PySequence_Fast_GET_ITEM(seq, i);
@@ -3987,16 +3997,17 @@ PyTypeObject PyString_Type = {
 	0,
 	"str",
 	sizeof(PyStringObject),
-	sizeof(char),
+	sizeof(char),	//tp_itemsize，对应Python中任何一种变长对象，tp_itemsize这个域必须设置，tp_itemsize
+	//指明了由变长对象保存的元素的单位长度，所谓的单位长度即是指一个元素在内存中的长度，tp_itemsize和ob_size共同决定了额外申请的内存总大小
  	string_dealloc, 			/* tp_dealloc */
 	(printfunc)string_print, 		/* tp_print */
 	0,					/* tp_getattr */
 	0,					/* tp_setattr */
 	0,					/* tp_compare */
 	string_repr, 				/* tp_repr */
-	&string_as_number,			/* tp_as_number */
-	&string_as_sequence,			/* tp_as_sequence */
-	&string_as_mapping,			/* tp_as_mapping */
+	&string_as_number,			/* tp_as_number *///对数值操作允许
+	&string_as_sequence,			/* tp_as_sequence *///对序列操作允许
+	&string_as_mapping,			/* tp_as_mapping *///对数值映射允许
 	(hashfunc)string_hash, 			/* tp_hash */
 	0,					/* tp_call */
 	string_str,				/* tp_str */
@@ -4885,10 +4896,11 @@ PyString_InternInPlace(PyObject **p)
 		Py_FatalError("PyString_InternInPlace: strings only please!");
 	/* If it's a string subclass, we don't really know what putting
 	   it in the interned dict might do. */
-	if (!PyString_CheckExact(s))
+	if (!PyString_CheckExact(s))//对PyStringObject进行类型和状态检查，intern机制只能应用在PyStringObject对象上面，对其派生的类对象系统都不会应用intern机制
 		return;
-	if (PyString_CHECK_INTERNED(s))
+	if (PyString_CHECK_INTERNED(s))//检查传入的对象是否已经被intern机制处理过，Python不会对同一个PyStringObject对象进行一次以上的Intern操作
 		return;
+	//创建记录经intern机制处理后的PyStringObject的dict
 	if (interned == NULL) {
 		interned = PyDict_New();
 		if (interned == NULL) {
@@ -4896,22 +4908,24 @@ PyString_InternInPlace(PyObject **p)
 			return;
 		}
 	}
+	//检查PyStringObject对象s是否存在对应的intern后的PyStringObject对象
 	t = PyDict_GetItem(interned, (PyObject *)s);
 	if (t) {
-		Py_INCREF(t);
+		Py_INCREF(t);//引用计数调整
 		Py_DECREF(*p);
 		*p = t;
 		return;
 	}
 
+	//在interned中记录检查PyStringObject对象s
 	if (PyDict_SetItem(interned, (PyObject *)s, (PyObject *)s) < 0) {
 		PyErr_Clear();
 		return;
 	}
 	/* The two references in interned are not counted by refcnt.
 	   The string deallocator will take care of this */
-	s->ob_refcnt -= 2;
-	PyString_CHECK_INTERNED(s) = SSTATE_INTERNED_MORTAL;
+	s->ob_refcnt -= 2;//对引用计数的调整
+	PyString_CHECK_INTERNED(s) = SSTATE_INTERNED_MORTAL;//调整s中的intern状态标识
 }
 
 void

@@ -1,0 +1,7 @@
+package com.tang;
+
+public class HelloImpl extends Hello{
+	private void say() {
+		
+	}
+}

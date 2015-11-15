@@ -1,5 +1,22 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <libraryInfos>
+<libraryInfo home="D:\Program Files\Java\1.4" version="1.4.1_03">
+<bootpath>
+<entry path="D:\Program Files\Java\1.4\jre\lib\rt.jar"/>
+<entry path="D:\Program Files\Java\1.4\jre\lib\i18n.jar"/>
+<entry path="D:\Program Files\Java\1.4\jre\lib\sunrsasign.jar"/>
+<entry path="D:\Program Files\Java\1.4\jre\lib\jsse.jar"/>
+<entry path="D:\Program Files\Java\1.4\jre\lib\jce.jar"/>
+<entry path="D:\Program Files\Java\1.4\jre\lib\charsets.jar"/>
+<entry path="D:\Program Files\Java\1.4\jre\classes"/>
+</bootpath>
+<extensionDirs>
+<entry path="D:\Program Files\Java\1.4\jre\lib\ext"/>
+</extensionDirs>
+<endorsedDirs>
+<entry path="D:\Program Files\Java\1.4\jre\lib\endorsed"/>
+</endorsedDirs>
+</libraryInfo>
 <libraryInfo home="D:\Program Files\Java\jdk1.5.0_17" version="1.5.0_17">
 <bootpath>
 <entry path="D:\Program Files\Java\jdk1.5.0_17\jre\lib\rt.jar"/>

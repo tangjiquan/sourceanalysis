@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<section name="Workbench">
+	<section name="org.eclipse.m2e.core.pom.dependencies">
+	</section>
+	<section name="org.eclipse.m2e.core.pom.overview">
+		<list key="ciManagementUrl">
+			<item value="http://hudson.zones.apache.org/hudson/view/Shiro/"/>
+		</list>
+		<list key="ciManagementSystem">
+			<item value="Hudson"/>
+		</list>
+		<list key="issueManagementSystem">
+			<item value="Jira"/>
+		</list>
+		<list key="issueManagementUrl">
+			<item value="http://issues.apache.org/jira/browse/SHIRO"/>
+		</list>
+	</section>
+	<section name="MavenProjectImportWizardPage">
+		<list key="rootDirectory">
+			<item value="E:\java\shiro\shiro1.2.2\shiro-root-1.2.2-source-release\shiro-root-1.2.2"/>
+		</list>
+		<list key="projectNameTemplate">
+			<item value="[artifactId]"/>
+			<item value="[artifactId]-TRUNK"/>
+			<item value="[artifactId]-[version]"/>
+			<item value="[groupId].[artifactId]"/>
+			<item value="[groupId].[artifactId]-[version]"/>
+		</list>
+	</section>
+</section>

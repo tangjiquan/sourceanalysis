@@ -35,6 +35,11 @@ public interface LifecycleListener {
      *
      * @param event LifecycleEvent that has occurred
      */
+	/**
+	 * LifecycleEvent对象是对事件的封装，包含事件的类型和可能与该事件相关的额外的负载信息，如每次主机启动发送电子邮件可以
+	 * 在该方法中实现
+	 * @param event
+	 */
     public void lifecycleEvent(LifecycleEvent event);
 
 

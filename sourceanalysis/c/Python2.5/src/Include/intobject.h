@@ -20,6 +20,7 @@ _Py_TrueStruct and _Py_ZeroStruct in boolobject.h; don't use this.
 extern "C" {
 #endif
 
+//Python整数对象中，除了PyObject还有一个额外的long变量，整数的值就存在在ob_ival中
 typedef struct {
     PyObject_HEAD
     long ob_ival;

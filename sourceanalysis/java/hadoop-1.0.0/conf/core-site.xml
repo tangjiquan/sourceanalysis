@@ -1,0 +1,8 @@
+<?xml version="1.0"?>
+<?xml-stylesheet type="text/xsl" href="configuration.xsl"?>
+
+<!-- Put site-specific property overrides in this file. -->
+
+<configuration>
+	<!-- 元素final意味着固定不变，在合并资源的时候可以防止配置项被覆盖 -->
+</configuration>

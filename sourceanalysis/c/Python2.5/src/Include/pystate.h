@@ -16,7 +16,7 @@ struct _is; /* Forward */
 typedef struct _is {
 
     struct _is *next;
-    struct _ts *tstate_head;
+    struct _ts *tstate_head;//模拟进程环境中的线程集合
 
     PyObject *modules;
     PyObject *sysdict;
@@ -58,7 +58,7 @@ typedef struct _ts {
     struct _ts *next;
     PyInterpreterState *interp;
 
-    struct _frame *frame;
+    struct _frame *frame;//模拟线程中的函数调用堆栈
     int recursion_depth;
     /* 'tracing' keeps track of the execution depth when tracing/profiling.
        This is to prevent the actual trace/profile code from being recorded in

@@ -1,0 +1,13 @@
+INDEX VERSION 1.126
+E:\workspace\git\sources\sourceanalysis\sourceanalysis\apache-shiro-1.2.2\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\1457724825.index
+\samples-spring\src\main\java
+E:\workspace\git\sources\sourceanalysis\sourceanalysis\apache-shiro-1.2.2\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\2491513641.index
+\samples-sprhib\src\main\java
+E:\workspace\git\sources\sourceanalysis\sourceanalysis\apache-shiro-1.2.2\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\1986844511.index
+\samples-web\src\main\resources
+E:\workspace\git\sources\sourceanalysis\sourceanalysis\apache-shiro-1.2.2\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\592329443.index
+\samples-spring\src\main\java
+E:\workspace\git\sources\sourceanalysis\sourceanalysis\apache-shiro-1.2.2\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\1815590613.index
+\samples-web\src\main\resources
+E:\workspace\git\sources\sourceanalysis\sourceanalysis\apache-shiro-1.2.2\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\2625544142.index
+\samples-sprhib\src\main\java

@@ -32,6 +32,7 @@ list_resize(PyListObject *self, Py_ssize_t newsize)
 	   to accommodate the newsize.  If the newsize falls lower than half
 	   the allocated size, then proceed with the realloc() to shrink the list.
 	*/
+	//不需要重新申请内存
 	if (allocated >= newsize && newsize >= (allocated >> 1)) {
 		assert(self->ob_item != NULL || newsize == 0);
 		self->ob_size = newsize;
@@ -45,12 +46,13 @@ list_resize(PyListObject *self, Py_ssize_t newsize)
 	 * system realloc().
 	 * The growth pattern is:  0, 4, 8, 16, 25, 35, 46, 58, 72, 88, ...
 	 */
+	//计算重新申请的内存大小
 	new_allocated = (newsize >> 3) + (newsize < 9 ? 3 : 6) + newsize;
 	if (newsize == 0)
 		new_allocated = 0;
-	items = self->ob_item;
+	items = self->ob_item;//扩展列表
 	if (new_allocated <= ((~(size_t)0) / sizeof(PyObject *)))
-		PyMem_RESIZE(items, PyObject *, new_allocated);
+		PyMem_RESIZE(items, PyObject *, new_allocated);//最终会调用c中的realloc
 	else
 		items = NULL;
 	if (items == NULL) {
@@ -64,7 +66,7 @@ list_resize(PyListObject *self, Py_ssize_t newsize)
 }
 
 /* Empty list reuse scheme to save calls to malloc and free */
-#define MAXFREELISTS 80
+#define MAXFREELISTS 80       	//默认情况下free_lists中最多会维护80个PyListObject对象
 static PyListObject *free_lists[MAXFREELISTS];
 static int num_free_lists = 0;
 
@@ -80,7 +82,7 @@ PyList_Fini(void)
 		PyObject_GC_Del(op);
 	}
 }
-
+//仅仅只是指定了元素的个数，但是不能指定元素的大小
 PyObject *
 PyList_New(Py_ssize_t size)
 {
@@ -91,19 +93,21 @@ PyList_New(Py_ssize_t size)
 		PyErr_BadInternalCall();
 		return NULL;
 	}
-	nbytes = size * sizeof(PyObject *);
+	nbytes = size * sizeof(PyObject *);//内存数量计算，溢出检查
 	/* Check for overflow */
 	if (nbytes / sizeof(PyObject *) != (size_t)size)
 		return PyErr_NoMemory();
-	if (num_free_lists) {
-		num_free_lists--;
+	if (num_free_lists) {//为PyListObject对象申请空间
+		num_free_lists--;//缓冲池可用
 		op = free_lists[num_free_lists];
 		_Py_NewReference((PyObject *)op);
-	} else {
+	} else {//缓冲池不可以用
+		//PyObject_GC_New除了申请内存之外，还会为Python中的自动垃圾收集机制做准备
 		op = PyObject_GC_New(PyListObject, &PyList_Type);
 		if (op == NULL)
 			return NULL;
 	}
+	//为PyListObject对象中维护的元素列表申请空间
 	if (size <= 0)
 		op->ob_item = NULL;
 	else {
@@ -150,6 +154,7 @@ PyList_GetItem(PyObject *op, Py_ssize_t i)
 	return ((PyListObject *)op) -> ob_item[i];
 }
 
+//当Python中运行list[3] = 100时，会调用PyList_SetItem的动作
 int
 PyList_SetItem(register PyObject *op, register Py_ssize_t i,
                register PyObject *newitem)
@@ -161,12 +166,14 @@ PyList_SetItem(register PyObject *op, register Py_ssize_t i,
 		PyErr_BadInternalCall();
 		return -1;
 	}
+	//索引检查
 	if (i < 0 || i >= ((PyListObject *)op) -> ob_size) {
 		Py_XDECREF(newitem);
 		PyErr_SetString(PyExc_IndexError,
 				"list assignment index out of range");
 		return -1;
 	}
+	//设置元素
 	p = ((PyListObject *)op) -> ob_item + i;
 	olditem = *p;
 	*p = newitem;
@@ -189,9 +196,11 @@ ins1(PyListObject *self, Py_ssize_t where, PyObject *v)
 		return -1;
 	}
 
+	//调整列表容量
 	if (list_resize(self, n+1) == -1)
 		return -1;
 
+	//确定插入点
 	if (where < 0) {
 		where += n;
 		if (where < 0)
@@ -199,6 +208,7 @@ ins1(PyListObject *self, Py_ssize_t where, PyObject *v)
 	}
 	if (where > n)
 		where = n;
+	//插入元素
 	items = self->ob_item;
 	for (i = n; --i >= where; )
 		items[i+1] = items[i];
@@ -237,6 +247,7 @@ app1(PyListObject *self, PyObject *v)
 	return 0;
 }
 
+
 int
 PyList_Append(PyObject *op, PyObject *newitem)
 {
@@ -247,13 +258,16 @@ PyList_Append(PyObject *op, PyObject *newitem)
 }
 
 /* Methods */
-
+//在创建一个对象的时候，先创建一个对象维护的元素列表，然后创建对象本身。销毁对象的时候也是的，先销毁
+//对象维护的元素列表，然后销毁对象本身，删除PyListObject对象自身时，Python会检查缓冲池free_lists
+//如果其中的缓存的PyListObject的数量已满，如果没有满就将该删除的PyListObject对象放到缓冲池中，以备后用
 static void
 list_dealloc(PyListObject *op)
 {
 	Py_ssize_t i;
 	PyObject_GC_UnTrack(op);
 	Py_TRASHCAN_SAFE_BEGIN(op)
+	//销毁PyListObject对象维护的元素列表
 	if (op->ob_item != NULL) {
 		/* Do it backwards, for Christian Tismer.
 		   There's a simple test case where somehow this reduces
@@ -265,6 +279,7 @@ list_dealloc(PyListObject *op)
 		}
 		PyMem_FREE(op->ob_item);
 	}
+	//释放PyListObject自身
 	if (num_free_lists < MAXFREELISTS && PyList_CheckExact(op))
 		free_lists[num_free_lists++] = op;
 	else
@@ -544,7 +559,8 @@ list_clear(PyListObject *a)
  *
  * Special speed gimmick:  when v is NULL and ihigh - ilow <= 8, it's
  * guaranteed the call cannot fail.
- */
+ *///list_ass_slice有replace和remove两种语义，通过最后一个参数决定使用哪种语义
+//当参数v为null时，Python就会将默认的replace语义换成remove语义
 static int
 list_ass_slice(PyListObject *a, Py_ssize_t ilow, Py_ssize_t ihigh, PyObject *v)
 {
@@ -2258,6 +2274,7 @@ listremove(PyListObject *self, PyObject *v)
 	Py_ssize_t i;
 
 	for (i = 0; i < self->ob_size; i++) {
+		//比较list中的元素与带删除的元素v
 		int cmp = PyObject_RichCompareBool(self->ob_item[i], v, Py_EQ);
 		if (cmp > 0) {
 			if (list_ass_slice(self, i, i+1,

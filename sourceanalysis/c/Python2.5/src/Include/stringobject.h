@@ -34,9 +34,10 @@ functions should be applied to nil objects.
 
 typedef struct {
     PyObject_VAR_HEAD
-    long ob_shash;
-    int ob_sstate;
-    char ob_sval[1];
+    long ob_shash;//ob_shash变量的作用是缓存该对象的hash值，可以避免每一次都重新计算该字符串对象的hash值，如果
+    //一个PyStringObject对象还没有被计算过hash值，那么ob_shash的初始值为-1，在dict中hash值发挥很大作用
+    int ob_sstate;//ob_sstate变量标志了该对象是否已经经过intern机制处理
+    char ob_sval[1];//ob_sval指向的是一段长度为ob_size+1个字节的内存，而且必须满足ob_sval[ob_size]=='\0'
 
     /* Invariants:
      *     ob_sval contains space for 'ob_size+1' elements.

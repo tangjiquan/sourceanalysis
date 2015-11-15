@@ -848,23 +848,24 @@ open_exclusive(char *filename)
    modification of its source into the header.
    Errors are ignored, if a write error occurs an attempt is made to
    remove the file. */
-
+//从write_compiled_module中发现，Python的magic number，pyc文件创建的时间信息，以及PyCodeObject对象
 static void
 write_compiled_module(PyCodeObject *co, char *cpathname, time_t mtime)
 {
 	FILE *fp;
 
-	fp = open_exclusive(cpathname);
+	fp = open_exclusive(cpathname);//排他性的打开文件
 	if (fp == NULL) {
 		if (Py_VerboseFlag)
 			PySys_WriteStderr(
 				"# can't create %s\n", cpathname);
 		return;
 	}
-	PyMarshal_WriteLongToFile(pyc_magic, fp, Py_MARSHAL_VERSION);
+	PyMarshal_WriteLongToFile(pyc_magic, fp, Py_MARSHAL_VERSION);//写入Python的magic number，pyc_magic是Python
+	//所定义的一个整数值，不同版本的的Python实现都会定义不同的magic number，这个值保证Python兼容性的
 	/* First write a 0 for mtime */
-	PyMarshal_WriteLongToFile(0L, fp, Py_MARSHAL_VERSION);
-	PyMarshal_WriteObjectToFile((PyObject *)co, fp, Py_MARSHAL_VERSION);
+	PyMarshal_WriteLongToFile(0L, fp, Py_MARSHAL_VERSION);//写入时间信息
+	PyMarshal_WriteObjectToFile((PyObject *)co, fp, Py_MARSHAL_VERSION);//写入PyCodeObject对象
 	if (fflush(fp) != 0 || ferror(fp)) {
 		if (Py_VerboseFlag)
 			PySys_WriteStderr("# can't write %s\n", cpathname);

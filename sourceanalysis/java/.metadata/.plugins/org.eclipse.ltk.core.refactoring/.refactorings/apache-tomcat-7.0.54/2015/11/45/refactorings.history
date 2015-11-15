@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring accessors="true" comment="Delete 2 elements from project &apos;apache-tomcat-7.0.54&apos;&#x0D;&#x0A;- Original project: &apos;apache-tomcat-7.0.54&apos;&#x0D;&#x0A;- Original elements:&#x0D;&#x0A;     apache-tomcat-7.0.54/example/ex04.core&#x0D;&#x0A;     apache-tomcat-7.0.54/example/ex04.startup" description="Delete elements" element1="/example&lt;ex04.startup" element2="/example&lt;ex04" element3="/example&lt;ex04.core" element4="/example&lt;ex04" elements="4" flags="589830" id="org.eclipse.jdt.ui.delete" resources="0" stamp="1446565483078" subPackages="false" version="1.0"/>
+</session>

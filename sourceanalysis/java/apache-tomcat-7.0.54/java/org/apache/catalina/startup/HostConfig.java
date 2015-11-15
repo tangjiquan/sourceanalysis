@@ -477,6 +477,9 @@ public class HostConfig
      * Deploy applications for any directories or WAR files that are found
      * in our "application root" directory.
      */
+    /**
+     * 部署应用的三种方式：xml文件描述符，war包，文件目录
+     */
     protected void deployApps() {
 
         File appBase = appBase();

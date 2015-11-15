@@ -36,16 +36,28 @@ struct _intblock {
 	PyIntObject objects[N_INTOBJECTS];
 };
 
+/**
+ * PyIntBlock实现了一个单向列表，维护一个内存块，保存了PyIntObject对象，可以修改BLOCK_SIZE,BHEAD_SIZE来扩展内存块
+ * 但是要重新编译
+ */
 typedef struct _intblock PyIntBlock;
 
 static PyIntBlock *block_list = NULL;
 static PyIntObject *free_list = NULL;
 
+/*
+ * 对fill_free_list的调用不光发生在PyInt_FromLong的首次调用，在Python运行期间
+ * 只要所有block的空闲内存都被用完了，就会导致free_list变为null，从而在下一次PyInt_FromLong
+ * 的调用时激发对fill_free_list的调用
+ */
 static PyIntObject *
 fill_free_list(void)
 {
 	PyIntObject *p, *q;
 	/* Python's object allocator isn't appropriate for large blocks. */
+	/**
+	 * 申请大小为sizeof(PyIntBlock)的内存空间，并链接到已有的block list中
+	 */
 	p = (PyIntObject *) PyMem_MALLOC(sizeof(PyIntBlock));
 	if (p == NULL)
 		return (PyIntObject *) PyErr_NoMemory();
@@ -53,6 +65,9 @@ fill_free_list(void)
 	block_list = (PyIntBlock *)p;
 	/* Link the int objects together, from rear to front, then return
 	   the address of the last int object in the block. */
+	/**
+	 * 将PyIntBlock中的PyIntObject数组--objects--转变为单向链表
+	 */
 	p = &((PyIntBlock *)p)->objects[0];
 	q = p + N_INTOBJECTS;
 	while (--q > p)
@@ -61,6 +76,10 @@ fill_free_list(void)
 	return p + N_INTOBJECTS - 1;
 }
 
+/**
+ * Python2.5中将小整数集合的范围默认设定为[-5,257),，但是用户可以修改NSMALLPOSINTS,NSMALLPOSINTS重新编译，可以
+ * 将这个范围修改
+ */
 #ifndef NSMALLPOSINTS
 #define NSMALLPOSINTS		257
 #endif
@@ -79,12 +98,17 @@ static PyIntObject *small_ints[NSMALLNEGINTS + NSMALLPOSINTS];
 int quick_int_allocs, quick_neg_int_allocs;
 #endif
 
+/**
+ * PyIntObject对象的创建步骤
+ * 1)如果小整数对象池机制被激活，则尝试使用小整数对象池
+ * 2)如果不能使用小整数对象池，则使用通用的整数对象池
+ */
 PyObject *
 PyInt_FromLong(long ival)
 {
 	register PyIntObject *v;
 #if NSMALLNEGINTS + NSMALLPOSINTS > 0
-	if (-NSMALLNEGINTS <= ival && ival < NSMALLPOSINTS) {
+	if (-NSMALLNEGINTS <= ival && ival < NSMALLPOSINTS) {//范围是[-5,257)，使用小整数池
 		v = small_ints[ival + NSMALLNEGINTS];
 		Py_INCREF(v);
 #ifdef COUNT_ALLOCS
@@ -96,12 +120,12 @@ PyInt_FromLong(long ival)
 		return (PyObject *) v;
 	}
 #endif
-	if (free_list == NULL) {
+	if (free_list == NULL) {//为通用整数对象申请新的内存空间
 		if ((free_list = fill_free_list()) == NULL)
 			return NULL;
 	}
 	/* Inline PyObject_New */
-	v = free_list;
+	v = free_list;//内联PyObject_New的行为
 	free_list = (PyIntObject *)v->ob_type;
 	PyObject_INIT(v, &PyInt_Type);
 	v->ob_ival = ival;
@@ -422,6 +446,7 @@ PyInt_FromUnicode(Py_UNICODE *s, Py_ssize_t length, int base)
 	}
 
 /* ARGSUSED */
+//fp指出输出目标
 static int
 int_print(PyIntObject *v, FILE *fp, int flags)
      /* flags -- not used but required by interface */
@@ -438,6 +463,7 @@ int_repr(PyIntObject *v)
 	return PyString_FromString(buf);
 }
 
+//比较大小的函数
 static int
 int_compare(PyIntObject *v, PyIntObject *w)
 {
@@ -464,6 +490,7 @@ int_add(PyIntObject *v, PyIntObject *w)
 	CONVERT_TO_LONG(v, a);
 	CONVERT_TO_LONG(w, b);
 	x = a + b;
+	//检查加法结果是否溢出
 	if ((x^a) >= 0 || (x^b) >= 0)
 		return PyInt_FromLong(x);
 	return PyLong_Type.tp_as_number->nb_add((PyObject *)v, (PyObject *)w);
@@ -1093,6 +1120,16 @@ static PyNumberMethods int_as_number = {
 	(unaryfunc)int_int,	/* nb_index */
 };
 
+/**
+ * int_dealloc	PyIntObject对象的析构函数
+ * int_free		PyIntObject对象的释放操作
+ * int_repr		转化为PyStringObject对象
+ * int_hash		获得hash值
+ * int_print	打印PyIntObject对象
+ * int_compare	比较操作
+ * int_as_number	数值集合操作
+ * int_methods	成员函数集合
+ */
 PyTypeObject PyInt_Type = {
 	PyObject_HEAD_INIT(&PyType_Type)
 	0,
@@ -1108,7 +1145,7 @@ PyTypeObject PyInt_Type = {
 	&int_as_number,				/* tp_as_number */
 	0,					/* tp_as_sequence */
 	0,					/* tp_as_mapping */
-	(hashfunc)int_hash,			/* tp_hash */
+	(hashfunc)int_hash,			/* tp_hash *///如何生成hash值
         0,					/* tp_call */
         (reprfunc)int_repr,			/* tp_str */
 	PyObject_GenericGetAttr,		/* tp_getattro */

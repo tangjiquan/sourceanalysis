@@ -529,7 +529,7 @@ PyEval_EvalFrameEx(PyFrameObject *f, int throwflag)
 	register PyObject *stream = NULL;    /* for PRINT opcodes */
 	register PyObject **fastlocals, **freevars;
 	PyObject *retval = NULL;	/* Return value */
-	PyThreadState *tstate = PyThreadState_GET();
+	PyThreadState *tstate = PyThreadState_GET();//通过PyThreadState_GET获得当前活动线程对应的线程状态对象
 	PyCodeObject *co;
 
 	/* when tracing we set things up so that
@@ -552,6 +552,7 @@ PyEval_EvalFrameEx(PyFrameObject *f, int throwflag)
 /* Tuple access macros */
 
 #ifndef Py_DEBUG
+//访问tuple中的元素
 #define GETITEM(v, i) PyTuple_GET_ITEM((PyTupleObject *)(v), (i))
 #else
 #define GETITEM(v, i) PyTuple_GetItem((v), (i))
@@ -650,9 +651,9 @@ PyEval_EvalFrameEx(PyFrameObject *f, int throwflag)
 #define SET_SECOND(v)	(stack_pointer[-2] = (v))
 #define SET_THIRD(v)	(stack_pointer[-3] = (v))
 #define SET_FOURTH(v)	(stack_pointer[-4] = (v))
-#define BASIC_STACKADJ(n)	(stack_pointer += n)
-#define BASIC_PUSH(v)	(*stack_pointer++ = (v))
-#define BASIC_POP()	(*--stack_pointer)
+#define BASIC_STACKADJ(n)	(stack_pointer += n) //调整栈顶指针
+#define BASIC_PUSH(v)	(*stack_pointer++ = (v))//入栈操作
+#define BASIC_POP()	(*--stack_pointer)//出栈操作
 
 #ifdef LLTRACE
 #define PUSH(v)		{ (void)(BASIC_PUSH(v), \
@@ -693,7 +694,7 @@ PyEval_EvalFrameEx(PyFrameObject *f, int throwflag)
 	if (Py_EnterRecursiveCall(""))
 		return NULL;
 
-	tstate->frame = f;
+	tstate->frame = f;//设置线程状态对象中的frame
 
 	if (tstate->use_tracing) {
 		if (tstate->c_tracefunc != NULL) {
@@ -764,7 +765,7 @@ PyEval_EvalFrameEx(PyFrameObject *f, int throwflag)
 		goto on_error;
 	}
 
-	for (;;) {
+	for (;;) {//虚拟机主循环
 #ifdef WITH_TSC
 		if (inst1 == 0) {
 			/* Almost surely, the opcode executed a break
@@ -872,10 +873,11 @@ PyEval_EvalFrameEx(PyFrameObject *f, int throwflag)
 
 		/* Extract opcode and argument */
 
+		//获取字节码指令
 		opcode = NEXTOP();
 		oparg = 0;   /* allows oparg to be stored in a register because
 			it doesn't have to be remembered across a full loop */
-		if (HAS_ARG(opcode))
+		if (HAS_ARG(opcode))//如果指令需要参数，获取指令参数
 			oparg = NEXTARG();
 	  dispatch_opcode:
 #ifdef DYNAMIC_EXECUTION_PROFILE
@@ -904,7 +906,7 @@ PyEval_EvalFrameEx(PyFrameObject *f, int throwflag)
 		/* Main switch on opcode */
 		READ_TIMESTAMP(inst0);
 
-		switch (opcode) {
+		switch (opcode) {//指令分派
 
 		/* BEWARE!
 		   It is essential that any operation that fails sets either

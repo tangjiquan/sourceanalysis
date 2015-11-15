@@ -963,7 +963,7 @@ public class Connector extends LifecycleMBeanBase  {
         super.initInternal();
 
         // Initialize adapter
-        adapter = new CoyoteAdapter(this);//adapter会完成�?�求的真正��理
+        adapter = new CoyoteAdapter(this);
         protocolHandler.setAdapter(adapter);
 
         // Make sure parseBodyMethodsSet has a default

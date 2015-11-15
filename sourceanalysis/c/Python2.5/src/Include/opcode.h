@@ -6,7 +6,7 @@ extern "C" {
 
 
 /* Instruction opcodes for compiled code */
-
+//在Python 2.5中，一共定义了104条字节码指令
 #define STOP_CODE	0
 #define POP_TOP		1
 #define ROT_TWO		2
@@ -82,6 +82,7 @@ extern "C" {
 #define END_FINALLY	88
 #define BUILD_CLASS	89
 
+//需要参数的字节码指令的编码都大于或者等于90
 #define HAVE_ARGUMENT	90	/* Opcodes from here have an argument: */
 
 #define STORE_NAME	90	/* Index in name list */
@@ -144,6 +145,7 @@ extern "C" {
 enum cmp_op {PyCmp_LT=Py_LT, PyCmp_LE=Py_LE, PyCmp_EQ=Py_EQ, PyCmp_NE=Py_NE, PyCmp_GT=Py_GT, PyCmp_GE=Py_GE,
 	     PyCmp_IN, PyCmp_NOT_IN, PyCmp_IS, PyCmp_IS_NOT, PyCmp_EXC_MATCH, PyCmp_BAD};
 
+//Python中提供了专门的宏来判断一条字节码指令是否需要参数
 #define HAS_ARG(op) ((op) >= HAVE_ARGUMENT)
 
 #ifdef __cplusplus

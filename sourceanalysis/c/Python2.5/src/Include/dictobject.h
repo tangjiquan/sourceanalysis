@@ -47,12 +47,16 @@ meaning otherwise.
  */
 #define PyDict_MINSIZE 8
 
+//当me_key和me_value值都是null时，entry处于Unused态，每一个entry在初始化的时候都会处于这种状态，只有在Unused态下，entry的me_key才会是null
+//当entry中存储了key,value，则entry转为了Active态，在Active态下面me_key,me_value都不能为null
+//当entry中存储的key,value被删除后，entry的状态不能直接从Active状态转为Unused态，否则冲突探测链会中断，entry中的me_key
+//将指向dummy对象，entry进入Dummy态，进入了"伪删除"，保证了冲突探测的链的连续性
 typedef struct {
 	/* Cached hash code of me_key.  Note that hash codes are C longs.
 	 * We have to use Py_ssize_t instead because dict_popitem() abuses
 	 * me_hash to hold a search finger.
 	 */
-	Py_ssize_t me_hash;
+	Py_ssize_t me_hash;//me_hash域存储了me_key的散列值，避免每次查询的时候都要重新计算一遍散列值
 	PyObject *me_key;
 	PyObject *me_value;
 } PyDictEntry;
@@ -76,16 +80,16 @@ struct _dictobject {
 	 * We store the mask instead of the size because the mask is more
 	 * frequently needed.
 	 */
-	Py_ssize_t ma_mask;
+	Py_ssize_t ma_mask;//ma_mask记录了一个PyDictObject对象中所拥有的entry的数量
 
 	/* ma_table points to ma_smalltable for small tables, else to
 	 * additional malloc'ed memory.  ma_table is never NULL!  This rule
 	 * saves repeated runtime null-tests in the workhorse getitem and
 	 * setitem calls.
 	 */
-	PyDictEntry *ma_table;
+	PyDictEntry *ma_table;//当entry数量少于8个，ma_table指向ma_malltable这与生俱来的8个entry的起始地址，当大于8个，将指向额外的申请的内存空间
 	PyDictEntry *(*ma_lookup)(PyDictObject *mp, PyObject *key, long hash);
-	PyDictEntry ma_smalltable[PyDict_MINSIZE];
+	PyDictEntry ma_smalltable[PyDict_MINSIZE];//当创建一个PyDictObject对象时，至少有PyDict_MINSIZE个entry被同时创建
 };
 
 PyAPI_DATA(PyTypeObject) PyDict_Type;

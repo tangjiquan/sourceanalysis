@@ -9,21 +9,21 @@ extern "C" {
 /* Bytecode object */
 typedef struct {
     PyObject_HEAD
-    int co_argcount;		/* #arguments, except *args */
-    int co_nlocals;		/* #local variables */
-    int co_stacksize;		/* #entries needed for evaluation stack */
-    int co_flags;		/* CO_..., see below */
-    PyObject *co_code;		/* instruction opcodes */
-    PyObject *co_consts;	/* list (constants used) */
-    PyObject *co_names;		/* list of strings (names used) */
-    PyObject *co_varnames;	/* tuple of strings (local variable names) */
-    PyObject *co_freevars;	/* tuple of strings (free variable names) */
-    PyObject *co_cellvars;      /* tuple of strings (cell variable names) */
-    /* The rest doesn't count for hash/cmp */
-    PyObject *co_filename;	/* string (where it was loaded from) */
-    PyObject *co_name;		/* string (name, for reference) */
-    int co_firstlineno;		/* first source line number */
-    PyObject *co_lnotab;	/* string (encoding addr<->lineno mapping) */
+    int co_argcount;		/* #arguments, except *args *///Code Block的位置参数的个数，比如说一个函数的位置参数个数
+    int co_nlocals;		/* #local variables *///Code Block中局部变量的个数，包括其位置参数的个数
+    int co_stacksize;		/* #entries needed for evaluation stack *///执行该段Code Block需要的栈空间
+    int co_flags;		/* CO_..., see below *///N/A
+    PyObject *co_code;		/* instruction opcodes *///存放编译所生成的字节码指令序列，以PyStringObject的形式存在
+    PyObject *co_consts;	/* list (constants used) *///PyTupleObject对象，保存Code Block中的所有常量
+    PyObject *co_names;		/* list of strings (names used) *///PyTupleObject对象，保存Code Block中的所有符号
+    PyObject *co_varnames;	/* tuple of strings (local variable names) *///Code Block中局部变量名集合
+    PyObject *co_freevars;	/* tuple of strings (free variable names) *///Python实现闭包需要用到的东西
+    PyObject *co_cellvars;      /* tuple of strings (cell variable names) *///Code Block中内部嵌套函数所引用的局部变量名集合
+    /* The rest doesn't count for hash/cmp *///
+    PyObject *co_filename;	/* string (where it was loaded from) *///Code Block的名字，通常是.py文件的完整路径
+    PyObject *co_name;		/* string (name, for reference) *///Code Block的名字，通常是函数名或者类名
+    int co_firstlineno;		/* first source line number *///Code Block在对应的.py文件中的起始行
+    PyObject *co_lnotab;	/* string (encoding addr<->lineno mapping) *///字节码指令与.py文件中source code行号的对应关系，以PyStringObject的形式存在
     void *co_zombieframe;     /* for optimization only (see frameobject.c) */
 } PyCodeObject;
 

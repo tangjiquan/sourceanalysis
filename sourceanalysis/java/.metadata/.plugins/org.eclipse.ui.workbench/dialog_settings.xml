@@ -28,15 +28,18 @@
 	<section name="ShowViewDialog">
 		<item value="345" key="DIALOG_WIDTH"/>
 		<item value="1|微软雅黑|9.0|0|WINDOWS|1|-12|0|0|0|400|0|0|0|1|0|0|0|0|微软雅黑" key="DIALOG_FONT_NAME"/>
-		<item value="org.eclipse.jdt.ui.PackageExplorer" key="ShowViewDialog.STORE_SELECTED_VIEW_ID"/>
+		<item value="org.eclipse.ui.views.ProblemView" key="ShowViewDialog.STORE_SELECTED_VIEW_ID"/>
 		<item value="451" key="DIALOG_HEIGHT"/>
 		<item value="72" key="DIALOG_Y_ORIGIN"/>
 		<item value="519" key="DIALOG_X_ORIGIN"/>
 		<list key="ShowViewDialog.STORE_EXPANDED_CATEGORIES_ID">
-			<item value="org.eclipse.jdt.ui.java"/>
+			<item value="org.eclipse.ui"/>
 			<item value="org.eclipse.jdt.ui.java.browsing"/>
+			<item value="org.eclipse.jst.ws.jwst.ui"/>
 		</list>
 	</section>
 	<section name="ImportExportAction">
+	</section>
+	<section name="ZipFileExportWizard">
 	</section>
 </section>

@@ -5,7 +5,8 @@
 <Workspace>
 	<Local Expanded="Yes">
 		<Model Expanded="Yes" ID="{DD44959E-775F-4791-A574-86FABF5C1EB0}" Name="zookeeper" Type="{18112060-1A4B-11D1-83D9-444553540000}" URL="zookeeper/zookeeper.oom"/>
-		<Model Expanded="Yes" ID="{19E21A94-EC81-4FDD-A6F2-E6FFD4429B94}" Name="Class Diagram_1" Selected="Yes" Type="{18112060-1A4B-11D1-83D9-444553540000}" URL="zookeeper/zookeeper_client.oom"/>
+		<Model ID="{19E21A94-EC81-4FDD-A6F2-E6FFD4429B94}" Name="Class Diagram_1" Type="{18112060-1A4B-11D1-83D9-444553540000}" URL="zookeeper/zookeeper_client.oom"/>
+		<Model Expanded="Yes" ID="{FC820451-D346-4317-BFD9-00DC0600A93A}" Name="hessian-4.0.37" Selected="Yes" Type="{18112060-1A4B-11D1-83D9-444553540000}" URL="hessian-4.0.37/hessian-4.0.37.oom"/>
 	</Local>
 	<BrowserModule Name="Repository"/>
 </Workspace>
